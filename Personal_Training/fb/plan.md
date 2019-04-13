@@ -82,6 +82,72 @@
 
 - [ ] 概率dp 2.00
 
+  O 1.http://acm.hdu.edu.cn/showproblem.php?pid=4809
+
+  ​	偏树形dp，和概率关系比较小，树上每个点可分给三个人，每个人消耗他有的奇数联通块数减偶数联通块数的代价，记录i的联通块奇偶性和已有的差值，与儿子转移一下
+
+  O 2.http://codeforces.com/gym/101655  (C题)
+
+  ​	暴力记忆化转移 
+
+  O 3.https://www.lydsy.com/JudgeOnline/problem.php?id=5340
+
+  ​	概率的形式可以用多项式表示，以及多项式除两项多项式可以O(n)做到
+
+  O 4.https://www.lydsy.com/JudgeOnline/problem.php?id=2688
+
+  ​	树上删边的sg函数结论，然后以sg值为状态转移概率，用到二叉树计数
+
+  5.https://www.lydsy.com/JudgeOnline/problem.php?id=3450
+
+  6.https://www.lydsy.com/JudgeOnline/problem.php?id=4844
+
+  7.https://www.lydsy.com/JudgeOnline/problem.php?id=4318
+
+  8.https://www.lydsy.com/JudgeOnline/problem.php?id=1246
+
+  9.https://www.lydsy.com/JudgeOnline/problem.php?id=4820
+
+  10.https://www.lydsy.com/JudgeOnline/problem.php?id=5004
+
+  11.https://www.lydsy.com/JudgeOnline/problem.php?id=3029
+
+  12.https://www.lydsy.com/JudgeOnline/problem.php?id=2554
+
+  13.https://www.lydsy.com/JudgeOnline/problem.php?id=3270
+
+  14.https://www.lydsy.com/JudgeOnline/problem.php?id=2201
+
+  15.https://www.lydsy.com/JudgeOnline/problem.php?id=4008
+
+  16.https://www.lydsy.com/JudgeOnline/problem.php?id=3566
+
+  17.https://www.lydsy.com/JudgeOnline/problem.php?id=2337
+
+  18.https://www.lydsy.com/JudgeOnline/problem.php?id=3143
+
+  19.https://www.lydsy.com/JudgeOnline/problem.php?id=3191
+
+  20.https://www.lydsy.com/JudgeOnline/problem.php?id=5292
+
+  21.https://www.lydsy.com/JudgeOnline/problem.php?id=5461
+
+  22.https://www.lydsy.com/JudgeOnline/problem.php?id=4720
+
+  23.https://www.lydsy.com/JudgeOnline/problem.php?id=4944
+
+  24.https://www.lydsy.com/JudgeOnline/problem.php?id=1415
+
+  25.https://www.lydsy.com/JudgeOnline/problem.php?id=2676
+
+  26.https://www.lydsy.com/JudgeOnline/problem.php?id=3811
+
+  27.https://www.lydsy.com/JudgeOnline/problem.php?id=2707
+
+  28.https://www.lydsy.com/JudgeOnline/problem.php?id=1076
+
+  29.http://codeforces.com/problemset/problem/696/B
+
 - [ ] (min,+)卷积/最值反演/min-max容斥 1.00
 
 - [ ] 高维前缀和 0.50
