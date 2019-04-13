@@ -1,3 +1,3 @@
 # [FZU-GummyBear](https://github.com/FZU-GummyBear)
 
-![6a974386e0cf634eb8453f4](C:\Users\Administrator\Desktop\6a974386e0cf634eb8453f4.gif)
+![](https://github.com/FZU-GummyBear/Dream/tree/master/%E8%8D%89%E7%A8%BF/pic/1.gif)
