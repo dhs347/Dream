@@ -34,9 +34,51 @@
 
   O 10.http://acm.hdu.edu.cn/showproblem.php?pid=4085
 
-  O 11.http://acm.hdu.edu.cn/showproblem.php?pid=6060 非斯坦树题
+  O http://acm.hdu.edu.cn/showproblem.php?pid=6060 非斯坦树题
 
-- [ ] 基环树 1.00
+- [x] 基环树 1.00
+
+  O 1.http://codeforces.com/problemset/problem/875/F
+
+  ​	求最大生成基环树，把二分图一边度都为2的点当成边是个套路 
+
+  O 2.https://www.lydsy.com/JudgeOnline/problem.php?id=1040
+
+  ​	求基环树带权最大点独立集，注意自环和二元环时的重边 
+
+  O 3.https://www.lydsy.com/JudgeOnline/problem.php?id=3242
+
+  ​	求边上一点到基环树最远点距离最小，可以转化成基环树断一条环边使直径最小
+
+  ​	分类讨论，处理选的两点在断掉一边和分在两边的情况 
+
+  O 4.https://www.lydsy.com/JudgeOnline/problem.php?id=1791
+
+  ​	求基环树的直径
+
+  O 5.https://www.lydsy.com/JudgeOnline/problem.php?id=2791
+
+  ​	类似于基环树上求lca，分类讨论，注意自环 
+
+  O 6.https://www.lydsy.com/JudgeOnline/problem.php?id=2878
+
+  ​	求基环树上任意起点走的路径长度期望，比较复杂的dp，以及常见的树上换根套路，环比较小，环上可以暴力做
+
+  O 7.https://www.lydsy.com/JudgeOnline/problem.php?id=1116
+
+  ​	判断图是否有子图是基环树，水题，可以认为边权为1求最大生成基环树
+
+  8.http://acm.hdu.edu.cn/showproblem.php?pid=6370
+
+  9.http://acm.hdu.edu.cn/showproblem.php?pid=6403
+
+  10.http://acm.hdu.edu.cn/showproblem.php?pid=5304
+
+  11.http://acm.hdu.edu.cn/showproblem.php?pid=6393
+
+  12.http://acm.hdu.edu.cn/showproblem.php?pid=5967
+
+  13.https://agc008.contest.atcoder.jp/tasks/agc008_e
 
 - [ ] 概率dp 2.00
 
