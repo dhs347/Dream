@@ -29,14 +29,9 @@ struct Splay {
 	int id(int u) { return nd[nd[u].fa].son[1] == u; }
 	void rot(int x) {
 		int y = nd[x].fa, z = nd[y].fa;
-		down(z), down(y), down(x);
-		int l = id(x), r = (l ^ 1);
-		nd[x].fa = z;
-		if(z) nd[z].son[id(y)] = x;
-		int &s = nd[y].son[l]; s = nd[x].son[r];
-		if(s) nd[s].fa = y;
-		nd[x].son[r] = y;
-		nd[y].fa = x;
+		int l = id(x), r = (l ^ 1), s = nd[x].son[r];
+		if(z) nd[z].son[id(y)] = x; nd[x].son[r] = y; nd[y].son[l] = s;
+		if(s) nd[s].fa = y; nd[y].fa = x; nd[x].fa = z;
 		up(y), up(x);
 	}
 	void splay(int x, int g = 0) {
