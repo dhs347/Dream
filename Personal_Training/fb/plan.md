@@ -34,7 +34,7 @@
 
   O 10.http://acm.hdu.edu.cn/showproblem.php?pid=4085
 
-  O 11.http://acm.hdu.edu.cn/showproblem.php?pid=6060 非斯坦树题
+  O http://acm.hdu.edu.cn/showproblem.php?pid=6060 非斯坦树题
 
 - [x] 基环树 1.00
 
@@ -45,6 +45,12 @@
   O 2.https://www.lydsy.com/JudgeOnline/problem.php?id=1040
 
   ​	求基环树带权最大点独立集，注意自环和二元环时的重边 
+
+  O 3.https://www.lydsy.com/JudgeOnline/problem.php?id=3242
+
+  ​	求边上一点到基环树最远点距离最小，可以转化成基环树断一条环边使直径最小
+
+  ​	分类讨论，处理选的两点在断掉一边和分在两边的情况 
 
   O 4.https://www.lydsy.com/JudgeOnline/problem.php?id=1791
 
@@ -72,13 +78,7 @@
 
   12.http://acm.hdu.edu.cn/showproblem.php?pid=5967
 
-  O 13.https://www.lydsy.com/JudgeOnline/problem.php?id=3242
-
-  ​	求边上一点到基环树最远点距离最小，可以转化成基环树断一条环边使直径最小
-
-  ​	分类讨论，处理选的两点在断掉一边和分在两边的情况 
-
-  14.https://agc008.contest.atcoder.jp/tasks/agc008_e
+  13.https://agc008.contest.atcoder.jp/tasks/agc008_e
 
 - [ ] 概率dp 2.00
 
