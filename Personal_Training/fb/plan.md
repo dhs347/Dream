@@ -98,11 +98,15 @@
 
   ​	树上删边的sg函数结论，然后以sg值为状态转移概率，用到二叉树计数
 
-  5.https://www.lydsy.com/JudgeOnline/problem.php?id=3450
+  O 5.https://www.lydsy.com/JudgeOnline/problem.php?id=3450
+
+  ​	维护连续1平方的期望，知道了期望可以通过维护差值来转移
 
   6.https://www.lydsy.com/JudgeOnline/problem.php?id=4844
 
-  7.https://www.lydsy.com/JudgeOnline/problem.php?id=4318
+  O 7.https://www.lydsy.com/JudgeOnline/problem.php?id=4318
+
+  ​	维护连续1立方的期望，和之前差不多，多维护一项平方的期望
 
   8.https://www.lydsy.com/JudgeOnline/problem.php?id=1246
 
