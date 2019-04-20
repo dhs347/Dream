@@ -1,7 +1,8 @@
-namespace Vtree{// some nodes remain
+// nodes should sorted in dfs order
+namespace Vtree{
     const int N = 101010;
     int tp[N] , _;
-    vi g[N];// nodes sorted in dfs order
+    vi g[N];
     void solve(vi&v,LCARMQ&R){
         _ = 0;
         vi del;del.pb(tp[_++] = v[0]);

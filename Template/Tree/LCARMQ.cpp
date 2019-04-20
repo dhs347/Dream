@@ -9,7 +9,7 @@ struct LCARMQ{
         for(auto t : g[c]) if(t!=fa) dep[t]=dep[c]+1,dfs(t,c,g),add(c);
     }
     void Build(const vi g[]){
-        L = 0;dfs(1,0,g);
+        L = 0;dfs(1,0,g);dep[0] = -1;
         rep(i,2,L) lg[i]=lg[i>>1]+1;
         rep(i,1,20){
             int lim = L+1-(1<<i);
