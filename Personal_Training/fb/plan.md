@@ -102,23 +102,37 @@
 
   ​	维护连续1平方的期望，知道了期望可以通过维护差值来转移
 
-  6.https://www.lydsy.com/JudgeOnline/problem.php?id=4844
+  O 6.https://www.lydsy.com/JudgeOnline/problem.php?id=4844
+
+  ​	列出dp方程，优化一下计数方式即可
 
   O 7.https://www.lydsy.com/JudgeOnline/problem.php?id=4318
 
   ​	维护连续1立方的期望，和之前差不多，多维护一项平方的期望
 
-  8.https://www.lydsy.com/JudgeOnline/problem.php?id=1246
+  O 8.https://www.lydsy.com/JudgeOnline/problem.php?id=1426
 
-  9.https://www.lydsy.com/JudgeOnline/problem.php?id=4820
+  ​	收集n个物品，每次随机买，每买一次价格贵1，问期望多少钱买齐
 
-  10.https://www.lydsy.com/JudgeOnline/problem.php?id=5004
+  ​	状态要建立成有i个物品且还没买过东西，这样可以和前面无关，然后化简转移方程
 
-  11.https://www.lydsy.com/JudgeOnline/problem.php?id=3029
+  ？9.https://www.lydsy.com/JudgeOnline/problem.php?id=4820
 
-  12.https://www.lydsy.com/JudgeOnline/problem.php?id=2554
+  O 10.https://www.lydsy.com/JudgeOnline/problem.php?id=5004
 
-  13.https://www.lydsy.com/JudgeOnline/problem.php?id=3270
+  ​	概率空间有限，其实就是组合计数，dp转移一下，但是题面写有精度判断，但bzoj是直接比较，被坑了不少时间
+
+  O 11.https://www.lydsy.com/JudgeOnline/problem.php?id=3029
+
+  ​	简单的概率dp，设计dp状态转移一下，一些小技巧，增加偏移量和滚动数组
+
+  O 12.https://www.lydsy.com/JudgeOnline/problem.php?id=2554
+
+  ​	有一堆有颜色的小球，每次选两个出来，把后面变前面颜色，问期望多少次变一样，先转化成只考虑两种颜色，然后要求条件概率下的期望，其相邻两项转移系数是不同的，以及一个套路，求与左右相邻两项有关的递推式的方法
+
+  O 13.https://www.lydsy.com/JudgeOnline/problem.php?id=3270
+
+  ​	状态图上随机游走，有一些终结态，求停在每个状态的概率，算是通用套路，设经过期望次数，去建立方程，高斯消元
 
   14.https://www.lydsy.com/JudgeOnline/problem.php?id=2201
 
@@ -151,6 +165,10 @@
   28.https://www.lydsy.com/JudgeOnline/problem.php?id=1076
 
   29.http://codeforces.com/problemset/problem/696/B
+
+  O 30.https://www.lydsy.com/JudgeOnline/problem.php?id=1444
+
+  ​	建AC自动机，变量定义为经过每个状态的期望次数，建立方程组高斯消元。
 
 - [ ] (min,+)卷积/最值反演/min-max容斥 1.00
 
