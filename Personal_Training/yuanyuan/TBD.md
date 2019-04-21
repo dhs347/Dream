@@ -6,6 +6,8 @@
 
 https://www.luogu.org/problemnew/show/P2147
 
+https://codeforces.com/gym/102012/problem/E
+
 ## 并查集
 
 https://www.lydsy.com/JudgeOnline/problem.php?id=4998
