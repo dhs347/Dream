@@ -21,9 +21,9 @@ const int N = 1e7 + 7;
 const int P1 = 1e9 + 7, P2 = 1e9 + 9;
 map<pii, vi> M;
 vi ans;
-int f[N], g[N], num1, num2, ok, sum1, sum2, S, m, n, T;
+int f[N], g[N], ok, sum1, sum2, S, m, n, T;
 string s;
-
+ll num1, num2;
 vi min(vi a, vi b) {
   rep(i, 0, min(sz(a), sz(b))) 
     if (a[i] < b[i]) return a;
@@ -32,6 +32,7 @@ vi min(vi a, vi b) {
 }
 
 int main() {
+freopen("a.in","r",stdin);
   std::ios::sync_with_stdio(0);
   std::cin.tie(0);
   cin >> T;
@@ -48,7 +49,7 @@ int main() {
       num1 %= P1;
       num2 %= P2;
     }
-    m = 14;
+    m = 15;
     S = pw(m);
     M.clear();ok = 0;
     rep(i, 0, S) {
@@ -59,24 +60,24 @@ int main() {
       if (M.count(t)) M[t] = min(M[t], tmp);
       else M[t] = tmp;
     }
-    S = pw(15);
+    S = pw(m);
     rep(i, 0, S) {
       sum1 = sum2 = 0;
       vi tmp;
       rep(j, 0, m) if (pw(j) & i) tmp.pb(j + 1), sum1 += f[f[j+1]], sum2 += g[g[j+1]], sum1 %= P1, sum2 %= P2;
       pii t = mp((num1 - sum1 + P1) % P1, (num2 - sum2 + P2) % P2);
       if (M.count(t)) {
-	for (auto v : M[t]) tmp.pb(v);
-	if (ok) ans = min(ans, tmp);
-	else ans = tmp;
-	ok = 1;
+			for (auto v : M[t]) tmp.pb(v);
+			if (ok) ans = min(ans, tmp);
+			else ans = tmp;
+			ok = 1;
       }
     }
     if (ok) {
       rep(i, 0, sz(ans)) {
-	cout << ans[i] << (i == sz(ans)-1 ? "\n" : " ");
+		cout << ans[i] << (i == sz(ans)-1 ? "\n" : " ");
       }
-    }else cout << "−1" << endl;
+    }else cout << -1 << endl;
   }
   return 0;
 }
