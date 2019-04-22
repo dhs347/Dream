@@ -134,15 +134,25 @@
 
   ​	状态图上随机游走，有一些终结态，求停在每个状态的概率，算是通用套路，设经过期望次数，去建立方程，高斯消元
 
-  14.https://www.lydsy.com/JudgeOnline/problem.php?id=2201
+  O 14.https://www.lydsy.com/JudgeOnline/problem.php?id=2201
 
-  15.https://www.lydsy.com/JudgeOnline/problem.php?id=4008
+  ​	一个环上每个点随机颜色，问连续颜色长度乘积的期望，枚举第一个长度断环，dp求一下第二个和最后一个颜色和第一个不同的期望
 
-  16.https://www.lydsy.com/JudgeOnline/problem.php?id=3566
+  O 15.https://www.lydsy.com/JudgeOnline/problem.php?id=4008
 
-  17.https://www.lydsy.com/JudgeOnline/problem.php?id=2337
+  ​	只考虑第一张卡牌，发现期望只和它发布发动有关，和在哪一轮发动无关，所以以此建立状态记忆化转移
 
-  18.https://www.lydsy.com/JudgeOnline/problem.php?id=3143
+  O 16.https://www.lydsy.com/JudgeOnline/problem.php?id=3566
+
+  ​	树上概率dp加上换根技巧，以及换根的时候要注意运算是否可逆
+
+  O 17.https://www.lydsy.com/JudgeOnline/problem.php?id=2337
+
+  ​	异或拆位后建图建立方程组高斯消元
+
+  O 18.https://www.lydsy.com/JudgeOnline/problem.php?id=3143
+
+  ​	计算随机游走的过程中每条边经过的期望次数
 
   19.https://www.lydsy.com/JudgeOnline/problem.php?id=3191
 
