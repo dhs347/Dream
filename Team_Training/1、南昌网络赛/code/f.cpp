@@ -94,30 +94,23 @@ namespace VTree {
     for(auto v : g[u]) {
       dfs(v);
       f[u] *= f[v] + (1 - f[v]) * CG::qry(u, v);
-  //    db t = f[v] + (1 - f[v]) * CG::qry(u, v);
-  // dd("-=--------------------");   dd(u), dd(v), de(t);
       pre[u].pb(f[u]);
     }
     db t = 1;
     per(i, 0, sz(g[u])) {
       int v = g[u][i];
       t *= f[v] + (1 - f[v]) * CG::qry(u, v);
-//dd("-----");      dd(u), dd(v), de(t);
       suf[u].pb(t);
     }
     if(vis[u][0] == tim) f[u] = 0;
     reverse(all(suf[u]));
-  //  dd(u), de(f[u]);
   }
   void dfs2(int u) {
-    //dd(u), de(f2[u]);
     rep(i, 0, sz(g[u])) {
       int v = g[u][i];
-//dd("----------------------------------------");      dd(u), dd(v), de(suf[u][i]);
       db F = f2[u];
       if(i) F *= pre[u][i - 1];
       if(i < sz(g[u]) - 1) F *= suf[u][i + 1];
-  //    dd(v), de(F);
       if(vis[u][0] == tim) F = 0;
       f2[v] = F + (1 - F) * CG::qry(v, u);
       ans[v] = 1 - f2[v] * f[v];
