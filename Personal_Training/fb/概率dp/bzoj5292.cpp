@@ -27,46 +27,50 @@ int kpow(int a, int b) {int r=1;for(;b;b>>=1,a=mul(a,a)) {if(b&1)r=mul(r,a);}ret
 const int N = 1510;
 int a[N][N], T, p, m, k, n, inv[N], len, p1, p2, t[N];
 
-namespace Gauss{
-	static const int N = :: N;
-	int X[N];
-	int solve(int n, int m){//n=equ, m=var 同 Gaussxor
-		int i = 0, x = 0;
-		for(; i < n && x < m; i++, x++){
-			int r = i;
-			while(r < n && !a[r][x]) r++;
-			if(r >= n){
-				return -1;
-				i--;
-				continue;
+namespace GaussInt{
+	static const int N = ::N, P = 1e9 + 7;
+	int x[N]; //增广矩阵和解集
+	bool free_x[N]; //标记是否是不确定的变元
+	int add(int a, int b) {if ((a += b) >= P) a -= P; return a < 0 ? a + P : a;}
+	int mul(int a, int b) {return 1ll * a * b % P;}
+	int kpow(int a, int b) {int r=1;for(;b;b>>=1,a=mul(a,a)) {if(b&1)r=mul(r,a);}return r;}
+	int Gauss(int equ, int var){
+		int k, col, p;
+		fill_n(free_x, var, 1);
+		fill_n(x, var, 0);
+		for(k = col = 0; k < equ && col < var; ++k, ++col){
+			p = k; rep(i, k+1, equ) if (a[i][col]) {p = i; break;}
+			if (p != k) rep(j, k, var+1) swap(a[p][j], a[k][j]);
+			if(!a[k][col]) {k--; continue;}
+			int inv = kpow(a[k][col], P - 2);
+			rep(i, col, var+1) a[k][i] = mul(a[k][i], inv);
+			rep(i, k+1, equ){
+				if(!a[i][col]) continue;
+				int t = a[i][col];
+				rep(j, col, var+1) a[i][j] = add(a[i][j], -mul(a[k][j], t));
 			}
-			if (r != i) return -1;
-			//if(r != i) rep(j, 0, m+1) swap(a[r][j], a[i][j]);
-			int inv = kpow(a[i][x], P-2);
-			for(int k = m; k >= x; k--) a[i][k] = mul(a[i][k], inv); //a[i][k] * inv % P;
-			rep(j, i+1, n)
-				if(a[j][x]) {
-					for(int k = m; k >= x; k--)
-						a[j][k] = add(a[j][k], -mul(a[i][k], a[j][x]));
-					break;
-				}else break;
 		}
-		rep(k, i, n) if (a[k][m]) return -1;
-		rep(k, i, m+1) X[k] = 0;
-		per(k, 0, i) {
-			X[k] = a[k][m];
-			rep(l, k+1, m) X[k] = add(X[k], -mul(X[l], a[k][l]));
+		rep(i, k, equ) if (a[i][var]) return -1;//无解
+		if(k < var){
+			per(i, 0, k-1) {
+				int num = 0;
+				rep(j, 0, var) if (a[i][j] && free_x[j]) num++, p = j;
+				if(num > 1) continue;
+				int t = a[i][var];
+				rep(j, 0, var) if (j != p && a[i][j]) t = add(t, -mul(a[i][j], x[j]));
+				free_x[p] = 0;
+				x[p] = t;
+			}
+			return var - k;//自由变元个数
 		}
-		return m - i;
+		per(i, 0, var) {
+			int t = a[i][var];
+			rep(j, i+1, var) if (a[i][j]) t = add(t, -mul(a[i][j], x[j]));
+			x[i] = t;
+		}
+		return 0;
 	}
-	void out(int n, int m){
-		rep(i, 0, n){
-			rep(j, 0, m+1)cout<<a[i][j]<<' ';
-			cout<<endl;
-		}
-		rep(i, 0, m) de(X[i]);
-	}
-};
+}
 
 
 
@@ -103,9 +107,9 @@ int main() {
 				}
 			}
 		}
-		int t = Gauss :: solve(n+1, n+1);
+		int t = GaussInt :: Gauss(n+1, n+1);
 		if (t == -1) cout << t << endl;
-		else cout << Gauss :: X[n - p] << endl;
+		else cout << GaussInt :: x[n - p] << endl;
 	} 
 	return 0;
 }

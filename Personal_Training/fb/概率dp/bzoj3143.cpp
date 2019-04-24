@@ -30,63 +30,44 @@ vector<pii> g[N];
 db ans, w[N * N];
 
 namespace GaussDB{
-	static const int N = ::N;
-	double mat[N][N];//增广矩阵
-	double x[N];//解集
-	bool free_x[N];//标记是否是不确定的变元
-	const double eps = 1e-7;
+	static const int N = 505;
+	db mat[N][N], x[N]; //增广矩阵和解集
+	bool free_x[N]; //标记是否是不确定的变元
+	const db eps = 1e-14;
 	int Gauss(int equ, int var){
-		int k;
-		int max_r, col;
-		int free_index, free_num;
-		memset(free_x, 1, sizeof(free_x));
-		memset(x, 0, sizeof(x));
-		for(k=col=0; k<equ&&col<var; ++k, ++col){
-			max_r=k;
-			rep(i, k+1, equ)
-				if(fabs(mat[i][col])-mat[max_r][col]>eps) max_r=i;
-			if(max_r!=k)
-				rep(j, k, var+1)swap(mat[max_r][j], mat[k][j]);
-			if(fabs(mat[k][col]<eps)){--k;continue;}
+		int k, col, p;
+		fill_n(free_x, var, 1);
+		fill_n(x, var, 0);
+		for(k = col = 0; k < equ && col < var; ++k, ++col){
+			p = k;
+			rep(i, k+1, equ) if(fabs(mat[i][col]) > fabs(mat[p][col])) p = i;
+			if (p != k) rep(j, k, var+1) swap(mat[p][j], mat[k][j]);
+			if(fabs(mat[k][col]) < eps) {k--; continue;}
 			rep(i, k+1, equ){
-				if(fabs(mat[i][col])<=eps) continue;
-				double tmp=mat[i][col]/mat[k][col];
-				rep(j, col, var+1)
-					mat[i][j]-=mat[k][j]*tmp;
+				if(fabs(mat[i][col]) < eps) continue;
+				db t = mat[i][col] / mat[k][col];
+				rep(j, col, var+1) mat[i][j] -= mat[k][j] * t;
 			}
-
 		}
-		rep(i, k, equ)
-			if(fabs(mat[i][var]>eps)) return 0;//无解
-		if(k<var){
-			for(int i=k-1; i>=0; --i){
-				free_num=0;
-				rep(j, 0, var){
-					if(fabs(mat[i][j])>eps&&free_x[j]){
-						free_num+=1;
-						free_index=j;
-					}
-				}
-				if(free_num>1) continue;
-				double tmp=mat[i][var];
-				rep(j, 0, var){
-					if(j!=free_index&&fabs(mat[i][j])>eps)
-						tmp-=mat[i][j]*x[j];
-				}
-				free_x[free_index]=0;
-				x[free_index]=tmp/mat[i][free_index];
+		rep(i, k, equ) if (fabs(mat[i][var]) > eps) return -1;//无解
+		if(k < var){
+			per(i, 0, k-1) {
+				int num = 0;
+				rep(j, 0, var) if(fabs(mat[i][j]) > eps && free_x[j]) num++, p = j;
+				if(num > 1) continue;
+				db t = mat[i][var];
+				rep(j, 0, var) if(j != p && fabs(mat[i][j]) > eps) t -= mat[i][j] * x[j];
+				free_x[p] = 0;
+				x[p] = t / mat[i][p];
 			}
-			return var-k;//自由变元个数
+			return var - k;//自由变元个数
 		}
-		for(int i=var-1; i>=0; --i){
-			double tmp=mat[i][var];
-			rep(j, i+1, var){
-				if(fabs(mat[i][j])>eps)
-					tmp-=x[j]*mat[i][j];
-			}
-			x[i]=tmp/mat[i][i];
+		per(i, 0, var) {
+			db t = mat[i][var];
+			rep(j, i+1, var) if (fabs(mat[i][j]) > eps) t -= x[j] * mat[i][j];
+			x[i] = t / mat[i][i];
 		}
-		return 1;
+		return 0;
 	}
 	void solve(int n) {
 		mat[0][n] = 1;
