@@ -24,12 +24,33 @@ int mul(int a, int b) {return 1ll * a * b % P;}
 int kpow(int a, int b) {int r=1;for(;b;b>>=1,a=mul(a,a)) {if(b&1)r=mul(r,a);}return r;}
 //----
 
+const int N = 55;
+int n, m, a[N];
+db f[N][N];
+
 int main() {
-	//freopen("a.in","r",stdin);
+	freopen("a.in","r",stdin);
 	std::ios::sync_with_stdio(false);
 	std::cin.tie(0);
-	//cout << setiosflags(ios::fixed);
-	//cout << setprecision(2);
+	cout << setiosflags(ios::fixed);
+	cout << setprecision(2);
+	cin >> n >> m;
+	rep(i, 1, m+1) cin >> a[i];
+	f[1][0] = 1;
+	rep(i, 2, n+1) rep(j, 0, i) {
+		rep(k, 1, m+1) {
+			int t = (a[k] - 1)% i, p;
+			if (t != j) {
+				if (t < j) p = j - t - 1;
+				else {
+					p = i - t - 1;
+					p += j;
+				}
+				f[i][j] += f[i-1][p] / m;
+			}
+		}
+	} 
+	rep(i, 0, n) cout << f[n][i] * 100 << "% ";
 	return 0;
 }
 

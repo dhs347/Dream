@@ -80,7 +80,7 @@
 
   13.https://agc008.contest.atcoder.jp/tasks/agc008_e
 
-- [ ] 概率dp 2.00
+- [x] 概率dp 2.00
 
   O 1.http://acm.hdu.edu.cn/showproblem.php?pid=4809
 
@@ -154,9 +154,13 @@
 
   ​	计算随机游走的过程中每条边经过的期望次数
 
-  19.https://www.lydsy.com/JudgeOnline/problem.php?id=3191
+  O 19.https://www.lydsy.com/JudgeOnline/problem.php?id=3191
 
-  20.https://www.lydsy.com/JudgeOnline/problem.php?id=5292
+  ​	简单题，表示一下状态转移，就是环上的下标转移要计算清楚
+
+  O 20.https://www.lydsy.com/JudgeOnline/problem.php?id=5292
+
+  ​	求出转移方程，发现第i项之和i+1和与它小的项有关系，这样接近与上三角，可以用高斯消元在O(n^2)解决
 
   21.https://www.lydsy.com/JudgeOnline/problem.php?id=5461
 
