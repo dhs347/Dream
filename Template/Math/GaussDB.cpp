@@ -1,7 +1,7 @@
 namespace GaussDB{
 	static const int N = 505;
-	db a[N][N], x[N]; //å¢å¹¿çŸ©é˜µå’Œè§£é›†
-	bool free_x[N]; //æ ‡è®°æ˜¯å¦æ˜¯ä¸ç¡®å®šçš„å˜å…ƒ
+	db a[N][N], x[N]; //Ôö¹ã¾ØÕóºÍ½â¼¯
+	bool free_x[N]; //±ê¼ÇÊÇ·ñÊÇ²»È·¶¨µÄ±äÔª
 	const db eps = 1e-14;
 	int Gauss(int equ, int var){
 		int k, col, p;
@@ -18,18 +18,22 @@ namespace GaussDB{
 				rep(j, col, var+1) a[i][j] -= a[k][j] * t;
 			}
 		}
-		rep(i, k, equ) if (fabs(a[i][var]) > eps) return -1;//æ— è§£
+		rep(i, k, equ) if (fabs(a[i][var]) > eps) return -1;//ÎŞ½â
 		if(k < var){
-			per(i, 0, k-1) {
+			/*per(i, 0, k) {
 				int num = 0;
-				rep(j, 0, var) if(fabs(a[i][j]) > eps && free_x[j]) num++, p = j;
+				rep(j, 0, var) if(fabs(a[i][j]) > eps) {
+					if (!num) p = j; num++;
+				}
+				rep(j, 0, i) if (fabs(a[j][p]) > eps) {
+					db t = a[j][p] / a[i][p];
+					rep(l, p, var+1) a[j][l] -= a[i][l] * t;
+				}
 				if(num > 1) continue;
-				db t = a[i][var];
-				rep(j, 0, var) if(j != p && fabs(a[i][j]) > eps) t -= a[i][j] * x[j];
 				free_x[p] = 0;
-				x[p] = t / a[i][p];
-			}
-			return var - k;//è‡ªç”±å˜å…ƒä¸ªæ•°
+				x[p] = a[i][var] / a[i][p];
+			}*/
+			return var - k;//×ÔÓÉ±äÔª¸öÊı
 		}
 		per(i, 0, var) {
 			db t = a[i][var];
