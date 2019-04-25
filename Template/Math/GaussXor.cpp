@@ -9,7 +9,8 @@ namespace Gauss{
 	//返回值为 -1 表示无解，为 0 是唯一解，否则返回自由变元个数
 	int Gauss(int equ, int var){
 		int p, col, k; // k 为增广矩阵的秩
-		free_num = 0;
+		fill_n(ok, var, 0); free_num = 0;
+		fill_n(x, var, 0);
 		for(k = 0, col = 0; k < equ && col < var; k++, col++){
 			p = k; rep(i, k, equ) if (a[i][col]) {p = i; break;}
 			if (p != k) swap(a[k], a[p]);
