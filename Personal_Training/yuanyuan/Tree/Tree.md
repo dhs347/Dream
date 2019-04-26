@@ -4,11 +4,17 @@
 
 ## 记录
 
+|  专题  | LCA  |
+| :--: | :--: |
+|  题量  |  1   |
+
+`5` 20190426 bzoj1146 `树状数组套主席树` 
+
+将树上路径拆分成链的容斥之后，修改一个点的值会影响这个点的子树。
+
 ## 题目
 
-http://www.lydsy.com/JudgeOnline/problem.php?id=1095
 
-http://www.lydsy.com/JudgeOnline/problem.php?id=1146
 
 http://www.lydsy.com/JudgeOnline/problem.php?id=1316
 
@@ -175,3 +181,9 @@ https://www.luogu.org/problemnew/show/SP16580
 12.http://poj.org/problem?id=2201
 
 1.http://codeforces.com/gym/102012/problem/G
+
+## TBD
+
+### 动态点分治
+
+http://www.lydsy.com/JudgeOnline/problem.php?id=1095
