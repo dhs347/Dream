@@ -8,7 +8,11 @@ https://www.luogu.org/problemnew/show/P2147
 
 https://codeforces.com/gym/102012/problem/E
 
-bzoj2957
+二维线段树？
+
+https://www.lydsy.com/JudgeOnline/problem.php?id=4066
+
+https://www.lydsy.com/JudgeOnline/problem.php?id=3489
 
 ## 并查集
 
