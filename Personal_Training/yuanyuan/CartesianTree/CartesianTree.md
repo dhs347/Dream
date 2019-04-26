@@ -54,3 +54,16 @@ http://acm.hdu.edu.cn/showproblem.php?pid=6044
 
 https://www.lydsy.com/JudgeOnline/problem.php?id=2658
 
+## TBD
+
+2.http://acm.hdu.edu.cn/showproblem.php?pid=4095
+
+4.http://acm.hdu.edu.cn/showproblem.php?pid=5324
+
+7.http://acm.hdu.edu.cn/showproblem.php?pid=6406
+
+8.http://acm.hdu.edu.cn/showproblem.php?pid=5412
+
+11.http://poj.org/problem?id=1785
+
+12.http://poj.org/problem?id=2201
