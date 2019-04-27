@@ -196,6 +196,8 @@
 
   3.https://www.luogu.org/problemnew/show/P4707
 
+  ​	应用kthmax转换后发现就是对于容斥集合计数dp的套路，但是这样复杂度还是不够，因为k比较小，发现这个公式的系数其实是可以关于k递推的，于是就优化了复杂度，可以做了
+
   O 4.http://acm.hdu.edu.cn/showproblem.php?pid=4624
 
   ​	min-max容斥后转为dp求相同区间数的集合方案数，这题要高精度，比较坑
