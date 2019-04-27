@@ -4,35 +4,49 @@
 
 ## 记录
 
-|  专题  | LCA  |
-| :--: | :--: |
-|  题量  |  1   |
+|  专题  | LCA  | 点分治  | 树链剖分 |
+| :--: | :--: | :--: | :--: |
+|  题量  |  1   |  3   |  1   |
 
-`5` 20190426 bzoj1146 `树状数组套主席树` 
+### LCA
+
+`5` `20190426` `bzoj1146` `树状数组套主席树` 
 
 将树上路径拆分成链的容斥之后，修改一个点的值会影响这个点的子树。
+
+### 点分治
+
+`1` `20190427` `bzoj1316` `点分治`
+
+点分治裸题
+
+`1` `20190427` `bzoj2152` `点分治`
+
+点分治裸题
+
+`2` `20190427` `bzoj1468` `点分治`
+
+统计长度小等于 k 的路径数量。这题没给路径边权范围。
+
+如果给了路径边权范围可以统计的时候用线段树维护小等于 c 的链数量，这样复杂度是 $nlog^2n$
+
+如果容斥可以用双指针排序之后计数，复杂度一样，但是可以无视路径边权范围，比较好写。
+
+### 树链剖分
+
+`1` `20190427` `bzoj2243` `树链剖分`
+
+树链剖分裸题
 
 ## 题目
 
 
 
-http://www.lydsy.com/JudgeOnline/problem.php?id=1316
-
-http://www.lydsy.com/JudgeOnline/problem.php?id=1468
-
-http://www.lydsy.com/JudgeOnline/problem.php?id=1758
-
 http://www.lydsy.com/JudgeOnline/problem.php?id=1758
 
 http://www.lydsy.com/JudgeOnline/problem.php?id=2006
 
-http://www.lydsy.com/JudgeOnline/problem.php?id=2152
-
-http://www.lydsy.com/JudgeOnline/problem.php?id=2243
-
 http://www.lydsy.com/JudgeOnline/problem.php?id=2286
-
-http://www.lydsy.com/JudgeOnline/problem.php?id=2543
 
 http://www.lydsy.com/JudgeOnline/problem.php?id=2599
 
@@ -187,3 +201,7 @@ https://www.luogu.org/problemnew/show/SP16580
 ### 动态点分治
 
 http://www.lydsy.com/JudgeOnline/problem.php?id=1095
+
+### 过的人很少的题
+
+http://www.lydsy.com/JudgeOnline/problem.php?id=2543
