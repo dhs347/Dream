@@ -230,6 +230,68 @@
 
 - [ ] 树形dp 2.00
 
+  1.http://codeforces.com/contest/766/problem/E
+
+  2.http://codeforces.com/problemset/problem/868/E
+
+  3.http://codeforces.com/problemset/problem/935/E
+
+  4.http://codeforces.com/problemset/problem/960/E
+
+  5.http://codeforces.com/problemset/problem/963/B
+
+  6.http://codeforces.com/problemset/problem/1065/F
+
+  7.http://codeforces.com/problemset/problem/1092/F
+
+  注：树上换根，计算全局贡献
+
+  8.http://codeforces.com/problemset/problem/1097/G
+
+  注：经典且稍复杂的树上合并式背包，需容斥
+
+  9.http://acm.hdu.edu.cn/showproblem.php?pid=6060
+
+  O 10.http://codeforces.com/problemset/problem/1059/E
+
+  ​	这题用贪心比较容易做，每次从叶子把向上最长能覆盖的都盖了，并查集维护被覆盖的点就行了，看了一下题解dp的做法，主要是一个点向下的链可以用从它开始欧拉序的前缀表示，然后比较麻烦，还需要线段树维护限制和答案，每次暴力删除已经不符合的点，因为这次不符合之后也不会再符合
+
+  O 11.http://codeforces.com/problemset/problem/429/C
+
+  ​	给你树上每个点的size，问树是否存在，正解应该是把叶子和非叶子分开状压，一棵树其实应该有多种子树选择方案，我直接贪心加背包选了一种，因为n比较小，可能反例不太有，这样做就可以过
+
+  O 12.http://codeforces.com/problemset/problem/629/E
+
+  ​	问树上两点加一条边成环平均长度，就是树上换根计数
+
+  O 13.http://codeforces.com/problemset/problem/86/C
+
+  ​	问能被一些字符串覆盖的母串有多少种，发现ac自动机一直理解错了，到了一个点要把它fail链上的点都算上贡献
+
+  O 14.http://codeforces.com/problemset/problem/1146/F
+
+  ​	感觉不错的树dp题，问你有多少种叶子划分使其相同集合叶子联通且没有交，要记录三个量，i的子树答案，i是已经被用的数量，i是被虚占用的数量，然后转移要推清楚，我一开始转移搞错了，花了很多时间。
+
+  O 15.http://codeforces.com/problemset/problem/708/C
+
+  ​	问每个点在能换一条边的情况下能否是重心，用树上换根技巧维护每一个点为根时子树中最大的小于n/2的子树size。
+
+  O 16.http://codeforces.com/problemset/problem/490/F
+
+  ​	问你树上所有路径中的最长上升子序列多长，维护向上向下两条链实现
+
+  O 17.http://codeforces.com/problemset/problem/965/E
+
+  ​	建完字典树后就变成树上有一些1，每个1可以往上移，但是每个位子至多一个1，要深度和最小，每次选最深的一个1，找到它向上第一个不为1的位置放过去，可以用并查集实现
+
+  O 18.http://codeforces.com/problemset/problem/804/D
+
+  ​	询问森林中两棵树连一条边期望直径，主要是复杂度上是有分块思想，一次询问的复杂度是较小树的size，那么大于sqrt(n)的点对最多只用n个，所以复杂度是O(nsqrt(n)log(n))
+
+  O 19.http://codeforces.com/problemset/problem/1109/D
+
+  ​	边权范围1-m，问有多少棵无根树a到b的距离是m，有一个prufer序列的结论，详细学了一下prufer序列，记在了它相关的结论中
+
 - [ ] 高维偏序问题 1.00
 
 - [ ] 分治fft 2.00
