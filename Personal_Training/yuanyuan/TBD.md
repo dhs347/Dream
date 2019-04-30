@@ -24,8 +24,3 @@ https://www.lydsy.com/JudgeOnline/problem.php?id=4998
 
 **给定凸包以及n个点，求哪些点在凸包内部**
 
-## 树
-
-### 树重心
-
-https://www.luogu.org/problemnew/show/U21715

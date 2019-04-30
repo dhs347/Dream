@@ -4,9 +4,9 @@
 
 ## 记录
 
-|  专题  | LCA  | 点分治  | 树链剖分 |
-| :--: | :--: | :--: | :--: |
-|  题量  |  1   |  4   |  1   |
+|  专题  | LCA  | 点分治  | 树链剖分 |  虚树  | 树直径  | 长链剖分 |
+| :--: | :--: | :--: | :--: | :--: | :--: | :--: |
+|  题量  |  1   |  6   |  1   |  1   |  1   |  1   |
 
 ### LCA
 
@@ -21,6 +21,14 @@
 点分治裸题
 
 `1` `20190427` `bzoj2152` `点分治`
+
+点分治裸题
+
+`1` `20190427` `bzoj2599` `点分治`
+
+点分治裸题
+
+`1` `20190427` `bzoj3365` `点分治`
 
 点分治裸题
 
@@ -46,31 +54,31 @@
 
 树链剖分裸题
 
+### 虚树
+
+`1` `20190427` `bzoj2286` `虚树` `树dp`
+
+### 树直径
+
+`2` `20190427` `bzoj2870` `树直径`
+
+对两棵树加边形成新的树，新的树的直径一定是旧的树直径中的两个点
+
+### 长链剖分
+
+`3` `20190427` `bzoj3252` `长链剖分` `贪心`
+
+### 思维
+
+`3` `20190427` `bzoj2006` `思维`
+
 ## 题目
 
-
-
-http://www.lydsy.com/JudgeOnline/problem.php?id=2006
-
-http://www.lydsy.com/JudgeOnline/problem.php?id=2286
-
-http://www.lydsy.com/JudgeOnline/problem.php?id=2599
-
-http://www.lydsy.com/JudgeOnline/problem.php?id=2759
-
-http://www.lydsy.com/JudgeOnline/problem.php?id=2870
-
 http://www.lydsy.com/JudgeOnline/problem.php?id=3083
-
-http://www.lydsy.com/JudgeOnline/problem.php?id=3252
-
-http://www.lydsy.com/JudgeOnline/problem.php?id=3365
 
 http://www.lydsy.com/JudgeOnline/problem.php?id=3451
 
 http://www.lydsy.com/JudgeOnline/problem.php?id=3531
-
-http://www.lydsy.com/JudgeOnline/problem.php?id=3572
 
 http://www.lydsy.com/JudgeOnline/problem.php?id=3611
 
@@ -202,7 +210,17 @@ https://www.luogu.org/problemnew/show/SP16580
 
 1.http://codeforces.com/gym/102012/problem/G
 
+https://www.luogu.org/problemnew/show/U21715
+
 ## TBD
+
+### LCT进阶
+
+http://www.lydsy.com/JudgeOnline/problem.php?id=2759
+
+[题解](https://www.cnblogs.com/yoyoball/p/9311127.html)
+
+这题需要改板子
 
 ### 动态点分治
 
