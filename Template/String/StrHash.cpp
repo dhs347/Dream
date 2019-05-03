@@ -28,7 +28,7 @@ struct Str{
 	inline bool operator == (const Str &c) const { return a == c.a && len == c.len;}
 } ha[N], hb[N];
 
-void init(Str *ha, string &s) {
+void init(vi &s, Str *ha) {
 	rep(i, 0, sz(s)) ha[i] = i > 0 ? ha[i-1] + Str(s[i] + 1) : Str(s[0] + 1);
 }
 
