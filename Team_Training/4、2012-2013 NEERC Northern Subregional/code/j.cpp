@@ -53,7 +53,7 @@ int LIS(int a[], int n) {
 	rep(i, 1, n + 1) ans = max(ans, dp[i]);
 	return ans;
 }
-int lis(int a[], int n) {
+int lis(int a[], int n, bool &o) {
 	int dp[11] = {0};
 	rep(i, 1, n + 1) {
 		dp[i] = 1;
@@ -61,6 +61,7 @@ int lis(int a[], int n) {
 	}
 	int ans = 0;
 	rep(i, 1, n + 1) ans = max(ans, dp[i]);
+	o = (dp[n] == ans);
 	return ans;
 }
 void gao(int a[], int n, int b[]) {
@@ -68,14 +69,14 @@ void gao(int a[], int n, int b[]) {
 	rep(i, 1, n + 1) rep(j, i + 1, n + 1) if(a[i] > a[j]) ++b[0];
 	rep(i, 2, n + 1) if(a[i - 1] > a[i]) ++b[1];
 	b[2] = LIS(a, n);
-	b[3] = lis(a, n);
+	bool o;
+	b[3] = lis(a, n, o);
 	rep(i, 1, n + 1) b[4] += (a[i] == i);
 }
 void print(int a[]) {
 	rep(i, 1, n + 1) cout << a[i] << " \n"[i == n];
 }
 void solve1() {
-	int cnt = 0;
 	int a[11]; rep(i, 1, n + 1) a[i] = i;
 	do {
 		int aa[11];
@@ -108,7 +109,7 @@ void print(vi a) {
 	for(auto u : a) cout << u << " ";cout << endl;
 }
 namespace SOL {
-	int M = 6;
+	int M = 7;
 	vector<pair<vi, vi> > pp;
 	bool vis[N];
 	pair<vi, vi> ans[N];
@@ -122,21 +123,19 @@ namespace SOL {
 		int m = M;
 		int a[11]; rep(i, 1, m + 1) a[i] = i;
 		do {
-			if(a[m] != m) {
-				add(a, m);
-			}
+			bool o;
+			lis(a, m, o);
+			if(!o) add(a, m);
 		} while(next_permutation(a + 1, a + 1 + m));
 	}
 	void solve() {
 		init();
-		int cnt = 0;
 		rep(i, 0, sz(pp)) {
 			auto a = pp[i].fi, aa = pp[i].se;
 			rep(j, i, sz(pp)) {
 				auto b = pp[j].fi, bb = pp[j].se;
 				int val = calc(aa.data(), bb.data());
 				if(!vis[val]) {
-					++cnt;
 					vis[val] = 1;
 					ans[val] = mp(a, b);
 				}
