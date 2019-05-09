@@ -308,7 +308,37 @@
 
   ​	发现只有对一个点深度不超过一定值的点才对答案有影响，所以加点更新和算期望可以只算一部分，复杂度就对了。
 
-- [ ] 高维偏序问题 1.00
+- [ ] 分治 3.00
+
+  O 1.https://www.lydsy.com/JudgeOnline/problem.php?id=4449
+
+  ​	给一个多边形的三角剖分，询问亮点最短路，用分治每次选一条边尽可能把两边点集分成一样大，然后裂成两个图，然后询问如果在两边肯定会结果选的边的一个端点，分别去bfs即可
+
+  O 2.https://www.lydsy.com/JudgeOnline/problem.php?id=2001
+
+  ​	动态最小生成树，离线有分治做法，考虑如果有m条边权值不确定，图可以同过reduction和contraction操作缩减到O(m)，这样对询问序列去分治即可，这个过程和在二叉树上dfs差不多，所以直接求出下一层的边集并覆盖是没有问题的。
+
+  O 3.https://www.lydsy.com/JudgeOnline/problem.php?id=3897
+
+  ​	应用贪心思想，每次可以抠掉最大值那个点，然后分别到两边去做，由于要查询区间最大值，所以是O(nlogn)的，可能有O(n)的做法。
+
+  O 4.https://www.lydsy.com/JudgeOnline/problem.php?id=2287
+
+  ​	其实直接对背包做逆操作就可以了，但是像这种去掉一个点算剩下贡献可以用分治去实现。
+
+  5.https://www.lydsy.com/JudgeOnline/problem.php?id=2961
+
+  O 6.https://www.lydsy.com/JudgeOnline/problem.php?id=4979
+
+  ​	对于全局查询有多少对区间符合一个限制，这个限制和区间端点和区间最值之类有关可以分治转成双指针维护
+
+  O 7.https://www.lydsy.com/JudgeOnline/problem.php?id=3745
+
+  ​	求所有区间长度乘区间最大值最小值的和，分治后转为枚举一边另一边分类讨论求和
+
+  O 8.https://www.lydsy.com/JudgeOnline/problem.php?id=3181
+
+  ​	不太算分治，就是对数据范围分类用不同的做法
 
 - [ ] 分治fft 2.00
 
@@ -339,6 +369,8 @@
 - [ ] fft/ntt/fwt/fst等/生成函数与各种卷积 2.00
 
 - [ ] 2-sat 2.00
+
+- [ ] 高维偏序问题 1.00
 
 - [ ] dancing_links及其他搜索优化 1.00
 
@@ -387,8 +419,6 @@
 - [ ] 线性规划及其对偶 0.50
 
 - [ ] 分块与树上分块 1.00
-
-- [ ] 分治 3.00
 
 - [ ] 瓶颈路 0.50
 
