@@ -342,6 +342,12 @@
 
 - [ ] 分治fft 2.00
 
+  1.https://www.lydsy.com/JudgeOnline/problem.php?id=5342
+
+  ​	一个和自己卷积有关的递推式，可以用分治fft，但是麻烦一点，要分类讨论，还有就是这个递推式的推导过程感觉有问题，不过这种结构析合树应该还是有点用的。
+
+  
+
 - [ ] 状压dp 2.00
 
   O 1. http://acm.hdu.edu.cn/showproblem.php?pid=2820
