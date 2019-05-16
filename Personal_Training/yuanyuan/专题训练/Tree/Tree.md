@@ -134,6 +134,10 @@
 
 `3` `20190427` `bzoj2006` `思维`
 
+### 线段树合并
+
+`1` `20190516` `bzoj3653` `线段树合并`
+
 ## 题目
 
 http://www.lydsy.com/JudgeOnline/problem.php?id=3653
