@@ -144,10 +144,6 @@
 
 ## 题目
 
-http://www.lydsy.com/JudgeOnline/problem.php?id=3697
-
-http://www.lydsy.com/JudgeOnline/problem.php?id=3730
-
 http://www.lydsy.com/JudgeOnline/problem.php?id=3784
 
 http://www.lydsy.com/JudgeOnline/problem.php?id=3784
@@ -281,6 +277,8 @@ http://www.lydsy.com/JudgeOnline/problem.php?id=2759
 ### 动态点分治
 
 http://www.lydsy.com/JudgeOnline/problem.php?id=1095
+
+http://www.lydsy.com/JudgeOnline/problem.php?id=3730
 
 ### 过的人很少的题
 
