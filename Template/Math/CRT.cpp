@@ -19,10 +19,10 @@ struct CRT{
 		rep(i, 2, n+1) {
 			ll g = __gcd(M, mod[i]);
 			ll inv = Inv(M / g, mod[i] / g);
-			if ((a[i] - R) % g) return -1; // ÎŞ½â 
+			if ((a[i] - R) % g) return -1; // æ— è§£ 
 			R += inv * ((a[i] - R) / g) % (mod[i] / g) * M;  
 			M = M / g * mod[i];
-			R = (R % M + M) % M; // ¿ÉÄÜÎª 0 ¿´ÊÇ·ñĞèÒªÊÇÕıÕûÊı 
+			R = (R % M + M) % M; // å¯èƒ½ä¸º 0 çœ‹æ˜¯å¦éœ€è¦æ˜¯æ­£æ•´æ•° 
 		}
 		return R;
 	}
