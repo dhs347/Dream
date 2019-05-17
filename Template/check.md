@@ -2,9 +2,7 @@
 
 ## 队员模板
 
-- [ ] Polya.doc
-- [ ] 数学笔记.pdf
-- [ ] hanabi的模板
+- [ ] Polya.doc + 数学笔记.pdf + hanabi的模板
 - [ ] GummyBear的模板
 - [ ] lj 代码123
 
