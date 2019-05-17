@@ -14,9 +14,7 @@ struct DMST{
 			rep(i, 0, n) in[i] = inf;
 			rep(i, 0, m){
 				int u = e[i].u ,v = e[i].v;
-				if(e[i].d < in[v] && u != v){
-					in[v] = e[i].d, pre[v] = u; index[v] = i;
-				}
+				if(e[i].d < in[v] && u != v) in[v] = e[i].d, pre[v] = u, index[v] = i;
 			}
 			rep(i, 0, n) {
 				if(i == root) continue; 
@@ -29,9 +27,7 @@ struct DMST{
 			rep(i, 0, n){
 				ans += in[i]; int v = i;
 				int t = index[i];
-				while(vis[v] != i && id[v] == -1 && v!=root){
-					vis[v] = i;v = pre[v];
-				}
+				while(vis[v] != i && id[v] == -1 && v!=root) vis[v] = i, v = pre[v];
 				if(v != root && id[v] == -1) {
 					for(int u=pre[v];u != v;u = pre[u]) id[u] = cnt;
 					id[v] = cnt++;

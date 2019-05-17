@@ -1,4 +1,4 @@
-// 要视图的情况使用spfa, dijstra, 多源bfs 
+// 瑕佽鍥剧殑鎯呭喌浣跨敤spfa, dijstra, 澶氭簮bfs 
 const int N = 11, M = 10;
 const int inf = 0x3f3f3f3f;
 int n, m, k, a[N][N], st[N][N], dp[1 << M][N][N], S, ans;
@@ -69,7 +69,8 @@ int SteinerTree(int n, int m) {
 		spfa(msk);
 	}
 	ans = inf;
-	rep(i, 1, n+1) rep(j, 1, m+1) if (ans > dp[S][i][j]) ans = dp[S][i][j], now = node(i, j, S);
+	rep(i, 1, n+1) rep(j, 1, m+1) if (ans > dp[S][i][j]) 
+		ans = dp[S][i][j], now = node(i, j, S);
 	dfs(now);
 	return ans == inf ? -1 : ans;
 }

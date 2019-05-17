@@ -1,8 +1,8 @@
 namespace GaussInt{
 	static const int N = ::N, P = 1e9 + 7;
-	int a[N][N], x[N]; //Ôö¹ã¾ØÕóºÍ½â¼¯
-	bool ok[N]; // ±ê¼Ç±äÔªÊÇ·ñÈ·¶¨
-	int free[N], free_num; // Ò»×éºÏ·¨×ÔÓÉ±äÔª 
+	int a[N][N], x[N]; //å¢žå¹¿çŸ©é˜µå’Œè§£é›†
+	bool ok[N]; // æ ‡è®°å˜å…ƒæ˜¯å¦ç¡®å®š
+	int free[N], free_num; // ä¸€ç»„åˆæ³•è‡ªç”±å˜å…ƒ 
 	int add(int a, int b) {if ((a += b) >= P) a -= P; return a < 0 ? a + P : a;}
 	int mul(int a, int b) {return 1ll * a * b % P;}
 	int kpow(int a, int b) {int r=1;for(;b;b>>=1,a=mul(a,a)) {if(b&1)r=mul(r,a);}return r;}
@@ -22,9 +22,10 @@ namespace GaussInt{
 				rep(j, col, var+1) a[i][j] = add(a[i][j], -mul(a[k][j], t));
 			}
 		}
-		rep(i, k, equ) if (a[i][var]) return -1;//ÎÞ½â
+		rep(i, k, equ) if (a[i][var]) return -1;//æ— è§£
 		if(k < var){
-			/*int pre = var;
+			/*
+			int pre = var;
 			per(i, 0, k) {
 				int num = 0;
 				rep(j, 0, var) if (a[i][j]) {
@@ -39,7 +40,7 @@ namespace GaussInt{
 				x[p] = a[i][var];
 				ok[p] = 1;
 			}*/
-			return var - k;//×ÔÓÉ±äÔª¸öÊý
+			return var - k;//è‡ªç”±å˜å…ƒä¸ªæ•°
 		}
 		per(i, 0, var) {
 			int t = a[i][var];

@@ -1,4 +1,4 @@
-// a[l] ^ a[l+1] ^ a[l+2] ... ^ a[r] % mod ע����Ҫ��ģmod 
+﻿// a[l] ^ a[l+1] ^ a[l+2] ... ^ a[r] % mod 注意结果要再模mod 
 map<int, int> M; 
 
 int phi(int n) {

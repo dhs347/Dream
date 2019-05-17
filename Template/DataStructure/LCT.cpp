@@ -39,27 +39,27 @@ struct LCT {
         }
     }
     void access(int x) { for(int y = 0; x ; y = x, x = nd[x].fa) splay(x), nd[x].son[1] = y, up(x); }
-    // 换根
+    // 鎹㈡牴
     void makeroot(int x) { access(x); splay(x); gao(x); } 
-    // 找根
+    // 鎵炬牴
     int findroot(int x) {
         access(x); splay(x);
         while(nd[x].son[0]) down(x), x = nd[x].son[0];
         splay(x);
         return x;
     }
-    // 加边
+    // 鍔犺竟
     void link(int x, int y) { 
         makeroot(x); 
         if(findroot(y) != x) nd[x].fa = y; 
     }
-    // 删边
+    // 鍒犺竟
     void cut(int x, int y) {
         makeroot(x);
         if(findroot(y) == x && nd[y].fa == x && !nd[y].son[0]) nd[y].fa = nd[x].son[1] = 0, up(x);
     }
-    // nd[y]: 路径信息
+    // nd[y]: 璺緞淇℃伅
     void path(int x, int y) { makeroot(x); access(y); splay(y); }
-    // 单点修改
+    // 鍗曠偣淇敼
     void upd(int x, int c) { splay(x); nd[x].val = c; up(x); }
 }T;
