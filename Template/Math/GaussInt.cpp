@@ -8,7 +8,7 @@ namespace GaussInt{
 	int kpow(int a, int b) {int r=1;for(;b;b>>=1,a=mul(a,a)) {if(b&1)r=mul(r,a);}return r;}
 	int Gauss(int equ, int var){
 		int k, col, p;
-		fill_n(free_x, var, 0); free_num = 0;
+		fill_n(free, var, 0); free_num = 0;
 		fill_n(x, var, 0);
 		for(k = col = 0; k < equ && col < var; ++k, ++col){
 			p = k; rep(i, k+1, equ) if (a[i][col]) {p = i; break;}
