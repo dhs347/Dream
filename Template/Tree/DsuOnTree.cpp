@@ -12,16 +12,16 @@ namespace QuerySubtree{
         for(auto t : g[c]) if(t != wson[c] && t != fa) solve(t , c , false , g);
         if(wson[c]) solve(wson[c] , c , true , g);
         for(auto t : g[c]) if(t != wson[c] && t != fa) {
-            // ½«¸Ã×ÓÊ÷µÄĞÅÏ¢¼ÓÈë
+            // å°†è¯¥å­æ ‘çš„ä¿¡æ¯åŠ å…¥
         }
-      	// ½«µ±Ç°½ÚµãµÄĞÅÏ¢¼ÓÈë
-      	// ²éÑ¯
+      	// å°†å½“å‰èŠ‚ç‚¹çš„ä¿¡æ¯åŠ å…¥
+      	// æŸ¥è¯¢
         if(!iswson) {
-        	// É¾³ıÕû¿Ã×ÓÊ÷µÄĞÅÏ¢ nd.clear()
+        	// åˆ é™¤æ•´æ£µå­æ ‘çš„ä¿¡æ¯ nd.clear()
         }
     }
     void solve(vi g[]){
         dfs(1,0,g);
-        solve(1,0,false,g); // Èç¹ûÊäÈëÊÇµ¥×éÊı¾İ£¬¸Ä³É true ¿ÉÒÔÓÅ»¯
+        solve(1,0,false,g); // å¦‚æœè¾“å…¥æ˜¯å•ç»„æ•°æ®ï¼Œæ”¹æˆ true å¯ä»¥ä¼˜åŒ–
     }
 }

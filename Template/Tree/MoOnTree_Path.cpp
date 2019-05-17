@@ -1,5 +1,5 @@
 /*
- * ���޸�Ī�ӣ����С N^(2/3) ���� l ���ڿ飬 r ���ڿ飬 time ���� 
+ * 带修改莫队：块大小 N^(2/3) 按照 l 所在块， r 所在块， time 排序 
  */
 namespace MoOnTree {
 

@@ -1,21 +1,21 @@
-//¶Ô 2 È¡Ä£µÄ 01 ·½³Ì×é
+//å¯¹ 2 å–æ¨¡çš„ 01 æ–¹ç¨‹ç»„
 namespace Gauss{
 	static const int N = 2e3 + 10;
-	//ÓĞ equ ¸ö·½³Ì£¬ var ¸ö±äÔª¡£Ôö¹ã¾ØÕóĞĞÊıÎª equ ,ÁĞÊıÎª [0..var]
-	bitset<N> a[N]; //Ôö¹ã¾ØÕó modif
-	bool ok[N]; // ±ê¼Ç±äÔªÊÇ·ñÈ·¶¨ 
-	int x[N]; //½â¼¯
-	int free[N], free_num; //Ò»×éºÏ·¨×ÔÓÉ±äÔª£¨¶à½âÃ¶¾Ù×ÔÓÉ±äÔª¿ÉÒÔÊ¹ÓÃ£©
-	//·µ»ØÖµÎª -1 ±íÊ¾ÎŞ½â£¬Îª 0 ÊÇÎ¨Ò»½â£¬·ñÔò·µ»Ø×ÔÓÉ±äÔª¸öÊı
+	//æœ‰ equ ä¸ªæ–¹ç¨‹ï¼Œ var ä¸ªå˜å…ƒã€‚å¢å¹¿çŸ©é˜µè¡Œæ•°ä¸º equ ,åˆ—æ•°ä¸º [0..var]
+	bitset<N> a[N]; //å¢å¹¿çŸ©é˜µ modif
+	bool ok[N]; // æ ‡è®°å˜å…ƒæ˜¯å¦ç¡®å®š 
+	int x[N]; //è§£é›†
+	int free[N], free_num; //ä¸€ç»„åˆæ³•è‡ªç”±å˜å…ƒï¼ˆå¤šè§£æšä¸¾è‡ªç”±å˜å…ƒå¯ä»¥ä½¿ç”¨ï¼‰
+	//è¿”å›å€¼ä¸º -1 è¡¨ç¤ºæ— è§£ï¼Œä¸º 0 æ˜¯å”¯ä¸€è§£ï¼Œå¦åˆ™è¿”å›è‡ªç”±å˜å…ƒä¸ªæ•°
 	int Gauss(int equ, int var){
-		int p, col, k; // k ÎªÔö¹ã¾ØÕóµÄÖÈ
+		int p, col, k; // k ä¸ºå¢å¹¿çŸ©é˜µçš„ç§©
 		fill_n(ok, var, 0); free_num = 0;
 		fill_n(x, var, 0);
 		for(k = 0, col = 0; k < equ && col < var; k++, col++){
 			p = k; rep(i, k, equ) if (a[i][col]) {p = i; break;}
 			if (p != k) swap(a[k], a[p]);
 			if (!a[k][col]){
-				k--; free[free_num++] = col;//Õâ¸öÊÇ×ÔÓÉ±äÔª
+				k--; free[free_num++] = col;//è¿™ä¸ªæ˜¯è‡ªç”±å˜å…ƒ
 				continue;
 			}
 			rep(i, 0, equ) if (i != k && a[i][col]) a[i] ^= a[k];
@@ -23,7 +23,8 @@ namespace Gauss{
 		rep(i, col, var) free[free_num++] = i;
 		rep(i, k, equ) if (a[i][var]) return -1;
 		if(k < var) {
-			/*per(i, 0, k) {
+			/*
+			per(i, 0, k) {
 				int num = 0;
 				rep(j, 0, var) if(a[i][j]) {
 					if (!num) p = j; num++;
@@ -31,9 +32,9 @@ namespace Gauss{
 				if(num > 1) continue;
 				ok[p] = 1; x[p] = a[i][var];
 			}*/
-			return var - k;//×ÔÓÉ±äÔª¸öÊı
+			return var - k;//è‡ªç”±å˜å…ƒä¸ªæ•°
 		} 
-		//Î¨Ò»½â£¬»Ø´ú
+		//å”¯ä¸€è§£ï¼Œå›ä»£
 		per(i, 0, var){
 			bool t = a[i][var];
 			rep(j, i+1, var) t ^= (a[i][j] && x[j]);

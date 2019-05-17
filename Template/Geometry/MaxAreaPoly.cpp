@@ -23,19 +23,14 @@ ld solve_poly(vi &S) {
 	};
 	ld mi = hi, ma = hi + 1;
 	int numExpand = 0;
-	while (tooSmall(ma)) {
-		numExpand++;
-		ma += (ma - mi);
-	}
+	while (tooSmall(ma)) numExpand++, ma += (ma - mi);
 	rep(tim, 0, 50 + numExpand) {
 		ld md = mi + (ma - mi) / 2;
 		if (tooSmall(md)) mi = md;
 		else ma = md;
 	}
 	ld D = mi, area = 0;
-	for (int l : vals) {
-		area += ld(l) * sqrt(ld(D) * ld(D) - ld(l) * ld(l)) / 4;
-	}
+	for (int l : vals) area += ld(l) * sqrt(ld(D) * ld(D) - ld(l) * ld(l)) / 4;
 	ld hiArea = ld(hi) * sqrt(ld(D) * ld(D) - ld(hi) * ld(hi)) / 4;
 	if (isReflex) area -= hiArea;
 	else area += hiArea;

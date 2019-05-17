@@ -2,9 +2,7 @@
 const int N = 50505, M = 10101;
 int n, m, a[N], rt[N<<1];
 vi V, add, sub;
-inline int rk(int x) {
-	return lower_bound(all(V), x) - V.begin();
-}
+inline int rk(int x) { return lower_bound(all(V), x) - V.begin(); }
 struct Q {
 	bool op;
 	int a, b, k;
@@ -12,9 +10,7 @@ struct Q {
 struct Seg {
 	static const int N = 2500005;//(::N + 32 * ::M) * 16;
 	int cntn, cnt[N], ls[N], rs[N];
-	void init() {
-		fill_n(rt+1, n, cntn = 0);
-	}
+	void init() { fill_n(rt+1, n, cntn = 0); }
 	void upd(int pre, int &now, int p, int c, int l, int r) {
 		now = ++cntn;
 		cnt[now] = cnt[pre] + c;
@@ -44,9 +40,7 @@ struct Seg {
 }seg;
 struct Fenwick {
 #define lb(x) ((x)&(-x))
-	void init() {
-		fill_n(rt+1+n, n, 0);
-	}
+	void init() { fill_n(rt+1+n, n, 0); }
 	void upd(int x, int p, int c) {
 		for(; x<=n; x+=lb(x)) seg.upd(rt[x+n], rt[x+n], p, c, 0, sz(V)-1);
 	}
@@ -61,42 +55,28 @@ struct Fenwick {
 	}
 }fw;
 int main() {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(0);
-	int T;
-	cin >> T;
+	int T; cin >> T;
 	while(T--) {
-		///
 		cin >> n >> m;
-		///init
-		V.clear();
-		seg.init();
-		fw.init();
+		V.clear(); seg.init(); fw.init();
 		///read
 		rep(i, 1, n+1) cin >> a[i], V.pb(a[i]);
 		rep(i, 1, m+1) {
 			string s;
 			cin >> s >> q[i].a >> q[i].b;
 			q[i].op = (s[0]=='Q');
-			if(s[0]=='Q') {
-				cin >> q[i].k;
-			} else {
-				V.pb(q[i].b);
-			}
+			if(s[0]=='Q') cin >> q[i].k;
+			else V.pb(q[i].b);
 		}
 		///solve
 		sort(all(V));
 		V.erase(unique(all(V)), V.end());
 		rep(i, 1, n+1) seg.upd(rt[i-1], rt[i], rk(a[i]), 1, 0, sz(V)-1);
 		rep(i, 1, m+1) {
-			if(q[i].op) {
-				cout << V[fw.qry(q[i].a, q[i].b, q[i].k)] << endl;
+			if(q[i].op) { cout << V[fw.qry(q[i].a, q[i].b, q[i].k)] << endl;
 			} else {
 				int p = q[i].a, c = q[i].b;
 				fw.upd(p, rk(a[p]), -1);
 				fw.upd(p, rk(a[p] = c), 1);
-			}
-		}
-	}
-	return 0;
-}
+			} } }
+	return 0; }

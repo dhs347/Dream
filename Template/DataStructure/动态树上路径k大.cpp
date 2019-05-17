@@ -1,8 +1,6 @@
 int n, m, L, dfn, val[N], rt[N], cnt[M], ls[M], rs[M], st[N], ed[N], fw[N], par[N];
 pair<int, pii> Q[N]; vi V, res[2], g[N]; LCARMQ R;
-
 int F(int x) { return lower_bound(all(V), x) - V.begin() + 1; }
-
 // seg
 void upd(int &now, int pre, int p, int c, int l, int r) {
   now = ++L;
@@ -30,7 +28,6 @@ int qry(int k, int l, int r) {
     return qry(k - cntr, l, mid);
   }
 }
-
 // build 主席树
 void dfs(int u, int fa) {
   st[u] = ++dfn;
@@ -39,14 +36,12 @@ void dfs(int u, int fa) {
   rep(i, 0, sz(g[u])) if(g[u][i] != fa) dfs(g[u][i], u);
   ed[u] = dfn;
 }
-
 // fenwick
 void upd(int p, int o, int c) { for( ; p <= n; p += lb(p)) upd(fw[p], fw[p], c, o, 1, sz(V)); }
 void upd(int u, int o) {
   res[o].pb(rt[u]);
   int p = st[u]; for( ; p; p ^= lb(p)) res[o].pb(fw[p]);
 }
-
 void solve() {
   R.Build(g);
   dfs(1, 0);
@@ -62,11 +57,7 @@ void solve() {
       rep(o, 0, 2) res[o].clear();
       int a = Q[i].se.fi, b = Q[i].se.se, k = Q[i].fi;
       int c = R.lca(a, b), d = par[c];
-      upd(a, 0);
-      upd(b, 0);
-      upd(c, 1);
-      upd(d, 1);
+      upd(a, 0); upd(b, 0);
+      upd(c, 1); upd(d, 1);
       cout << V[qry(k, 1, sz(V)) - 1] << endl;
-    }
-  }
-}
+    } } }
