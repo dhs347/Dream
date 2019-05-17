@@ -1,0 +1,145 @@
+LCT说明
+
+
+
+【一些约定】
+
+小写字母表示平衡树中的概念，大写字母往往是真实森林中的概念
+
+【常用接口】
+
+void init(int n,int a[]=NULL)
+
+void link(int x,int y)
+
+void cut(int x,int y)
+
+bool is_Home(int x,int y)
+
+int get_lca(int x,int y)
+
+int query(int x,int y)
+
+void update(int x,int y,int d)
+
+bool LC(int op,int x,int y) 
+
+void print();
+
+【接口】
+
+void init(int n,int a[]=NULL)  初始化，传入点权数组指针，内部含森林形态初始化，数据初始化，标记初始化三种
+
+void push_up(int x)   x的信息上传，会将两个儿子的信息上传更新x，不会涉及到标记问题
+
+void U(int x,int d,int r)   对x的自己的信息进行更新，数据和标记都会更新
+
+void push_down(int x)    标记下放，不会设计信息更改，只会还愿标记
+
+bool is_r(int x)      判断是否是所在实路径（平衡树）中的根    （判断是否是森林中的根，只需要判断f[x]==0）
+
+void U_P(int x)       update_Path，表示路径更新，会从根一直下放标记，更新到x，这样x才可以旋转
+
+void rot(int x)       rotate，x的旋转，不需要判断左旋还是右旋
+
+void SP(int x)        Splay，伸展操作
+
+void AC(int x)        Access，核心操作，打通到所在子树根的实路径
+
+void make_R(int x)       make_root，换根操作
+
+void get_P(int x,int y)      get_Path，获取x到y的路径；此时，x到y的路径将被隔离到以y为根的平衡树中，
+                                       y深度最大，故无右子树，注意：此操作不检查x和y的连通性
+
+void link(int x,int y)       连接x和y，不检查x和y的连通性
+
+void cut(int x,int y)        隔离x和y，不检查x和y的连通性；会将x换成根，切除y与父亲的边；x和y之间未必直接相连，但必须保证联通
+
+int get_dep(int x)            获取x在所在树中的深度
+
+int get_R(int x)              获取x所在树中的根（真实的根）
+
+int get_r(int x)              获取x所在平衡树/当前实路径中的根（虚根）
+
+int get_F(int x)              获取x所在树中的父亲（真实的父亲）/  虚父亲就是f[x]
+
+bool is_Home(int x,int y)     判断x和y是否在同一个联通块，同一棵真实子树
+
+bool is_home(int x,int y)     判断x和y是否在同一个实路径，同一棵平衡子树
+
+int get_lca(int x,int y)       获取真实的x和y的lca
+
+int query(int x,int y)          询问x到y的路径信息，返回数组指针（如果单询问，就直接值）
+
+void update(int x,int y,int d)     更新操作，需要传入数组指针，*data，存有更新的数据（对应的更新，其他位置为默认值，注意乘法默认值为1）
+
+bool LC(int op,int x,int y)       Link_Cut，带检查的外部接口，op=1为期望联通，所以是连边；op=0为期望隔绝，删边操作；返回值，表示是否成功或者合法
+
+void print_p(int); void print_P(int,int*); void print();    打印/调试接口，可以不要，出错的时候，可以加；可以打印很多信息，以实路径为单位；只需要调用最后一个接口
+
+
+
+
+【外部】
+
+1.每组数据，必须首先调用init()初始化；如果默认点权不为0，必须传入一个点权数组指针
+
+2.读入数据连边，直接用link(x,y)，不需要使用链式前向星
+
+3.由于内部采用操作封装一体化，外部修改时只需要提供修改的区间和数据，
+
+数据传入，采用数据集成，请将数据按照顺序，放入一个数组中，传入数组指针
+
+比如：修改操作，将x到y路径上所有点权*a+b，需要传入a,b，请定义一个外部数组data[2]={a,b};
+
+然后调用update(x,y,data);
+
+4.询问的时候，会同时返回多个值，同样采用信息数据集成，将返回一个数组指针，元素与操作对应
+
+比如：同时询问x到y路径上的最大值和最小值，以及和
+
+那么返回的query(x,y)上一个数组指针
+
+输出query(x,y)[0]，表示最大值
+
+输出query(x,y)[1]，表示最小值
+
+输出query(x,y)[2]，表示和
+
+这样非常容易扩展多询问，多操作的版本
+
+5.注意内部有link和cut，外部请不要调用，（除非题目保证不会形成环，和非法操作）
+
+外部接口LC(k,x,y)如果连接/删除成功（没有环形成/非法），会返回true，否则返回false
+
+6.外部可以直接调用print()，打印调试，将会打印所有的实路径，以及实路径的虚父亲和根，以及森林的树的个数（联通块个数）
+
+
+
+【内部】
+
+1.一般修改只需要修改信息维护部分，主要在上传push_up,和下放push_down，和单点更新U，以及初始化这四个部分
+
+push_up不会修改标记，push_down不会修改值，只会还原标记
+
+2.内部实现，约定：答案，操作数据，标记一体化
+
+也就是说，需要内部一个数组，专门管理标记，就是lazy数组
+
+lazy设计一个数组，lazy[0]表示第一个标记，lazy[1]表示第二个标记，
+
+实现的时候，定义里面加注释，防止自己搞混掉
+
+答案sum，一样设计成一个数组，sum[x][0]表示第一个询问对象，sum[x][1]第二个
+
+询问返回sum[x]是一个数组指针，只需要取元素就可以了
+
+3.但是注意：由于size很长用，不需要搞到sum里，还有rev标记，由于是内部标记
+
+4.在U函数里面修改标记的时候一定要当心，想清楚了，最好推导出了，数学表达式
+
+比如：区间*a+b
+
+假设原来区间的和是x，节点总数s，已经打的标记是*a+b,新的操作数据为*c+d
+
+则：S=(x*a+b*s)*c+d*s=x*a*c+b*s*c+d*s=x*(a*c)+(b*c+d)*s,所以标记应该被更新为：*(a*c)+(b*c+d)
