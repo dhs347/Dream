@@ -6,9 +6,7 @@ namespace MaxMatch {
 		for(auto v : g[u]) {
 			if(!vis[v]) {
 				vis[v] = 1;
-				if(!link[v] || dfs(link[v], g)) {
-					return link[v] = u, 1;
-				}
+				if(!link[v] || dfs(link[v], g)) { return link[v] = u, 1; }
 			}
 		}
 		return 0;

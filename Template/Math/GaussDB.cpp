@@ -21,7 +21,8 @@ namespace GaussDB{
 		}
 		rep(i, k, equ) if (fabs(a[i][var]) > eps) return -1;//нч╫Б
 		if(k < var){
-			/*int pre = var;
+			/*
+			int pre = var;
 			per(i, 0, k) {
 				int num = 0;
 				rep(j, 0, var) if(fabs(a[i][j]) > eps) {

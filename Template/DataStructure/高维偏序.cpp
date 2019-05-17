@@ -1,4 +1,4 @@
-// Èç¹ûÓĞO2±È½Ï¿ì, ²»È»¿ÉÄÜ±È½ÏÂıÒªÊÖĞ´bitset 
+// å¦‚æœæœ‰O2æ¯”è¾ƒå¿«, ä¸ç„¶å¯èƒ½æ¯”è¾ƒæ…¢è¦æ‰‹å†™bitset 
 namespace PX{
 	const int N = :: N, M = sqrt(N) + 5;
 	const int K = 7;

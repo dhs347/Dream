@@ -11,11 +11,8 @@ vi BM(vi s) {
 			ll c = P - d * kpow(b, P - 2) % P;
 			while(sz(C) < sz(B) + m) C.pb(0);
 			rep(i, 0, sz(B)) C[i + m] = add(C[i + m], mul(c, B[i]));
-			if(2 * L <= n) {
-				L = n + 1 - L, B = T, b = d, m = 1;
-			} else {
-				++m;
-			}
+			if(2 * L <= n) L = n + 1 - L, B = T, b = d, m = 1;
+			else ++m;
 		}
 	}
 	reverse(all(C));
