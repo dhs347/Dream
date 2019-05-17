@@ -16,6 +16,7 @@
 - [ ] 2018-fzu-final-template
 - [ ] 2017-fzu-final-template
 - [ ] 上交模板
+- [ ] 小峰的模板
 
 ## 论文
 
