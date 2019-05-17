@@ -8,7 +8,7 @@ struct vir{
 	vir operator +(const vir &c) {return vir(r + c.r, i + c.i);}
 	vir operator -(const vir &c) {return vir(r - c.r, i - c.i);}
 	vir operator *(const vir &c) {return vir(r * c.r - i * c.i, r * c.i + i * c.r);}
-} a[M], b[M], W[2][M];
+} a[M], b[M], w[2][M];
 
 struct FFT{
 	int N, na, nb, rev[M];
