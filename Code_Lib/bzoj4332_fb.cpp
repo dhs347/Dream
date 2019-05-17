@@ -88,6 +88,7 @@ void solve(int n) {
 		rep(i, 0, m+1) res[i] = ((int)(a[i].r + 0.5)) % P;
 	}else {
 		solve(n / 2);
+		//get(n / 2);
 		rep(i, 0, m+1) a[i] = vir(g[i], 0);
 		rep(i, 0, m+1) b[i] = vir(res[i], 0); b[0].r += 1;
 		fft.doit(a, b, m+1, m+1);
