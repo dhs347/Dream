@@ -340,13 +340,23 @@
 
   ​	不太算分治，就是对数据范围分类用不同的做法
 
-- [ ] 分治fft 2.00
+- [x] 分治fft 2.00
 
-  1.https://www.lydsy.com/JudgeOnline/problem.php?id=5342
+  O1.https://www.lydsy.com/JudgeOnline/problem.php?id=5342
 
   ​	一个和自己卷积有关的递推式，可以用分治fft，但是麻烦一点，要分类讨论，还有就是这个递推式的推导过程感觉有问题，不过这种结构析合树应该还是有点用的。
 
-  
+  O2.https://www.lydsy.com/JudgeOnline/problem.php?id=4836
+
+  ​	对权值去分治，然后分类讨论，分别做和卷积和差卷积
+
+  O3.https://www.lydsy.com/JudgeOnline/problem.php?id=3456
+
+  ​	求带标号联通图数量，那个递推式可以写成卷积形式，用分治fft优化
+
+  O4.https://www.lydsy.com/JudgeOnline/problem.php?id=4555
+
+  ​	bell数的一个变形，考虑求和式的组合意义，然后根据这个推出递推式，然后用分治fft去计算，但是这种递推式也可以用多项式求逆去做，还没有学。
 
 - [ ] 状压dp 2.00
 

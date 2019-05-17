@@ -1,6 +1,9 @@
+const int M = 1 << 17 << 1;
+int a[M], b[M];
+
 struct NTT{
-	static const int M = 1 << 17 << 1, G = 3, P = 1004535809; //P = C*2^k + 1
-	int N, na, nb, a[M], b[M], w[2][M], rev[M];
+	static const int G = 3, P = 1004535809; //P = C*2^k + 1
+	int N, na, nb, w[2][M], rev[M];
 	ll kpow(ll a, int b){
 		ll c = 1;
 		for (; b; b >>= 1,a = a * a % P) if (b & 1) c = c * a %P;
@@ -15,14 +18,12 @@ struct NTT{
 		if (f) for (int i = 0, x = kpow(N, P-2); i < N; i++) a[i] = (ll)a[i] * x % P;
 	}
 	void work(){
-		rep(i, 0, N){
-			int x = i, y = 0;
-			for (int k = 1; k < N; x>>=1, k<<=1) (y<<=1) |= x&1;
-			rev[i] = y;
-		}
+		int d = __builtin_ctz(N);
 		w[0][0] = w[1][0] = 1;
-		for (int i = 1, x = kpow(G, (P-1) / N), y = kpow(x, P-2); i < N; i++)
+		for (int i = 1, x = kpow(G, (P-1) / N), y = kpow(x, P-2); i < N; i++) {
+			rev[i] = (rev[i>>1] >> 1) | ((i&1) << (d-1));
 			w[0][i] = (ll)x * w[0][i-1] % P, w[1][i] = (ll) y * w[1][i-1] % P;
+		}
 	}
 	void doit(int *a, int *b, int na, int nb){ // [0, na)
 		for (N = 1; N < na + nb - 1; N <<= 1);
