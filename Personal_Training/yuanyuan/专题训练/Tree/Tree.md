@@ -144,6 +144,8 @@
 
 ## 题目
 
+http://www.lydsy.com/JudgeOnline/problem.php?id=3435
+
 http://www.lydsy.com/JudgeOnline/problem.php?id=3784
 
 http://www.lydsy.com/JudgeOnline/problem.php?id=3784
@@ -162,11 +164,15 @@ http://www.lydsy.com/JudgeOnline/problem.php?id=4025
 
 http://www.lydsy.com/JudgeOnline/problem.php?id=4034
 
+http://www.lydsy.com/JudgeOnline/problem.php?id=4372
+
 http://www.lydsy.com/JudgeOnline/problem.php?id=4543
 
 http://www.lydsy.com/JudgeOnline/problem.php?id=4712
 
 http://www.lydsy.com/JudgeOnline/problem.php?id=4912
+
+http://www.lydsy.com/JudgeOnline/problem.php?id=5192
 
 http://www.lydsy.com/JudgeOnline/problem.php?id=5210
 
@@ -197,6 +203,10 @@ https://www.luogu.org/problemnew/show/SP16549
 https://www.luogu.org/problemnew/show/SP16580
 
 1.http://poj.org/problem?id=1741
+
+http://acm.hdu.edu.cn/showproblem.php?pid=5571
+
+http://acm.hdu.edu.cn/showproblem.php?pid=6104
 
 2.http://acm.hdu.edu.cn/showproblem.php?pid=4812
 
@@ -273,12 +283,6 @@ http://www.lydsy.com/JudgeOnline/problem.php?id=2759
 [题解](https://www.cnblogs.com/yoyoball/p/9311127.html)
 
 这题需要改板子
-
-### 动态点分治
-
-http://www.lydsy.com/JudgeOnline/problem.php?id=1095
-
-http://www.lydsy.com/JudgeOnline/problem.php?id=3730
 
 ### 过的人很少的题
 

@@ -1,11 +1,20 @@
-// [1,n] , init!!
+// index : [1, n]
+// time : nlogn
+// support : segment add, sum
+// !!!! : use before init()!
 template<class T>
 struct Fenwick{
-#define lb(x) ((x)&-(x))
-    static const int N = 100001;
-    int n;T a[N];
-    void ini(int _n){ fill_n(a+1,n=_n,0);}
-    void Pre(){ for(int i=1,j=i+lb(i);i<=n;++i,j=i+lb(i)) if(j<=n) a[j]+=a[i];}
-    void add(int x,T d){ for(;x<=n;x+=lb(x)) a[x]+=d;}
-    T sum(int x){ T r=0;for(;x>=1;x^=lb(x)) r+=a[x];return r;}
+    static const int N =2e5+7;
+    int n;T a1[N],a2[N];
+    void ini(int _n){ 
+		fill_n(a1+1,n=_n,0);fill_n(a2+1,n=_n,0);
+	}
+	void add(T *a,int p,T d) { for(; p<=n; p+=p & -p) a[p]+=d; }
+	void add(int l,int r,T d) {
+		add(a1, l, d), add(a1, r + 1, -d);
+		add(a2, l, d * (l - 1)), add(a2, r + 1, -d * r);
+	} 
+	T sum(T *a,int p) { T r=0; for(; p>=1; p-=p & -p) r+=a[p]; return r; }
+	T pre(int p) { return !p ? 0 : sum(a1, p) * p - sum(a2, p);}
+	T qry(int l,int r) {return pre(r)-pre(l-1); }
 };

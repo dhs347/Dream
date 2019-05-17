@@ -2,29 +2,21 @@
 
 ## 队员模板
 
-- [ ] yy的模板 + Polya.doc
-
-- [ ] fb的模板 + hanabi的模板
-
-- [ ] lj的模板
+- [ ] Polya.doc
+- [ ] hanabi的模板
+- [ ] GummyBear的模板
 
 ## 大佬的模板
 
 - [ ] zp的模板
-
 - [ ] mcginn的模板
-
 - [ ] andWho的模板
-
 - [ ] fzu集训队资料
-
 - [ ] 2018-fzu-final-template
-
 - [ ] 2017-fzu-final-template
-
 - [ ] 上交模板
 
-## 论文 
+## 论文
 
 - [ ] CheatSheet
 
