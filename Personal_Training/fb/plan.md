@@ -358,11 +358,35 @@
 
   ​	bell数的一个变形，考虑求和式的组合意义，然后根据这个推出递推式，然后用分治fft去计算，但是这种递推式也可以用多项式求逆去做，还没有学。
 
+  O5.https://www.lydsy.com/JudgeOnline/problem.php?id=4332
+
+  ​	求多项式等比数列和的第m项系数，可以用递归除2去做。
+
 - [ ] 状压dp 2.00
 
   O 1. http://acm.hdu.edu.cn/showproblem.php?pid=2820
 
   ​	求相邻差值小于等于k(k<=4)的排列数量，一种枚举排列的方法 	
+
+  O 2. http://acm.hdu.edu.cn/showproblem.php?pid=1072
+
+  ​	问有多少数字排列整除d，对余数装压
+
+  O 3.  http://acm.hdu.edu.cn/showproblem.php?pid=1087
+
+  ​	问N*N棋盘放k个国王有几种方案，需要先预处理两层之间的转移，不然复杂度不够
+
+  O 4.  http://acm.hdu.edu.cn/showproblem.php?pid=1879
+
+  ​	状压dp计数，状压dp要注意预处理转移，减少复杂度 
+
+  O 5.  http://acm.hdu.edu.cn/showproblem.php?pid=2064
+
+  ​	两堆数，每次可以合并两个，问最少几次可以两堆一样, 转移分步的思想要注意，可以减少复杂度 
+
+  O 6.  http://acm.hdu.edu.cn/showproblem.php?pid=3717
+
+  ​	n个物品放入m个包里，最少要几个包，状态为用了哪些物品，考虑状态之间的有序性，逐个插入物品
 
 - [ ] 背包问题 0.50
 
