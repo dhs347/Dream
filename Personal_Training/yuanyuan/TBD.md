@@ -24,3 +24,4 @@ https://www.lydsy.com/JudgeOnline/problem.php?id=4998
 
 **给定凸包以及n个点，求哪些点在凸包内部**
 
+平面图的对偶图
