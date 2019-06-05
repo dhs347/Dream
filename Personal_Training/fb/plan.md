@@ -340,7 +340,7 @@
 
   ​	不太算分治，就是对数据范围分类用不同的做法
 
-- [x] 分治fft 2.00
+- [ ] 分治fft 2.00
 
   O1.https://www.lydsy.com/JudgeOnline/problem.php?id=5342
 
@@ -387,6 +387,18 @@
   O 6.https://www.lydsy.com/JudgeOnline/problem.php?id=3717
 
   ​	n个物品放入m个包里，最少要几个包，状态为用了哪些物品，考虑状态之间的有序性，逐个插入物品
+
+  O 7.https://www.lydsy.com/JudgeOnline/problem.php?id=3812
+
+  ​	n点m边强连通子图计数，首先要会n点m边DAG计数，然后把枚举出度为零的点集容斥改为枚举缩点后出度为零的点集容斥
+
+  O 8.https://www.lydsy.com/JudgeOnline/problem.php?id=4057
+
+  ​	简单的状态表示和转移
+
+  O 9.https://www.lydsy.com/JudgeOnline/problem.php?id=4145
+
+  ​	状态为已经有哪些物品，分步转移优化
 
 - [ ] 背包问题 0.50
 
