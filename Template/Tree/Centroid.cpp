@@ -15,6 +15,7 @@ namespace Centriod {
          * 注意计算以 rt 为起点的路径、只包含 rt 的路径
 		 * 注意 v != vis[rt] 
 		 */
+		// 点分树的写法：先把点分树建出来，再像点分治那样维护
         for(auto t : g[rt]) if(!vis[t]) dfs(t);
     }
 };
