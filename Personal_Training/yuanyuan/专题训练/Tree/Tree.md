@@ -4,11 +4,13 @@
 
 2019/5/14 18:40 ~ 2019/5/16 18:51
 
+2019/6/5   10:28
+
 ## 记录
 
 |  专题  | LCA  | 点分治  | 树链剖分 |  虚树  | 树直径  | 长链剖分 | 基环树  |
 | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
-|  题量  |  2   |  8   |  4   |  2   |  1   |  2   |  1   |
+|  题量  |  2   |  9   |  4   |  2   |  1   |  2   |  1   |
 
 ### LCA
 
@@ -59,6 +61,14 @@
 输出的四舍五入是骗人的，直接.4f就行。
 
 `2` `20190516` `bzoj3697` `点分治`
+
+`3` `20190605` `bzoj3784` `点分治` `思维`
+
+解法一：二分下界。可以先把sort过的数组存起来优化复杂度。
+
+解法二：转化成 `bzoj2006` 做。
+
+解法二会好写点。
 
 ### 树链剖分
 
@@ -145,10 +155,6 @@
 ## 题目
 
 http://www.lydsy.com/JudgeOnline/problem.php?id=3435
-
-http://www.lydsy.com/JudgeOnline/problem.php?id=3784
-
-http://www.lydsy.com/JudgeOnline/problem.php?id=3784
 
 http://www.lydsy.com/JudgeOnline/problem.php?id=3879
 
