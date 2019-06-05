@@ -340,7 +340,7 @@
 
   ​	不太算分治，就是对数据范围分类用不同的做法
 
-- [x] 分治fft 2.00
+- [ ] 分治fft 2.00
 
   O1.https://www.lydsy.com/JudgeOnline/problem.php?id=5342
 
@@ -368,25 +368,37 @@
 
   ​	求相邻差值小于等于k(k<=4)的排列数量，一种枚举排列的方法 	
 
-  O 2. http://acm.hdu.edu.cn/showproblem.php?pid=1072
+  O 2.https://www.lydsy.com/JudgeOnline/problem.php?id=1072
 
   ​	问有多少数字排列整除d，对余数装压
 
-  O 3.  http://acm.hdu.edu.cn/showproblem.php?pid=1087
+  O 3.https://www.lydsy.com/JudgeOnline/problem.php?id=1087
 
   ​	问N*N棋盘放k个国王有几种方案，需要先预处理两层之间的转移，不然复杂度不够
 
-  O 4.  http://acm.hdu.edu.cn/showproblem.php?pid=1879
+  O 4.https://www.lydsy.com/JudgeOnline/problem.php?id=1879
 
   ​	状压dp计数，状压dp要注意预处理转移，减少复杂度 
 
-  O 5.  http://acm.hdu.edu.cn/showproblem.php?pid=2064
+  O 5.https://www.lydsy.com/JudgeOnline/problem.php?id=2064
 
   ​	两堆数，每次可以合并两个，问最少几次可以两堆一样, 转移分步的思想要注意，可以减少复杂度 
 
-  O 6.  http://acm.hdu.edu.cn/showproblem.php?pid=3717
+  O 6.https://www.lydsy.com/JudgeOnline/problem.php?id=3717
 
   ​	n个物品放入m个包里，最少要几个包，状态为用了哪些物品，考虑状态之间的有序性，逐个插入物品
+
+  O 7.https://www.lydsy.com/JudgeOnline/problem.php?id=3812
+
+  ​	n点m边强连通子图计数，首先要会n点m边DAG计数，然后把枚举出度为零的点集容斥改为枚举缩点后出度为零的点集容斥
+
+  O 8.https://www.lydsy.com/JudgeOnline/problem.php?id=4057
+
+  ​	简单的状态表示和转移
+
+  O 9.https://www.lydsy.com/JudgeOnline/problem.php?id=4145
+
+  ​	状态为已经有哪些物品，分步转移优化
 
 - [ ] 背包问题 0.50
 

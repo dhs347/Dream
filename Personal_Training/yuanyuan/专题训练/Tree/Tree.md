@@ -4,11 +4,13 @@
 
 2019/5/14 18:40 ~ 2019/5/16 18:51
 
+2019/6/5 10:28
+
 ## 记录
 
-|  专题  | LCA  | 点分治  | 树链剖分 |  虚树  | 树直径  | 长链剖分 | 基环树  |
-| :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
-|  题量  |  2   |  8   |  4   |  2   |  1   |  2   |  1   |
+|  专题  | LCA  | 点分治  | 树链剖分 |  虚树  | 树直径  | 长链剖分 | 基环树  | dfs序 | 点分树  |
+| :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
+|  题量  |  2   |  9   |  4   |  3   |  1   |  2   |  1   |  1   |  1   |
 
 ### LCA
 
@@ -59,6 +61,14 @@
 输出的四舍五入是骗人的，直接.4f就行。
 
 `2` `20190516` `bzoj3697` `点分治`
+
+`3` `20190605` `bzoj3784` `点分治` `思维`
+
+解法一：二分下界。可以先把sort过的数组存起来优化复杂度。
+
+解法二：转化成 `bzoj2006` 做。
+
+解法二会好写点。
 
 ### 树链剖分
 
@@ -114,6 +124,10 @@
 
 树dp调了一会儿
 
+`2` `20190605` `bzoj3879` `虚树` `SAM` `后缀树`
+
+前置技能是 `bzoj3238`
+
 ### 树直径
 
 `2` `20190427` `bzoj2870` `树直径`
@@ -134,6 +148,30 @@
 
 然后计数经过这条边的。
 
+### dfs序
+
+`3` `20190605` `bzoj3991` `思维` `dfs序`
+
+### 点分树
+
+`3` `20190605` `bzoj4012` `点分树` `树链剖分` `lca` `主席树`
+
+**解法一：**
+
+点分治可以查询块内的点与当前重心的信息，点分树是将这个信息减去重复统计的。
+
+通常先把点分树建出来，然后像点分治那样正常统计。
+
+统计的细节稍微推一下。
+
+**解法二：**
+
+dis(a, b) = dis(a) + dis(b) - 2 * dis(lca(a, b))
+
+离线：和`bzoj3626`差不多。线段树的部分可以标记不下传。
+
+在线：用主席树。
+
 ### 思维
 
 `3` `20190427` `bzoj2006` `思维`
@@ -143,20 +181,6 @@
 `1` `20190516` `bzoj3653` `线段树合并`
 
 ## 题目
-
-http://www.lydsy.com/JudgeOnline/problem.php?id=3435
-
-http://www.lydsy.com/JudgeOnline/problem.php?id=3784
-
-http://www.lydsy.com/JudgeOnline/problem.php?id=3784
-
-http://www.lydsy.com/JudgeOnline/problem.php?id=3879
-
-http://www.lydsy.com/JudgeOnline/problem.php?id=3914
-
-http://www.lydsy.com/JudgeOnline/problem.php?id=3991
-
-http://www.lydsy.com/JudgeOnline/problem.php?id=4012
 
 http://www.lydsy.com/JudgeOnline/problem.php?id=4016
 
@@ -181,6 +205,10 @@ http://www.lydsy.com/JudgeOnline/problem.php?id=5287
 http://www.lydsy.com/JudgeOnline/problem.php?id=5329
 
 http://www.lydsy.com/JudgeOnline/problem.php?id=5362
+
+http://www.lydsy.com/JudgeOnline/problem.php?id=3435
+
+http://www.lydsy.com/JudgeOnline/problem.php?id=3914
 
 http://uoj.ac/problem/207
 
