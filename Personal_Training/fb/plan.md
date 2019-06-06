@@ -362,7 +362,7 @@
 
   ​	求多项式等比数列和的第m项系数，可以用递归除2去做。
 
-- [ ] 状压dp 2.00
+- [x] 状压dp 2.00
 
   O 1. http://acm.hdu.edu.cn/showproblem.php?pid=2820
 
@@ -435,6 +435,12 @@
   ​	bfs过程中对每个点开个状态来表示
 
 - [ ] 背包问题 0.50
+
+  1.http://codeforces.com/problemset/problem/868/E
+
+  2.http://codeforces.com/problemset/problem/920/D
+
+  3.http://codeforces.com/problemset/problem/946/D
 
 - [ ] 构造 1.00
 
