@@ -400,6 +400,16 @@
 
   ​	状态为已经有哪些物品，分步转移优化
 
+  O 10.https://www.lydsy.com/JudgeOnline/problem.php?id=4455
+
+  ​	给n个点的图和树，给树不重复标号，树上边要在图中出现。用容斥来保证标号不重复，有重复标号等价于有标号没用到
+
+  O 11.https://www.lydsy.com/JudgeOnline/problem.php?id=4565
+
+  ​	一个01串可选k个合并为一个，得到对应2^k种权值中一个，求最大价值，区间dp，主要把合并过程看成一棵树，枚举后缀为0或1以及前缀的状态合并 
+
+  12.https://www.lydsy.com/JudgeOnline/problem.php?id=4600
+
 - [ ] 背包问题 0.50
 
 - [ ] 构造 1.00
