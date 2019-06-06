@@ -340,7 +340,7 @@
 
   ​	不太算分治，就是对数据范围分类用不同的做法
 
-- [x] 分治fft 2.00
+- [ ] 分治fft 2.00
 
   O1.https://www.lydsy.com/JudgeOnline/problem.php?id=5342
 
@@ -366,7 +366,7 @@
 
   O 1. http://acm.hdu.edu.cn/showproblem.php?pid=2820
 
-  ​	求相邻差值小于等于k(k<=4)的排列数量，一种枚举排列的方法 	
+  ​	求相邻差值小于等于k(k<=4)的排列数量，一种枚举排列的方法，考虑有序插入数字，那么已有的数字可以表示成一些段，转移主要有合并，连接，新增一段，还要注意考虑边界状态。	
 
   O 2.https://www.lydsy.com/JudgeOnline/problem.php?id=1072
 
@@ -387,6 +387,52 @@
   O 6.https://www.lydsy.com/JudgeOnline/problem.php?id=3717
 
   ​	n个物品放入m个包里，最少要几个包，状态为用了哪些物品，考虑状态之间的有序性，逐个插入物品
+
+  O 7.https://www.lydsy.com/JudgeOnline/problem.php?id=3812
+
+  ​	n点m边强连通子图计数，首先要会n点m边DAG计数，然后把枚举出度为零的点集容斥改为枚举缩点后出度为零的点集容斥
+
+  O 8.https://www.lydsy.com/JudgeOnline/problem.php?id=4057
+
+  ​	简单的状态表示和转移
+
+  O 9.https://www.lydsy.com/JudgeOnline/problem.php?id=4145
+
+  ​	状态为已经有哪些物品，分步转移优化
+
+  O 10.https://www.lydsy.com/JudgeOnline/problem.php?id=4455
+
+  ​	给n个点的图和树，给树不重复标号，树上边要在图中出现。用容斥来保证标号不重复，有重复标号等价于有标号没用到
+
+  O 11.https://www.lydsy.com/JudgeOnline/problem.php?id=4565
+
+  ​	一个01串可选k个合并为一个，得到对应2^k种权值中一个，求最大价值，区间dp，主要把合并过程看成一棵树，枚举后缀为0或1以及前缀的状态合并 
+
+  12.https://www.lydsy.com/JudgeOnline/problem.php?id=4600
+
+  O 13.http://acm.hdu.edu.cn/showproblem.php?pid=1074
+
+  ​	简单题
+
+  O 14.http://acm.hdu.edu.cn/showproblem.php?pid=3920
+
+  ​	每次给固定选一个再枚举一个转移，复杂度低一些
+
+  O 15.http://acm.hdu.edu.cn/showproblem.php?pid=4049
+
+  ​	层之间的有序性要考虑清楚，最好写成分层的形式
+
+  O 16.http://acm.hdu.edu.cn/showproblem.php?pid=4997
+
+  ​	求边双联通子图个数, 需要容斥计算联通子图，不联通子图，单联通子图个数
+
+  O 17.http://acm.hdu.edu.cn/showproblem.php?pid=5067
+
+  ​	TSP问题
+
+  O 18.http://acm.hdu.edu.cn/showproblem.php?pid=5094
+
+  ​	bfs过程中对每个点开个状态来表示
 
 - [ ] 背包问题 0.50
 
