@@ -59,7 +59,7 @@ struct FastIO {
 	}
 }io;
 
-int n, m, k, a[N];
+int n, m, k, a[N], L[N], R[N];
 ll res, ans[N];
 vi vec;
 struct Node {
@@ -96,29 +96,32 @@ struct Fenwick {
 inline void upd(int p, int c) {
 	int x = a[p];
 	if(c == -1) fw.upd(F(x), c);
-	int l = F(x - k), r = upper_bound(all(vec), x + k) - vec.begin();
+	int l = L[p], r = R[p];
 	res += c * fw.qry(l, r);
 	if(c == 1) fw.upd(F(x), c);
 }
 int main() {
-	while(n = io.xint(), !io.ed) {
-		m = io.xint(); k = io.xint();
-		B = sqrt(n); vec.clear(); res = 0;
-		rep(i, 1, n + 1) a[i] = io.xint(), vec.pb(a[i]);
-		sort(all(vec));
-		vec.erase(unique(all(vec)), vec.end());
-		fw.ini(sz(vec));
-		rep(i, 1, m + 1) nd[i].l = io.xint(), nd[i].r = io.xint(), nd[i].ind = i;
-		sort(nd + 1, nd + 1 + m);
-		int l = 1, r = 0;
-		rep(i, 1, m + 1) {
-			while(l < nd[i].l) upd(l++, -1);
-			while(l > nd[i].l) upd(--l, 1);
-			while(r < nd[i].r) upd(++r, 1);
-			while(r > nd[i].r) upd(r--, -1);
-			ans[nd[i].ind] = res;
-		}
-		rep(i, 1, m + 1) io.wll(ans[i]), io.wchar('\n');
+	n = io.xint(); m = io.xint(); k = io.xint();
+	B = sqrt(n); vec.clear(); res = 0;
+	rep(i, 1, n + 1) a[i] = io.xint(), vec.pb(a[i]);
+	sort(all(vec));
+	vec.erase(unique(all(vec)), vec.end());
+	fw.ini(sz(vec));
+	rep(i, 1, m + 1) nd[i].l = io.xint(), nd[i].r = io.xint(), nd[i].ind = i;
+	sort(nd + 1, nd + 1 + m);
+	rep(i, 1, n + 1) {
+		int x = a[i];
+		L[i] = F(x - k);
+		R[i] = upper_bound(all(vec), x + k) - vec.begin();
 	}
+	int l = 1, r = 0;
+	rep(i, 1, m + 1) {
+		while(l < nd[i].l) upd(l++, -1);
+		while(l > nd[i].l) upd(--l, 1);
+		while(r < nd[i].r) upd(++r, 1);
+		while(r > nd[i].r) upd(r--, -1);
+		ans[nd[i].ind] = res;
+	}
+	rep(i, 1, m + 1) io.wll(ans[i]), io.wchar('\n');
 	return 0;
 }
