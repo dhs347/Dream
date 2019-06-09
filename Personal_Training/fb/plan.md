@@ -438,6 +438,8 @@
 
   1.http://codeforces.com/problemset/problem/868/E
 
+  ​	树上抓人问题总结：决策就是每次不往来的方向走，除非其他方向全为空，以及不往空的方向走，dp的时候边界要特别注意，同时还套了一个给每个子树分配权值计算最大消耗是多少的子dp，只是这个过程有点像背包。
+
   2.http://codeforces.com/problemset/problem/920/D
 
   3.http://codeforces.com/problemset/problem/946/D
