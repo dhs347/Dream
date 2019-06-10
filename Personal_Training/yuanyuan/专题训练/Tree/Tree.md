@@ -10,7 +10,7 @@
 
 |  专题  | LCA  | 点分治  | 树链剖分 |  虚树  | 树直径  | 长链剖分 | 基环树  | dfs序 | 点分树  | LCT  | 括号序  |
 | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
-|  题量  |  2   |  10  |  5   |  3   |  1   |  2   |  1   |  2   |  1   |  1   |  1   |
+|  题量  |  2   |  10  |  5   |  3   |  1   |  2   |  1   |  2   |  2   |  1   |  1   |
 
 ### LCA
 
@@ -188,6 +188,8 @@ dis(a, b) = dis(a) + dis(b) - 2 * dis(lca(a, b))
 
 在线：用主席树。
 
+`2` `20190610` `bzoj4372` `点分树` `线段树`
+
 ### LCT
 
 `3` `20190607` `bzoj4025` `LCT` `线段树分治` `可撤销并查集`
@@ -211,8 +213,6 @@ https://www.cnblogs.com/skylee03/p/8066974.html#commentform
 `1` `20190516` `bzoj3653` `线段树合并`
 
 ## 题目
-
-http://www.lydsy.com/JudgeOnline/problem.php?id=4372
 
 http://www.lydsy.com/JudgeOnline/problem.php?id=4543
 
