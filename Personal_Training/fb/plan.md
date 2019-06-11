@@ -436,13 +436,43 @@
 
 - [ ] 背包问题 0.50
 
-  1.http://codeforces.com/problemset/problem/868/E
+  O 1.http://codeforces.com/problemset/problem/868/E
 
   ​	树上抓人问题总结：决策就是每次不往来的方向走，除非其他方向全为空，以及不往空的方向走，dp的时候边界要特别注意，同时还套了一个给每个子树分配权值计算最大消耗是多少的子dp，只是这个过程有点像背包。
 
   2.http://codeforces.com/problemset/problem/920/D
 
   3.http://codeforces.com/problemset/problem/946/D
+
+  O 4.https://www.lydsy.com/JudgeOnline/problem.php?id=1042
+
+  ​	问多重背包构成n的方案数，如果种类很少可以容斥
+
+  O 5.https://www.lydsy.com/JudgeOnline/problem.php?id=4247
+
+  ​	消耗有正有负的背包，需要把增加容量的物品放在前面
+
+  O 6.https://www.lydsy.com/JudgeOnline/problem.php?id=2287
+
+  ​	背包求逆
+
+  O 7.https://www.lydsy.com/JudgeOnline/problem.php?id=5215
+
+  ​	背包结果乘个组合数，有个细节就是0个球分配到0个箱子要是1，不能用那个公式
+
+  O 8.https://www.lydsy.com/JudgeOnline/problem.php?id=4753
+
+  ​	0-1分数规划加上树上依赖型背包，就是暴力枚举子树合并即可，这个复杂度是O(n ^ 2)的，如果是size和K取min，那么复杂度是O(n * K)
+
+  9.https://www.lydsy.com/JudgeOnline/problem.php?id=1065
+
+  10.https://www.lydsy.com/JudgeOnline/problem.php?id=5390
+
+  11.https://www.lydsy.com/JudgeOnline/problem.php?id=2914
+
+  O 12.http://codeforces.com/problemset/problem/868/E
+
+  ​	很特殊的背包，如果容量为1 - i，设前缀容量为V，可以在枚举的时候只枚举到[V - (i - 1) ^ 2, V], 设x表示减的数，表示最优方案不会在前面丢掉x以上且后边取了x以上。
 
 - [ ] 构造 1.00
 
