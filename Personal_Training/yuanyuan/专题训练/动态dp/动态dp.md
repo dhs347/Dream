@@ -6,6 +6,8 @@
 
 https://www.cnblogs.com/YoungNeal/p/10360291.html
 
+http://immortalco.blog.uoj.ac/blog/2625
+
 ## 动态dp
 
 1、用树剖实现复杂度是 $O(nlog_2^2n*矩乘复杂度)$
@@ -23,14 +25,10 @@ https://www.lydsy.com/JudgeOnline/problem.php?id=4712
 
 https://www.lydsy.com/JudgeOnline/problem.php?id=5210
 
-
-
-https://www.luogu.org/problemnew/show/P4643
-
-http://uoj.ac/problem/268
-
 http://uoj.ac/problem/441
 
-https://www.lydsy.com/JudgeOnline/problem.php?id=4911
 
-或者：https://loj.ac/problem/2269
+
+https://www.lydsy.com/JudgeOnline/problem.php?id=4732
+
+https://www.lydsy.com/JudgeOnline/problem.php?id=4911
