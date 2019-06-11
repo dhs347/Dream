@@ -21,7 +21,7 @@ https://www.luogu.org/problemnew/show/P4719
 
 https://www.lydsy.com/JudgeOnline/problem.php?id=4712
 
-3.https://www.lydsy.com/JudgeOnline/problem.php?id=5210
+https://www.lydsy.com/JudgeOnline/problem.php?id=5210
 
 http://uoj.ac/problem/441
 
