@@ -23,12 +23,14 @@ https://www.lydsy.com/JudgeOnline/problem.php?id=4712
 
 https://www.lydsy.com/JudgeOnline/problem.php?id=5210
 
+
+
+https://www.luogu.org/problemnew/show/P4643
+
+http://uoj.ac/problem/268
+
 http://uoj.ac/problem/441
 
-2.https://www.luogu.org/problemnew/show/P4643
-
-5.http://uoj.ac/problem/268
-
-6.https://www.lydsy.com/JudgeOnline/problem.php?id=4911
+https://www.lydsy.com/JudgeOnline/problem.php?id=4911
 
 或者：https://loj.ac/problem/2269
