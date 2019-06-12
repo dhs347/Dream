@@ -12,6 +12,10 @@ http://immortalco.blog.uoj.ac/blog/2625
 
 1、用树剖实现复杂度是 $O(nlog_2^2n*矩乘复杂度)$
 
+2、LCT实现复杂度是 $O(nlog_2n)$，常数比较大
+
+只需要用到其中的access操作。
+
 ## 题目
 
 https://www.luogu.org/problemnew/show/P4719
@@ -26,6 +30,8 @@ https://www.lydsy.com/JudgeOnline/problem.php?id=4712
 https://www.lydsy.com/JudgeOnline/problem.php?id=5210
 
 http://uoj.ac/problem/441
+
+https://www.luogu.org/problemnew/show/P4751
 
 
 
