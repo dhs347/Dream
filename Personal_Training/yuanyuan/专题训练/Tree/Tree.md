@@ -230,8 +230,6 @@ https://www.cnblogs.com/skylee03/p/8066974.html#commentform
 
 ## 题目
 
-http://www.lydsy.com/JudgeOnline/problem.php?id=4712
-
 http://www.lydsy.com/JudgeOnline/problem.php?id=4912
 
 http://www.lydsy.com/JudgeOnline/problem.php?id=5192
