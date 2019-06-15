@@ -8,6 +8,10 @@ https://www.cnblogs.com/YoungNeal/p/10360291.html
 
 http://immortalco.blog.uoj.ac/blog/2625
 
+https://www.luogu.org/blog/gkxx-is-here/what-the-hell-is-ddp （洛谷日报 #130）
+
+https://www.luogu.org/problemnew/solution/P4719
+
 ## 动态dp
 
 1、用树剖实现复杂度是 $O(nlog_2^2n*矩乘复杂度)$
