@@ -6,11 +6,13 @@
 
 2019/6/5 10:28 ~ 2019/6/10 20:16
 
+2019/6/15 20:37 ~ 
+
 ## 记录
 
 |  专题  | LCA  | 点分治  | 树链剖分 |  虚树  | 树直径  | 长链剖分 | 基环树  | dfs序 | 点分树  | LCT  | 括号序  |
 | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
-|  题量  |  2   |  10  |  5   |  3   |  1   |  3   |  1   |  2   |  2   |  1   |  1   |
+|  题量  |  2   |  10  |  5   |  4   |  1   |  3   |  1   |  2   |  2   |  1   |  1   |
 
 ### LCA
 
@@ -136,6 +138,8 @@ https://www.cnblogs.com/skylee03/p/8066974.html#commentform
 
 前置技能是 `bzoj3238`
 
+`5` `20190615` `bzoj4912` `虚树` `前后缀优化建图` `dp`
+
 ### 树直径
 
 `2` `20190427` `bzoj2870` `树直径`
@@ -229,8 +233,6 @@ https://www.cnblogs.com/skylee03/p/8066974.html#commentform
 `1` `20190516` `bzoj3653` `线段树合并`
 
 ## 题目
-
-http://www.lydsy.com/JudgeOnline/problem.php?id=4912
 
 http://www.lydsy.com/JudgeOnline/problem.php?id=5192
 
