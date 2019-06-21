@@ -468,7 +468,9 @@
 
   ​	比较好的树上背包问题，首先要解那个二元方程算出贡献式，之后要枚举环大小变成树上问题，然后要多记一维记录u到根的距离，注意两种转移式要严格注意下标，只有距离大于1才有切割的转移，不能合在一起写，不然会错乱。
 
-  10.https://www.lydsy.com/JudgeOnline/problem.php?id=5390
+  O 10.https://www.lydsy.com/JudgeOnline/problem.php?id=5390
+
+  ​	本质上还是一种分步优化，每次只加一颗糖或一盒糖，不用再枚举糖数量了。
 
   11.https://www.lydsy.com/JudgeOnline/problem.php?id=2914
 
