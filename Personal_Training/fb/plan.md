@@ -464,9 +464,13 @@
 
   ​	0-1分数规划加上树上依赖型背包，就是暴力枚举子树合并即可，这个复杂度是O(n ^ 2)的，如果是size和K取min，那么复杂度是O(n * K)
 
-  9.https://www.lydsy.com/JudgeOnline/problem.php?id=1065
+  O 9.https://www.lydsy.com/JudgeOnline/problem.php?id=1065
 
-  10.https://www.lydsy.com/JudgeOnline/problem.php?id=5390
+  ​	比较好的树上背包问题，首先要解那个二元方程算出贡献式，之后要枚举环大小变成树上问题，然后要多记一维记录u到根的距离，注意两种转移式要严格注意下标，只有距离大于1才有切割的转移，不能合在一起写，不然会错乱。
+
+  O 10.https://www.lydsy.com/JudgeOnline/problem.php?id=5390
+
+  ​	本质上还是一种分步优化，每次只加一颗糖或一盒糖，不用再枚举糖数量了。
 
   11.https://www.lydsy.com/JudgeOnline/problem.php?id=2914
 
