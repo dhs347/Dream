@@ -238,8 +238,6 @@ https://www.cnblogs.com/skylee03/p/8066974.html#commentform
 
 ## 题目
 
-http://www.lydsy.com/JudgeOnline/problem.php?id=5210
-
 http://www.lydsy.com/JudgeOnline/problem.php?id=5287
 
 http://www.lydsy.com/JudgeOnline/problem.php?id=5329
