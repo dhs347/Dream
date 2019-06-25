@@ -14,42 +14,51 @@ using namespace std;
 #define dd(x) cout << #x << " = " << x << " "
 typedef long long ll;
 typedef pair<int, int> pii;
-typedef long double db;
 typedef vector<int> vi;
 
-const db eps = 1. / 2;
+const int P = 1e9 + 7;
 
 int n, k, C;
 int a[18][20], b[1 << 18][20], ans[20], cnt[1 << 18];
-db mul[1 << 18];
+int sum[1 << 18];
+
+int add(int a, int b) {
+	if((a += b) >= P) a -= P;
+	return a;
+}
+int sub(int a, int b) {
+	if((a -= b) < 0) a += P;
+	return a;
+}
+int mul(int a, int b) {
+	return a * 1ll * b % P;
+}
 
 bool solve() {
 	rep(j, k, k << 1) ans[j] = C;
 	rep(i, 0, k) {
 		rep(j, 0, 1 << n) {
-			mul[j] = 1;
+			sum[j] = 1;
 			rep(t, 0, k) if(t != i) {
 				int L = max(b[j][t], ans[t]);
 				int R = min(b[j][t + k], ans[t + k]);
-				mul[j] *= (L > R ? 0 : R - L + 1);
+				sum[j] = mul(sum[j], L > R ? 0 : R - L + 1);
 			}
 		}
 		int l = ans[i], r = ans[i + k], res = -1;
-		db tt = 1;
-		rep(t, 0, k) if(t != i) tt *= ans[t + k] - ans[t] + 1;
+		int tt = 1;
+		rep(t, 0, k) if(t != i) tt = mul(tt, ans[t + k] - ans[t] + 1);
 		while(l <= r) {
 			int mid = l + r >> 1;
-			db rr = 0;
+			int rr = 0;
 			rep(j, 1, 1 << n) {
-				int L = max(0, b[j][i]), R = min(mid, b[j][i + k]);
-				db t = mul[j] * (L > R ? 0 : R - L + 1);
-				if(cnt[j] & 1) rr += t;
-				else rr -= t;
+				int L = max(l, b[j][i]), R = min(mid, b[j][i + k]);
+				int t = mul(sum[j], (L > R ? 0 : R - L + 1));
+				if(cnt[j] & 1) rr = add(rr, t);
+				else rr = sub(rr, t);
 			}
-			assert(rr > -eps);
-			db tot = tt * (mid + 1);
-			assert(rr <= tot + 1);
-			if(fabs(rr - tot) > eps) {
+			int tot = mul(tt, mid - l + 1);
+			if(tot != rr) {
 				res = mid;
 				r = mid - 1;
 			} else {
