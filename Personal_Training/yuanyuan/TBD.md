@@ -26,6 +26,8 @@ https://www.lydsy.com/JudgeOnline/problem.php?id=4998
 
 平面图的对偶图
 
+http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010433 L
+
 ## 图论
 
 图中环计数
