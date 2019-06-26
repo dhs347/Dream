@@ -9,7 +9,7 @@
 | 2019/5/4 [2019浙江省赛](https://vjudge.net/contest/299425#overview) |  14  |  O   |  O   |  O   |  Ø   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  !   |  .   |
 | 2019/5/19 [2019福建省赛](https://sil256.github.io/2019fjcpcscoreboard/) [done]\[现场] |  1   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |      |      |
 | 2019/6/9 [2019广东江苏省赛](https://cn.vjudge.net/contest/305967#overview) |      |  Ø   |  O   |  O   |  .   |  O   |  Ø   |  O   |  Ø   |  O   |  .   |  O   |  O   |      |
-| 2019/6/25 [XIX Open Cup GP of SPb](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010433) |  99  |  Ø   |  !   |  .   |  Ø   |  .   |  Ø   |  Ø   |  .   |  .   |  .   |  .   |  .   |      |
+| 2019/6/25 [XIX Open Cup GP of SPb](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010433) |  99  |  O   |  !   |  .   |  O   |  .   |  O   |  O   |  Ø   |  Ø   |  Ø   |  Ø   |  .   |      |
 
 `. 尚未通过 O 当场通过  Ø 赛后通过  ! 放弃补题`
 

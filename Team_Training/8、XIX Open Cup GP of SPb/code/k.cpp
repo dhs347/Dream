@@ -17,213 +17,149 @@ typedef pair<int, int> pii;
 typedef double db;
 typedef vector<int> vi;
 
-const int N = 22;
+const int N = 222;
 
-ll lcm(ll a, ll b) {
-	return a * b / __gcd(a, b);
-}
+int n, m;
+int arr[N][N], ord[N][N];
+bool vis[N][N];
 
+ll lcm(ll a, ll b) { return a * b / __gcd(a, b); }
 struct Node {
 	ll a, b;
-	Node() {}
+	Node() : a(0), b(1) {}
 	Node(string s) {
 		stringstream ss(s);
 		ss >> a; b = 1;
 	}
-	Node(ll a, ll b) : a(a), b(b) {}
+	Node(ll c) : a(c), b(1) {}
+	Node(ll _a, ll _b) {
+		a = _a, b = _b;
+		ll d = __gcd(a, b);
+		a /= d, b /= d;
+		if(b < 0) a = -a, b = -b;
+	}
 	Node operator + (const Node &c) const {
 		ll t = lcm(b, c.b);
 		ll z = a * (t / b) + c.a * (t / c.b);
-		ll d = __gcd(t, z);
-		t /= d, z /= d;
-		if(t < 0) t *= -1, z *= -1;
 		return Node(z, t);
 	}
 	Node operator - (const Node &c) const {
 		ll t = lcm(b, c.b);
 		ll z = a * (t / b) - c.a * (t / c.b);
-		ll d = __gcd(t, z);
-		t /= d, z /= d;
-		if(t < 0) t *= -1, z *= -1;
 		return Node(z, t);
 	}
-	Node operator * (const ll &c) const {
-		ll z = a * c, t = b;
-		ll d = __gcd(t, z);
-		t /= d, z /= d;
-		if(t < 0) t *= -1, z *= -1;
-		return Node(z, t);
-	}
-	Node operator / (const ll &c) const {
-		ll z = a, t = b * c;
-		ll d = __gcd(t, z);
-		t /= d, z /= d;
-		if(t < 0) t *= -1, z *= -1;
-		return Node(z, t);
-	}
-	bool operator == (const Node &c) const {
-		return a == c.a && b == c.b;
-	}
-	bool operator != (const Node &c) const {
-		return !(*this == c);
-	}
-	void print() {
-		cout << a << "/" << b;
-	}
+	Node operator * (const Node &c) const { return Node(a * c.a, b * c.b); }
+	Node operator / (const Node &c) const { return Node(a * c.b, b * c.a); }
+	Node operator * (const ll &c) const { return Node(a * c, b); }
+	Node operator / (const ll &c) const { return Node(a, b * c); }
+	bool operator == (const Node &c) const { return a == c.a && b == c.b; }
+	bool operator != (const Node &c) const { return !(*this == c); }
+	void print() { cout << a << "/" << b; }
 };
 
-int n, m;
-bool ok[N][N], ot[N][N], ans;
-Node nd[N][N], tmp[N][N];
+Node a[N][N], x[N], ta[N][N], tx[N];
+bool ok[N];
+int equ, var;
+int fre[N], cfre;
 
-void gao1() {
-	rep(i, 0, n) {
-		int cnt = 0;
-		rep(j, 0, m) cnt += ot[i][j];
-		if(cnt < 2) continue;
-		Node d, pre, A; bool Find = 0; int pj;
-		rep(j, 0, m) if(ot[i][j]) {
-			if(Find) {
-				d = (tmp[i][j] - pre) / (j - pj);
-				A = pre - d * pj;
-				break;
-			} else {
-				Find = 1;
-				pre = tmp[i][j];
-				pj = j;
-			}
-		}
-		rep(j, 0, m) {
-			if(ot[i][j]) {
-				if(tmp[i][j] != A) ans = 0;
-			} else {
-				tmp[i][j] = A;
-				ot[i][j] = 1;
-			}
-			A = A + d;
+void gao(int p[], int q[]) {
+	int val[3] = {-2, 1, 1};
+	rep(i, 0, 3) {
+		int nx = p[i], ny = q[i];
+		if(vis[nx][ny]) {
+			a[equ][var] = a[equ][var] - Node(arr[nx][ny]) * val[i];
+		} else {
+			a[equ][ord[nx][ny]] = Node(val[i]);
 		}
 	}
+	++equ;
 }
-void print() {
-	rep(i, 0, n) {
-		rep(j, 0, m) {
-			tmp[i][j].print();
+void solve(int c, int k, int col, int p) {
+	int pre = var;
+	per(i, 0, k) {
+		int num = 0;
+		rep(j, 0, var) if(a[i][j].a) {
+			if(!num) p = j; num++;
+		}
+		rep(j, 0, i) if(a[j][p].a) {
+			Node t = a[j][p];
+			rep(l, p, var + 1) a[j][l] = a[j][l] - a[i][l] * t;
+			//per(l, p, var + 1) a[j][l] = a[j][l] - a[i][l] * a[j][p];
+		}
+		rep(j, p + 1, pre) fre[cfre++] = j, x[j] = Node(c); pre = p;
+		x[p] = a[i][var];
+		rep(j, p + 1, var) x[p] = x[p] - x[j] * a[i][j];
+		ok[p] = 1;
+	}
+	if(!k) rep(i, 0, var) x[i] = Node(c);
+	rep(i, 0, n) rep(j, 0, m) {
+		(vis[i][j] ? Node(arr[i][j]) : x[ord[i][j]]).print();
+//		if(!vis[i][j]) dd(ord[i][j]), x[ord[i][j]].print();
+		cout << " \n"[j == m - 1];
+	}
+}
+void gauss() {
+	int k, col, p;
+	for(k = col = 0; k < equ && col < var; ++k, ++col) {
+		p = k; rep(i, k + 1, equ) if(a[i][col].a) { p = i; break; }
+		if(p != k) rep(j, k, var + 1) swap(a[p][j], a[k][j]);
+		if(!a[k][col].a) { k--; continue; }
+		per(i, col, var + 1) a[k][i] = a[k][i] / a[k][col];
+		rep(i, k + 1, equ) if(a[i][col].a) {
+			per(j, col, var + 1) a[i][j] = a[i][j] - a[k][j] * a[i][col];
+		}
+	}
+	rep(i, k, equ) if(a[i][var].a) {
+		cout << "None" << endl;
+		exit(0);
+	}
+	if(k == var) {
+		cout << "Unique" << endl;
+		per(i, 0, var) {
+			Node t = a[i][var];
+			rep(j, i + 1, var) if(a[i][j].a) t = t - a[i][j] * x[j];
+			x[i] = t;
+		}
+		rep(i, 0, n) rep(j, 0, m) {
+			(vis[i][j] ? Node(arr[i][j]) : x[ord[i][j]]).print();
 			cout << " \n"[j == m - 1];
 		}
+		exit(0);
 	}
-}
-void gao2() {
-	rep(j, 0, m) {
-		int cnt = 0;
-		rep(i, 0, n) cnt += ot[i][j];
-		if(cnt < 2) continue;
-		Node d, pre, A; bool Find = 0; int pj;
-		rep(i, 0, n) if(ot[i][j]) {
-			if(Find) {
-				d = (tmp[i][j] - pre) / (i - pj);
-				A = pre - d * pj;
-				break;
-			} else {
-				Find = 1;
-				pre = tmp[i][j];
-				pj = i;
-			}
-		}
-		rep(i, 0, n) {
-			if(ot[i][j]) {
-				if(tmp[i][j] != A) ans = 0;
-			} else {
-				tmp[i][j] = A;
-				ot[i][j] = 1;
-			}
-			A = A + d;
-		}
-	}
-}
-
-void gao() {
-	int pre = 0;
-	while(1) {
-		gao1();
-		gao2();
-		int cnt = 0;
-		rep(i, 0, n) rep(j, 0, m) cnt += ot[i][j];
-		if(cnt == pre) return ;
-		pre = cnt;
-	}
-}
-void solve(ll nn) {
-	int hang[22] = {0}, lie[22] = {0};
-	rep(i, 0, n) rep(j, 0, m) hang[i] += ot[i][j], lie[j] += ot[i][j];
-	rep(i, 0, n) hang[i] = (hang[i] == 1);
-	rep(i, 0, m) lie[i] = (lie[i] == 1);
-	int x = -1, y = 0;
-	rep(i, 0, n) rep(j, 0, m) if(!ot[i][j] && hang[i] && lie[j]) {
-		x = i, y = j; break;
-	}
-	if(x == -1) rep(i, 0, n) rep(j, 0, m) if(!ot[i][j] && (hang[i] || lie[j])) {
-		x = i, y = j; break;
-	}
-	if(x == -1) rep(i, 0, n) rep(j, 0, m) if(!ot[i][j]) {
-		x = i, y = j; break;
-	}
-	if(x == -1) return ;
-	ot[x][y] = 1;
-	tmp[x][y] = Node(nn, 1);
-	gao();
-}
-void solve0(ll nn) {
-	solve(nn);
-	int pre = 0;
-	while(1) {
-		solve(0);
-		int cnt = 0;
-		rep(i, 0, n) rep(j, 0, m) cnt += ot[i][j];
-		if(cnt == pre) break;
-		pre = cnt;
-	}
-	print();
-}
-void solve(ll n1, ll n2, ll n3, ll n4) {
-	solve(n1);
-	solve(n2);
-	solve(n3);
-	solve(n4);
-	print();
+	cout << "Multiple" << endl;
+	rep(i, 0, equ) rep(j, 0, var + 1) ta[i][j] = a[i][j];
+	rep(i, 0, var) tx[i] = x[i];
+	solve(0, k, col, p);
+	cout << "and" << endl;
+	memset(ok, 0, sizeof(ok));
+	memset(fre, cfre = 0, sizeof(fre));
+	rep(i, 0, equ) rep(j, 0, var + 1) a[i][j] = ta[i][j];
+	rep(i, 0, var) x[i] = tx[i];
+	solve(1, k, col, p);
 }
 
 int main() {
 	std::ios::sync_with_stdio(0);
 	std::cin.tie(0);
-	ans = 1;
 	cin >> n >> m;
 	rep(i, 0, n) rep(j, 0, m) {
 		string s; cin >> s;
 		if(s[0] == '?') {
+			ord[i][j] = var++;
 		} else {
-			ok[i][j] = 1;
-			nd[i][j] = Node(s);
-			ot[i][j] = 1;
-			tmp[i][j] = nd[i][j];
+			vis[i][j] = 1;
+			stringstream ss(s);
+			ss >> arr[i][j];
 		}
 	}
-	gao();
-	if(!ans) {
-		cout << "None" << endl;
-		return 0;
+	rep(i, 0, n) rep(j, 0, m) {
+		int p[3] = {i, i + 1, i - 1};
+		int q[3] = {j, j, j};
+		if(i - 1 >= 0 && i + 1 < n) gao(p, q);
+		p[1] = p[2] = i;
+		q[1] = j + 1, q[2] = j - 1;
+		if(j - 1 >= 0 && j + 1 < m) gao(p, q);
 	}
-	int cnt = 0;
-	rep(i, 0, n) rep(j, 0, m) cnt += ot[i][j];
-	if(cnt == n * m) {
-		cout << "Unique" << endl;
-		print();
-		return 0;
-	}
-	rep(i, 0, n) rep(j, 0, m) ok[i][j] = ot[i][j], nd[i][j] = tmp[i][j];
-	cout << "Multiple" << endl;
-	solve0(0);
-	rep(i, 0, n) rep(j, 0, m) ot[i][j] = ok[i][j], tmp[i][j] = nd[i][j];
-	cout << "and" << endl;
-	solve0(1);
+	gauss();
 	return 0;
 }
