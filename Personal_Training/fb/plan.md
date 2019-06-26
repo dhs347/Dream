@@ -486,6 +486,403 @@
 
 - [ ] 网络流 5.00
 
+  【1】最大流（最小割）（重点）
+
+  指定题目：
+
+  1.http://www.lydsy.com/JudgeOnline/problem.php?id=2229
+
+  2.http://www.lydsy.com/JudgeOnline/problem.php?id=1001
+
+  3.http://www.lydsy.com/JudgeOnline/problem.php?id=1797
+
+  4.http://www.lydsy.com/JudgeOnline/problem.php?id=2561
+
+  5.http://codeforces.com/problemset/problem/813/D
+
+  6.http://codeforces.com/problemset/problem/818/G
+
+  7.http://codeforces.com/problemset/problem/802/C
+
+  8.http://codeforces.com/problemset/problem/1082/G
+
+  【2】费用流/带负权环（重点）
+
+  指定题目：
+
+  1.http://www.lydsy.com/JudgeOnline/problem.php?id=1877
+
+  2.http://www.lydsy.com/JudgeOnline/problem.php?id=2668
+
+  3.http://www.lydsy.com/JudgeOnline/problem.php?id=2597
+
+  4.http://www.lydsy.com/JudgeOnline/problem.php?id=1834
+
+  【网络流综合】
+
+  建模阅读：https://wenku.baidu.com/view/a22336727fd5360cba1adb83.html
+  《最小割模型在信息学竞赛中的应用》
+
+  http://blog.csdn.net/qq_35649707/article/details/77482691
+
+  1.http://www.lydsy.com/JudgeOnline/problem.php?id=4514
+
+  2.http://www.lydsy.com/JudgeOnline/problem.php?id=1433
+
+  3.http://www.lydsy.com/JudgeOnline/problem.php?id=1934
+
+  4.http://www.lydsy.com/JudgeOnline/problem.php?id=1854
+
+  5.http://www.lydsy.com/JudgeOnline/problem.php?id=1834
+
+  6.http://www.lydsy.com/JudgeOnline/problem.php?id=1927
+
+  7.http://www.lydsy.com/JudgeOnline/problem.php?id=2673
+
+  8.http://www.lydsy.com/JudgeOnline/problem.php?id=3876
+
+  9.http://www.lydsy.com/JudgeOnline/problem.php?id=3698
+
+  10.http://www.lydsy.com/JudgeOnline/problem.php?id=2502
+
+  11.http://www.lydsy.com/JudgeOnline/problem.php?id=2055
+
+  12.http://poj.org/problem?id=2396
+
+  13.http://acm.zju.edu.cn/onlinejudge/showProblem.do?problemCode=3229
+
+  14.http://acm.zju.edu.cn/onlinejudge/showProblem.do?problemCode=2314
+
+  15.http://www.lydsy.com/JudgeOnline/problem.php?id=2406
+
+  16.http://www.lydsy.com/JudgeOnline/problem.php?id=3280
+
+  17.http://www.lydsy.com/JudgeOnline/problem.php?id=3112
+
+  18.http://www.lydsy.com/JudgeOnline/problem.php?id=1917
+
+  19.http://www.lydsy.com/JudgeOnline/problem.php?id=3218（此题有论文，好像是16或17年的）
+
+  http://blog.csdn.net/outer_form/article/details/50847581
+
+  20.http://www.lydsy.com/JudgeOnline/problem.php?id=1570
+
+  21.http://www.lydsy.com/JudgeOnline/problem.php?id=3532
+
+  22.http://www.lydsy.com/JudgeOnline/problem.php?id=3158
+
+  23.http://www.lydsy.com/JudgeOnline/problem.php?id=2561
+
+  24.http://www.lydsy.com/JudgeOnline/problem.php?id=1877
+
+  25.http://www.lydsy.com/JudgeOnline/problem.php?id=1412
+
+  26.http://www.lydsy.com/JudgeOnline/problem.php?id=3993
+
+  27.https://vjudge.net/contest/189299#problem/C
+
+  28.http://www.lydsy.com/JudgeOnline/problem.php?id=1070
+
+  29.http://www.lydsy.com/JudgeOnline/problem.php?id=1458
+
+  30.http://www.lydsy.com/JudgeOnline/problem.php?id=4823
+
+  31.http://www.lydsy.com/JudgeOnline/problem.php?id=1822
+
+  32.http://www.lydsy.com/JudgeOnline/problem.php?id=3681
+
+  33.http://www.lydsy.com/JudgeOnline/problem.php?id=1497
+
+  34.http://www.lydsy.com/JudgeOnline/problem.php?id=1266
+
+  35.http://www.lydsy.com/JudgeOnline/problem.php?id=1823
+
+  36.http://www.lydsy.com/JudgeOnline/problem.php?id=1823
+
+  37.http://www.lydsy.com/JudgeOnline/problem.php?id=1324
+
+  38.http://www.lydsy.com/JudgeOnline/problem.php?id=2095
+
+  39.http://acm.split.hdu.edu.cn/showproblem.php?pid=4807
+
+  40.https://vjudge.net/contest/189689#problem/I
+
+  41.http://hzwer.com/5844.html
+
+  42.http://hzwer.com/5842.html
+
+  43.http://hzwer.com/1955.html
+
+  44.http://hzwer.com/1758.html
+
+  45.http://www.lydsy.com/JudgeOnline/problem.php?id=3308
+
+  46.http://www.lydsy.com/JudgeOnline/problem.php?id=3996
+
+  47.http://www.lydsy.com/JudgeOnline/problem.php?id=3272
+
+  48.http://www.lydsy.com/JudgeOnline/problem.php?id=3931
+
+  49.http://www.lydsy.com/JudgeOnline/problem.php?id=1797
+
+  50.http://www.lydsy.com/JudgeOnline/problem.php?id=3894
+
+  51.http://www.lydsy.com/JudgeOnline/problem.php?id=1283
+
+  52.http://www.lydsy.com/JudgeOnline/problem.php?id=3144
+
+  53.http://www.lydsy.com/JudgeOnline/problem.php?id=2756
+
+  54.http://www.lydsy.com/JudgeOnline/problem.php?id=2400
+
+  55.http://www.lydsy.com/JudgeOnline/problem.php?id=1149
+
+  56.http://www.lydsy.com/JudgeOnline/problem.php?id=2718
+
+  57.http://www.lydsy.com/JudgeOnline/problem.php?id=2895
+
+  58.http://www.lydsy.com/JudgeOnline/problem.php?id=1565
+
+  59.http://www.lydsy.com/JudgeOnline/problem.php?id=2007
+
+  60.http://www.lydsy.com/JudgeOnline/problem.php?id=2893
+
+  61.http://www.lydsy.com/JudgeOnline/problem.php?id=2929
+
+  62.http://www.lydsy.com/JudgeOnline/problem.php?id=1520
+
+  63.http://www.lydsy.com/JudgeOnline/problem.php?id=2324
+
+  64.http://www.lydsy.com/JudgeOnline/problem.php?id=3396
+
+  65.http://www.lydsy.com/JudgeOnline/problem.php?id=3504
+
+  66.http://www.lydsy.com/JudgeOnline/problem.php?id=1532
+
+  67.http://www.lydsy.com/JudgeOnline/problem.php?id=1930
+
+  68.http://www.lydsy.com/JudgeOnline/problem.php?id=2661
+
+  69.http://www.lydsy.com/JudgeOnline/problem.php?id=1061
+
+  70.http://www.lydsy.com/JudgeOnline/problem.php?id=1711
+
+  71.http://www.lydsy.com/JudgeOnline/problem.php?id=2879
+
+  72.http://www.lydsy.com/JudgeOnline/problem.php?id=3275
+
+  73.http://www.lydsy.com/JudgeOnline/problem.php?id=2768
+
+  74.http://www.lydsy.com/JudgeOnline/problem.php?id=2245
+
+  75.http://www.lydsy.com/JudgeOnline/problem.php?id=1391
+
+  76.http://www.lydsy.com/JudgeOnline/problem.php?id=2127
+
+  77.http://www.lydsy.com/JudgeOnline/problem.php?id=2132
+
+  78.http://www.lydsy.com/JudgeOnline/problem.php?id=3171
+
+  79.http://www.lydsy.com/JudgeOnline/problem.php?id=2424
+
+  80.http://www.lydsy.com/JudgeOnline/problem.php?id=1221
+
+  81.http://www.lydsy.com/JudgeOnline/problem.php?id=1305
+
+  82.http://www.lydsy.com/JudgeOnline/problem.php?id=1066
+
+  83.http://poj.org/problem?id=1637
+
+  84.http://hihocoder.com/problemset/problem/1393
+
+  85.http://hihocoder.com/problemset/problem/1394
+
+  86.http://hihocoder.com/problemset/problem/1398
+
+  87.http://www.51nod.com/onlineJudge/questionCode.html#!problemId=1325
+
+  88.http://acm.split.hdu.edu.cn/showproblem.php?pid=3879
+
+  89.http://acm.split.hdu.edu.cn/showproblem.php?pid=3871
+
+  90.https://nanti.jisuanke.com/t/15549
+
+  91.http://acm.split.hdu.edu.cn/showproblem.php?pid=5772
+
+  92.http://acm.split.hdu.edu.cn/showproblem.php?pid=4888
+
+  93.http://acm.split.hdu.edu.cn/showproblem.php?pid=6214
+
+  94.http://acm.split.hdu.edu.cn/showproblem.php?pid=1569
+
+  95.http://www.lydsy.com/JudgeOnline/problem.php?id=4873
+
+  96.http://www.lydsy.com/JudgeOnline/problem.php?id=3232
+
+  97.http://www.lydsy.com/JudgeOnline/problem.php?id=5037
+
+  98.http://www.lydsy.com/JudgeOnline/problem.php?id=3438
+
+  99.http://www.lydsy.com/JudgeOnline/problem.php?id=3041
+
+  100.http://poj.org/problem?id=2125
+
+  101.http://acm.split.hdu.edu.cn/showproblem.php?pid=1530
+
+  102.http://acm.split.hdu.edu.cn/showproblem.php?pid=3585
+
+  103.http://acm.split.hdu.edu.cn/showproblem.php?pid=5277
+
+  104.http://acm.split.hdu.edu.cn/showproblem.php?pid=5458
+
+  105.http://acm.split.hdu.edu.cn/showproblem.php?pid=5556
+
+  106.http://poj.org/problem?id=2400
+
+  107.http://poj.org/problem?id=3281
+
+  108.http://poj.org/problem?id=3469
+
+  109.http://poj.org/problem?id=2195
+
+  110.http://acm.zju.edu.cn/onlinejudge/showProblem.do?problemCode=2071
+
+  111.http://acm.zju.edu.cn/onlinejudge/showProblem.do?problemCode=2760
+
+  112.https://cn.vjudge.net/problem/SGU-242
+
+  113.http://poj.org/problem?id=1149
+
+  114.http://poj.org/problem?id=3498
+
+  115.http://poj.org/problem?id=2391
+
+  116.http://poj.org/problem?id=2112
+
+  117.http://poj.org/problem?id=2455
+
+  118.http://poj.org/problem?id=1698
+
+  119.http://poj.org/problem?id=1459
+
+  120.http://poj.org/problem?id=1087
+
+  121.http://acm.zju.edu.cn/onlinejudge/showProblem.do?problemCode=3976
+
+  122.https://cn.vjudge.net/problem/SGU-438
+
+  123.http://acm.zju.edu.cn/onlinejudge/showProblem.do?problemCode=2071
+
+  124.http://acm.zju.edu.cn/onlinejudge/showProblem.do?problemCode=2532
+
+  125.http://poj.org/problem?id=1815
+
+  126.http://poj.org/problem?id=3204
+
+  127.http://acm.zju.edu.cn/onlinejudge/showProblem.do?problemCode=2587
+
+  128.http://poj.org/problem?id=1966
+
+  129.http://www.spoj.com/problems/OPTM/
+
+  130.http://acm.zju.edu.cn/onlinejudge/showProblem.do?problemCode=2676
+
+  131.http://poj.org/problem?id=3155
+
+  132.http://acm.zju.edu.cn/onlinejudge/showProblem.do?problemCode=3241
+
+  133.http://acm.hdu.edu.cn/showproblem.php?pid=3157
+
+  134.https://cn.vjudge.net/problem/SGU-176
+
+  135.http://poj.org/problem?id=2175
+
+  136.http://poj.org/problem?id=3422
+
+  137.http://poj.org/problem?id=2516
+
+  138.http://poj.org/problem?id=2699
+
+  139.http://poj.org/problem?id=3084
+
+  140.http://poj.org/problem?id=3189
+
+  141.http://poj.org/problem?id=3308
+
+  142.http://codeforces.com/problemset/problem/884/F
+
+  143.http://codeforces.com/problemset/problem/877/F
+
+  144.http://codeforces.com/problemset/problem/818/G
+
+  145.http://codeforces.com/gym/101564   （D题）
+
+  146.http://codeforces.com/gym/101981/attachments I题
+
+  
+
+  
+
+  【网络流复习·强化】
+
+  1.http://codeforces.com/problemset/problem/808/F
+
+  2.http://codeforces.com/problemset/problem/818/G
+
+  3.http://codeforces.com/problemset/problem/813/D
+
+  4.http://codeforces.com/problemset/problem/802/O
+
+  5.http://codeforces.com/problemset/problem/793/G
+
+  6.http://codeforces.com/problemset/problem/786/E
+
+  7.http://codeforces.com/problemset/problem/736/E
+
+  8.http://codeforces.com/problemset/problem/739/E
+
+  9.http://codeforces.com/problemset/problem/730/I
+
+  10.http://codeforces.com/problemset/problem/727/D
+
+  11.http://codeforces.com/problemset/problem/724/E
+
+  12.http://codeforces.com/problemset/problem/723/E
+
+  13.http://codeforces.com/problemset/problem/717/G
+
+  14.http://codeforces.com/problemset/problem/708/D
+
+  15.http://codeforces.com/problemset/problem/704/D
+
+  16.http://codeforces.com/problemset/problem/720/B
+
+  17.http://codeforces.com/problemset/problem/653/D
+
+  18.http://codeforces.com/problemset/problem/628/F
+
+  19.http://codeforces.com/problemset/problem/611/H
+
+  20.http://codeforces.com/problemset/problem/589/F
+
+  21.http://codeforces.com/problemset/problem/546/E
+
+  22.http://codeforces.com/problemset/problem/498/C
+
+  23.http://codeforces.com/problemset/problem/491/C
+
+  24.http://codeforces.com/problemset/problem/78/E
+
+  25.http://uoj.ac/problem/77
+
+  26.http://uoj.ac/problem/132
+
+  27.http://uoj.ac/problem/85
+
+  28.http://codeforces.com/problemset/problem/863/F
+
+  
+
 - [ ] 贪心 2.00
 
 - [ ] 线性代数 1.00
