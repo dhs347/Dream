@@ -18,7 +18,7 @@ typedef double db;
 typedef vector<int> vi;
 
 const ll P = pw(31);
-ll inv[200000], x, t, invx, ok;
+ll inv[300000], x, t, invx, ok, a[300000];
 ll kpow(ll a, ll b) {
 	ll res = 1;
 	while (b) {
@@ -30,56 +30,29 @@ ll kpow(ll a, ll b) {
 }
 
 int n, cnt[50], nn;
-vi a[50];
 int main() {
 //	std::ios::sync_with_stdio(0);
 //	std::cin.tie(0);
 	cin >> n;
-	nn = n;
-	rep(i, 1, 110000) inv[i] = kpow(i, P - pw(30) - 1);
-	//de(inv[23] * 23 % P);
-	per(i, 0, 31) {
-		cnt[i] = min(pw(30 - i), 1ll * nn / (i + 1));
-		nn -= cnt[i];
-	}
-	rep(i, 0, 31) {
-		//de(cnt[i]);
-		rep(j, 0, cnt[i]) {
-			nn++;
-			x = (2 * j + 1) * pw(i);
-			assert(x < P);
-			cout << x << " \n"[nn == n];
-		}
-	}
-	fflush(stdout);
-	assert(nn == n);
-	rep(i, 1, n/2 + 1) {
-		cin >> x;
-		t = 0;
-		while (x % 2 == 0) {
-			x /= 2;
-			t++;
-		}
-		a[t].pb(x);
-	}
-	per(i, 0, 31) {
-		if (sz(a[i])) {
-			rep(j, 0, cnt[i]) {
-				x = a[i][0] * inv[j * 2 + 1] % P;
-				invx = kpow(x, P - pw(30) - 1);
-				ok = 1;
-				rep(k, 0, 31) {
-					rep(l, 0, sz(a[k])) if (a[k][l] * invx % P> cnt[k] * 2 - 1) {ok = 0; break;}
-					if (!ok) break;
-				}
-				if (ok) {
-					cout << x << endl;
-					assert(x >= 1 && x < P);
-					fflush(stdout);
-					return 0;
-				}
-			} 
-			break;
+	rep(i, 1, n+1) cout << i * 2 - 1 << " \n"[i == n];
+	fflush(stdout); 
+	rep(i, 1, 210000) inv[i] = kpow(i, P - pw(30) - 1);
+	rep(i, 1, n/2+1) cin >> a[i];
+	rep(i, 1, n+1) {
+		x = a[1] * inv[i * 2 - 1] % P;
+		invx = kpow(x, P - pw(30) - 1);
+		ok = 1;
+		rep(j, 1, n / 2 + 1) {
+			t = a[j] * invx % P;
+			if (t > n * 2 - 1) {
+				ok = 0;
+				break;
+			}
+		} 
+		if (ok) {
+			cout << x << endl;
+			fflush(stdout);
+			return 0;
 		}
 	}
 	return 0;
