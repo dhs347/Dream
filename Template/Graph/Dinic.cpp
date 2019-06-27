@@ -1,4 +1,5 @@
-// [0,n) init!!
+// [0,n) init!! 
+// double need eps  
 template<class T>
 struct Dinic{
     const static int N = 10101 , M = N * 10;
@@ -14,7 +15,7 @@ struct Dinic{
         while(L < R && !~lv[t]){
             int c = q[L++];
             for(int k = h[c]; ~k ; k = ne[k])
-                if(cap[k] > 0 && !~lv[to[k]])
+                if(cap[k] > 0 && !~lv[to[k]]) 
                     lv[q[R++] = to[k]] = lv[c] + 1;
         }
         return ~lv[t];
