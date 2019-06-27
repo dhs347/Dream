@@ -506,6 +506,10 @@
 
   8.http://codeforces.com/problemset/problem/1082/G
 
+  O 9.http://www.lydsy.com/JudgeOnline/problem.php?id=2039
+
+  ​	一个图种要选一些点，点有花费，i,j一起选有贡献2 * Ei,j，不一起选有贡献-Ei,j，要转化成最小割模型，一般的套路是先算全部的价值减掉最小割，要去构造边权使割能代表每一种方案。好像有一种建图方法交二元关系建图，只考虑存再两个点，然后推广。
+
   【2】费用流/带负权环（重点）
 
   指定题目：
@@ -671,7 +675,9 @@
 
   70.http://www.lydsy.com/JudgeOnline/problem.php?id=1711
 
-  71.http://www.lydsy.com/JudgeOnline/problem.php?id=2879
+  O 71.http://www.lydsy.com/JudgeOnline/problem.php?id=2879
+
+  ​	类似排队问题的贡献转为每个点是乘1到x，然后贪心地想乘的数字是从小到大有序的，所以每次增量更新这个图。
 
   72.http://www.lydsy.com/JudgeOnline/problem.php?id=3275
 
