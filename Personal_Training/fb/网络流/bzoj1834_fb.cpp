@@ -24,12 +24,13 @@ int mul(int a, int b) {return 1ll * a * b % P;}
 int kpow(int a, int b) {int r=1;for(;b;b>>=1,a=mul(a,a)) {if(b&1)r=mul(r,a);}return r;}
 //----
 
-int n, m, u, v, c, w, ans1, ans2, kk;
+ll n, m, u, v, c, w, ans1, ans2, kk;
 
 // [0,n) , init!! , inf modify
 template<class U,class V>
 struct MCMF{
-    static const int N = 204 , M = 101010, inf = pw(30);
+    static const int N = 2004 , M = 101010;
+	static const ll inf = pw(60);
     int h[N], ing[N], pre[N], to[M], ne[M], e, s, t, n;
     U cap[M]; V dis[N] , cost[M];
     void ini(int _n = N){ fill(h , h + (n=_n) , -1);e = 0;}
@@ -64,6 +65,7 @@ struct MCMF{
 			if (dis[t] > 0) {
 				ans2 += min(kk, pl) * dis[t];
 				kk -= min(kk, pl);
+				if (kk == 0) return mp(flow, mincost);
 			} 
 			mincost += pl * dis[t];
             flow += pl;
@@ -72,7 +74,7 @@ struct MCMF{
     }
 };
 
-MCMF<int, int> G;
+MCMF<ll, ll> G;
 
 int main() {
 	freopen("a.in","r",stdin);
