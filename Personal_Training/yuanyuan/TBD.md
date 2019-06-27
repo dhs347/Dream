@@ -14,6 +14,12 @@ https://www.lydsy.com/JudgeOnline/problem.php?id=4066
 
 https://www.lydsy.com/JudgeOnline/problem.php?id=3489
 
+### 猫树
+
+http://immortalco.blog.uoj.ac/blog/2102
+
+https://www.cnblogs.com/zjp-shadow/p/9377742.html
+
 ## 并查集
 
 https://www.lydsy.com/JudgeOnline/problem.php?id=4998
