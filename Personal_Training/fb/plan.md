@@ -516,7 +516,9 @@
 
   3.http://www.lydsy.com/JudgeOnline/problem.php?id=2597
 
-  4.http://www.lydsy.com/JudgeOnline/problem.php?id=1834
+  O 4.http://www.lydsy.com/JudgeOnline/problem.php?id=1834
+
+  ​	费用流有每一次增广路长度不降的性质
 
   【网络流综合】
 
@@ -621,7 +623,9 @@
 
   47.http://www.lydsy.com/JudgeOnline/problem.php?id=3272
 
-  48.http://www.lydsy.com/JudgeOnline/problem.php?id=3931
+  O 48.http://www.lydsy.com/JudgeOnline/problem.php?id=3931
+
+  ​	点上带流量限制，可以拆点去做
 
   49.http://www.lydsy.com/JudgeOnline/problem.php?id=1797
 
