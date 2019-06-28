@@ -25,7 +25,7 @@ struct BSGS{
     	return -1;
     }
     ll ex_bsgs(ll x, ll z, ll P) { //x^y==z(mod P)
-    	ll t = 1, w = 1, ans, c = 0; z %= P;
+    	ll t = 1 % P, w = 1, ans, c = 0; z %= P;
     	rep(i, 0, 51) { if (t == z) return i; t = t * x % P; }
     	for(t = __gcd(x, P); t != 1; t = __gcd(x, P)){
     		if (z % t) return -1;
