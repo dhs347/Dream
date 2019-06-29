@@ -1,4 +1,4 @@
-// 曼哈顿最小距离生成树
+// 曼哈顿最小距离生成树（可以求最大）
 // 这份代码处理的区域是 Y 轴右转 45 度
 namespace MMST {
 #define lb(x) ((x) & -(x))
@@ -7,6 +7,7 @@ namespace MMST {
 	vector<pair<int, pii> > E;
 	vi V;
 
+	// 最大只要把这里所有 mi 改成 ma 就行了
 	pii mi[N];
 	void init() { rep(i, 1, sz(V) + 1) mi[i] = mp(inf, inf); }
 	void upd(int p, pii c) {
