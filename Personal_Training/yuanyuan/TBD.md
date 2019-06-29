@@ -34,6 +34,10 @@ https://www.lydsy.com/JudgeOnline/problem.php?id=4998
 
 http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010433 L
 
+http://clatisus.com/template/zhongzihao/geometry
+
+http://clatisus.com/template/zhongzihao/3dgeometry
+
 ## 图论
 
 图中环计数
