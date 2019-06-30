@@ -2,7 +2,7 @@ const db EPS = 1e-8, DINF = 1e15;
 struct Simplex {
 	static const int M = 550;
 	int n, m, B[M], N[M];
-	db v, ans[M], b[M], c[M], A[M][M]; // È«çÛÄ£¾ØÕó¿ÉÒÔ¸ÄÕûÊı 
+	db v, ans[M], b[M], c[M], A[M][M]; // å…¨å¹ºæ¨¡çŸ©é˜µå¯ä»¥æ”¹æ•´æ•° 
 	/* n - variables, m - equations
 	*maxf(x)=cx
 	*s.t.Ax<=b,x>=0 */
@@ -18,13 +18,13 @@ struct Simplex {
 		rep(i, 1, n + 1) if (i != e) A[l][i] /= tmp;
 		rep(i, 1, m + 1) if (i != l && sgn(A[i][e])) {
 			b[i] -= A[i][e] * b[l];
-			rep(j, 1, n + 1) A[i][j] -= (j!=e) * A[i][e] * A[l][j];
+			rep(j, 1, n + 1) A[i][j] -= (j!=e) * A[i][e] * A[l][j]; // å¯ä»¥é“¾å¼ä¼˜åŒ– 
 			A[i][e] = - A[i][e] / tmp;
 		}
 		rep(i, 1, n + 1) c[i] -= (i!=e) * c[e] * A[l][i];
 		v += b[l] * c[e]; c[e] *= -A[l][e]; swap(B[l], N[e]);
 	}
-	bool ini(){ // Ëæ»ú»¯³õÊ¼½â 
+	bool ini(){ // éšæœºåŒ–åˆå§‹è§£ 
     	while(1){
         	int l = -1, e = -1;
 			rep(i, 1, m+1) if (sgn(b[i]) < 0 && (l == -1 || (rand() & 1))) l = i;
@@ -36,21 +36,21 @@ struct Simplex {
     	return 1;
 	}
 	db run() {
-		//if (!ini()) return -DINF; // ÎŞ½â  b < 0 need ini 
+		//if (!ini()) return -DINF; // æ— è§£  b < 0 need ini() 
 		rep(i, 1, n+1) ans[i] = 0; 
 		while (1) {
 			int r, l, e = -1;
 			db delt = -DINF;
-			rep(j, 1, n + 1) if (sgn(c[j]) > 0) { // ÕÒ·Ç»ù±äÁ¿ 
+			rep(j, 1, n + 1) if (sgn(c[j]) > 0) { // æ‰¾éåŸºå˜é‡ 
 				db tmp = DINF;
-				rep(i, 1, m + 1) if (sgn(A[i][j]) > 0 && b[i] / A[i][j] < tmp) // ÕÒ»ù±äÁ¿ 
+				rep(i, 1, m + 1) if (sgn(A[i][j]) > 0 && b[i] / A[i][j] < tmp) // æ‰¾åŸºå˜é‡ 
 					r = i, tmp = b[i] / A[i][j];
-				if (tmp == DINF) return DINF; // ÎŞ½ç 
+				if (tmp == DINF) return DINF; // æ— ç•Œ 
 				if (delt < tmp * c[j]) l = r, e = j, delt = tmp * c[j]; 
 				break; 
-				//Ì°ĞÄÈ¡×î´ó Èç¹û¾ØÕóÎªÈ«çÛÄ£»ò0ºÜ¶à¿ÉÒÔ¼ÓÉÏbreak ÒòÎª×ªÖá´ú¼Û¿ÉÄÜ½ÏĞ¡ 
+				//è´ªå¿ƒå–æœ€å¤§ å¦‚æœçŸ©é˜µä¸ºå…¨å¹ºæ¨¡æˆ–0å¾ˆå¤šå¯ä»¥åŠ ä¸Šbreak å› ä¸ºè½¬è½´ä»£ä»·å¯èƒ½è¾ƒå° 
 			}
-			if (e == -1) break; // ÕÒµ½×îÓÅ½â 
+			if (e == -1) break; // æ‰¾åˆ°æœ€ä¼˜è§£ 
 			pivot(l, e); 
 		}
 		rep(i, 1, m+1) if (B[i] <= n) ans[B[i]] = b[i];
