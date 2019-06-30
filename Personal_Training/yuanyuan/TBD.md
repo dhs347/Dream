@@ -38,6 +38,14 @@ http://clatisus.com/template/zhongzihao/geometry
 
 http://clatisus.com/template/zhongzihao/3dgeometry
 
+2019广东江苏省赛 D J
+
 ## 图论
 
 图中环计数
+
+## 字符串 
+
+最小表示
+
+boder tree
