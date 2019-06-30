@@ -11,6 +11,7 @@
 | 2019/6/9 [2019广东江苏省赛](https://cn.vjudge.net/contest/305967#overview) |      |  Ø   |  O   |  O   |  .   |  O   |  Ø   |  O   |  Ø   |  O   |  .   |  O   |  O   |      |
 | 2019/6/25 [XIX Open Cup GP of SPb](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010433) **[done]** |  99  |  O   |  !   |  Ø   |  O   |  Ø   |  O   |  O   |  Ø   |  Ø   |  Ø   |  Ø   |  !   |      |
 | 2019/6/29 [XIX Open Cup GP of Peterhof ](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010439) **[done]** |  35  |  O   |  Ø   |  O   |  !   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |      |      |
+| 2019/6/29 [XIX Open Cup GP of Korea](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010435) |  47  |  O   |  .   |  .   |  O   |  O   |  O   |  O   |  O   |  O   |  .   |  .   |  O   |  Ø   |
 
 `. 尚未通过 O 当场通过  Ø 赛后通过  ! 放弃补题`
 
