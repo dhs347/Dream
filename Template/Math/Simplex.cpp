@@ -24,7 +24,19 @@ struct Simplex {
 		rep(i, 1, n + 1) c[i] -= (i!=e) * c[e] * A[l][i];
 		v += b[l] * c[e]; c[e] *= -A[l][e]; swap(B[l], N[e]);
 	}
+	bool ini(){ // 随机化初始解 
+    	while(1){
+        	int l = -1, e = -1;
+			rep(i, 1, m+1) if (sgn(b[i]) < 0 && (l == -1 || (rand() & 1))) l = i;
+        	if(l == -1) break;
+        	rep(j, 1, n+1) if (sgn(A[l][j]) < 0 && (e == -1 || (rand() & 1))) e = j;
+        	if(e == -1) return 0;
+        	pivot(l, e);
+    	}
+    	return 1;
+	}
 	db run() {
+		//if (!ini()) return -DINF; // 无解  b < 0 need ini 
 		rep(i, 1, n+1) ans[i] = 0; 
 		while (1) {
 			int r, l, e = -1;
