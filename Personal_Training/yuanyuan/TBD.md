@@ -49,3 +49,7 @@ http://clatisus.com/template/zhongzihao/3dgeometry
 最小表示
 
 boder tree
+
+## dp优化
+
+wqs二分
