@@ -34,6 +34,18 @@ https://www.lydsy.com/JudgeOnline/problem.php?id=4998
 
 http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010433 L
 
+http://clatisus.com/template/zhongzihao/geometry
+
+http://clatisus.com/template/zhongzihao/3dgeometry
+
+2019广东江苏省赛 D J
+
 ## 图论
 
 图中环计数
+
+## 字符串 
+
+最小表示
+
+boder tree
