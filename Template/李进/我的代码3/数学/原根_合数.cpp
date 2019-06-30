@@ -1,4 +1,4 @@
-ll Pow(ll x,ll k,ll p) {
+ll kpow(ll x,ll k,ll p) {
     ll ret=1;
     for (; k; k>>=1,x=x*x%p) if (k&1) ret=ret*x%p;
     return ret; 
@@ -8,7 +8,7 @@ struct Euler{
     vector<ll> P,A; ll phi,g;
     inline bool check_g(ll g, ll p) {
     	rep(i,0,sz(P))
-    		if (Pow(g, P[i], p) == 1)
+    		if (kpow(g, P[i], p) == 1)
     			return 0;
     	return 1;
     }
@@ -42,7 +42,7 @@ struct Euler{
     inline vector<ll> getAllRoot(ll p) {
         vector<ll> ret; ll g=getRoot(p);
         if (g==-1) return ret;
-        rep(i,0,phi) if (__gcd((ll)i,phi)==1) ret.pb(Pow(g,i,p));
+        rep(i,0,phi) if (__gcd((ll)i,phi)==1) ret.pb(kpow(g,i,p));
         sort(all(ret)); return ret;
     }
 };
