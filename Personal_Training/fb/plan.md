@@ -510,6 +510,10 @@
 
   ​	一个图种要选一些点，点有花费，i,j一起选有贡献2 * Ei,j，不一起选有贡献-Ei,j，要转化成最小割模型，一般的套路是先算全部的价值减掉最小割，要去构造边权使割能代表每一种方案。好像有一种建图方法叫二元关系建图，只考虑存在两个点，然后推广。
 
+  O 10.http://www.lydsy.com/JudgeOnline/problem.php?id=1189
+
+  ​	把每个终点按时间展开成多个点，其他点按最短时间向终点连，然后每次按时间把终点向汇连一条流量为1的边，以及和上一次终点连接，看什么时候最大流等于点数。
+
   【2】费用流/带负权环（重点）
 
   指定题目：
@@ -563,7 +567,9 @@
 
   16.http://www.lydsy.com/JudgeOnline/problem.php?id=3280
 
-  17.http://www.lydsy.com/JudgeOnline/problem.php?id=3112
+  O 17.http://www.lydsy.com/JudgeOnline/problem.php?id=3112
+
+  ​	可以对偶完直接单纯形做，或者用前缀和变量代换，保证每一列刚好一个+1，-1，转费用流做。
 
   18.http://www.lydsy.com/JudgeOnline/problem.php?id=1917
 
