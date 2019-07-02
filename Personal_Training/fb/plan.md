@@ -583,7 +583,9 @@
 
   22.http://www.lydsy.com/JudgeOnline/problem.php?id=3158
 
-  23.http://www.lydsy.com/JudgeOnline/problem.php?id=2561
+  O 23.http://www.lydsy.com/JudgeOnline/problem.php?id=2561
+
+  ​	无向图确定两点为源汇的最小割
 
   24.http://www.lydsy.com/JudgeOnline/problem.php?id=1877
 
