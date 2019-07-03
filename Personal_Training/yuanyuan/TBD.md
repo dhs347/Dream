@@ -51,5 +51,3 @@ http://clatisus.com/template/zhongzihao/3dgeometry
 boder tree
 
 ## dp优化
-
-wqs二分
