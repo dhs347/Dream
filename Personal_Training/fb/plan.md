@@ -528,6 +528,10 @@
 
   ​	费用流有每一次增广路长度不降的性质
 
+  O 5.http://www.lydsy.com/JudgeOnline/problem.php?id=2539
+
+  ​	数据有问题，有重边，以最后一次为准，二分图最大权匹配，可用费用流实现
+
   【网络流综合】
 
   建模阅读：https://wenku.baidu.com/view/a22336727fd5360cba1adb83.html
@@ -631,7 +635,9 @@
 
   45.http://www.lydsy.com/JudgeOnline/problem.php?id=3308
 
-  46.http://www.lydsy.com/JudgeOnline/problem.php?id=3996
+  O 46.http://www.lydsy.com/JudgeOnline/problem.php?id=3996
+
+  ​	也是看作每个变量有取和不取两种，求出所有和后减去最小割，发现建图用二元关系建确实比较好想。
 
   47.http://www.lydsy.com/JudgeOnline/problem.php?id=3272
 
@@ -707,7 +713,9 @@
 
   81.http://www.lydsy.com/JudgeOnline/problem.php?id=1305
 
-  82.http://www.lydsy.com/JudgeOnline/problem.php?id=1066
+  O 82.http://www.lydsy.com/JudgeOnline/problem.php?id=1066
+
+  ​	点上带限制的最大流
 
   83.http://poj.org/problem?id=1637
 
