@@ -1,16 +1,5 @@
-2
 3
-0 0 Adam
-1 1 Jack
-0 2 George
-1 0 Victoria
-0 1 Susan
-1 2 Cathy
-Adam Cathy 100
-Susan George 25
-George Cathy 40
-Jack Susan 5
-Cathy Jack 30
-Victoria Jack 20
-Adam Victoria 15
-End
+3 5 100
+0 6 1
+6 0 2
+1 2 0

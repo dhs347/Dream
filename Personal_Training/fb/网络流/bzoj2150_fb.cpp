@@ -24,11 +24,15 @@ int mul(int a, int b) {return 1ll * a * b % P;}
 int kpow(int a, int b) {int r=1;for(;b;b>>=1,a=mul(a,a)) {if(b&1)r=mul(r,a);}return r;}
 //----
 
+const int N = 55;
+int n, m, s, t, ans, r, c, x, y;
+string ss[N];
+
 // [0,n) init!! 
 // double need eps  
 template<class T>
 struct Dinic{
-    const static int N = 10101 , M = N * 50;
+    const static int N = 10101 , M = N * 10;
     int s , t , n , h[N] , cur[N] , lv[N] , q[N] , e , ne[M] , to[M];
     T cap[M] , flow;
     void liu(int u,int v,T w){ to[e] = v;ne[e] = h[u];cap[e] = w;h[u] = e++;}
@@ -70,9 +74,17 @@ struct Dinic{
     }
 };
 
+
 Dinic<int> G;
 
-int s, t, n, sum, ans, x, a[600][600];
+int id(int x, int y, int z) {
+	return x * m + y + z * n * m;
+}
+
+bool check(int x, int y) {
+	return x < n && y < m && y >= 0 && ss[x][y] == '.';
+}
+
 
 int main() {
 	freopen("a.in","r",stdin);
@@ -80,22 +92,22 @@ int main() {
 	cin.tie(0);
 	//cout << setiosflags(ios::fixed);
 	//cout << setprecision(2);
-	cin >> n;
-	G.ini(n + 10); s = G.n - 5; t = s + 1;
-	rep(i, 1, n+1) rep(j, 1, n+1) {
-		cin >> a[i][j];
-		if (i > j) a[j][i] += a[i][j], a[i][j] = 0;
+	cin >> n >> m >> r >> c;
+	rep(i, 0, n) cin >> ss[i];
+	G.ini(2 * n * m + 10); s = G.n - 5; t = s + 1;
+	per(i, 0, n) rep(j, 0, m) if (ss[i][j] == '.') {
+		G.link(s, id(i, j, 0), 1);
+		G.link(id(i, j, 1), t, 1);
+		x = i + r; y = j + c;
+		if (check(x, y)) G.link(id(i, j, 0), id(x, y, 1), 1);
+		x = i + c; y = j + r;
+		if (check(x, y)) G.link(id(i, j, 0), id(x, y, 1), 1);
+		x = i + r; y = j - c;
+		if (check(x, y)) G.link(id(i, j, 0), id(x, y, 1), 1);
+		x = i + c; y = j - r;
+		if (check(x, y)) G.link(id(i, j, 0), id(x, y, 1), 1);
+		ans++;
 	}
-	rep(i, 1, n+1) {
-		sum = 0;
-		rep(j, 1, n+1) {
-			x = a[i][j];
-			if (x) G.link(i, j, x);
-			sum += x; ans += x;
-		}
-		if (sum) G.link(s, i, sum);
-	}
-	rep(i, 1, n+1) cin >> x, G.link(i, t, x);
 	cout << ans - G.run(s, t) << endl;
 	return 0;
 }

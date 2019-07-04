@@ -514,6 +514,10 @@
 
   ​	把每个终点按时间展开成多个点，其他点按最短时间向终点连，然后每次按时间把终点向汇连一条流量为1的边，以及和上一次终点连接，看什么时候最大流等于点数。
 
+  O 11.http://www.lydsy.com/JudgeOnline/problem.php?id=2150
+
+  ​	最小不相交路径覆盖
+
   【2】费用流/带负权环（重点）
 
   指定题目：
@@ -609,7 +613,9 @@
 
   32.http://www.lydsy.com/JudgeOnline/problem.php?id=3681
 
-  33.http://www.lydsy.com/JudgeOnline/problem.php?id=1497
+  O 33.http://www.lydsy.com/JudgeOnline/problem.php?id=1497
+
+  ​	最大权闭合子图，用最小割做，二元关系建图也可以
 
   34.http://www.lydsy.com/JudgeOnline/problem.php?id=1266
 
