@@ -24,7 +24,7 @@ void file_put() {
 
 #define ____ puts("\n_______________\n\n") 
 #define debug(x) ____; cout<< #x << " => " << (x) << endl
-#define debug_pair(x) cout<<"\n{ "<<(x).fir<<" , "<<(x).sec<<" }\n"
+#define debug_pair(x) cout<<"\n{ "<<(x).fi<<" , "<<(x).se<<" }\n"
 #define debug_arr(x,n) ____; cout<<#x<<":\n"; rep(i,0,n) cout<<#x<<"["<<(i)<<"] => "<<x[i]<<endl
 #define debug_arr2(x,n,m) ____; cout<<#x<<":\n"; rep(i,0,n) rep(j,0,m) cout<<#x<<"["<<(i)<<"]["<<(j)<<"]= "<<x[i][j]<<((j==m)?"\n\n":"    ")
 #define debug_set(x) ____; cout<<#x<<": \n"; rep_it(it,x) cout<<(*it)<<" "; cout<<endl
@@ -46,7 +46,7 @@ inline int Inv(int a, int P) {
 }
 
 struct BSGS{
-    unordered_map<ll, int> M;
+    map<ll, int> M;
     ll bsgs(ll x, ll z, ll P) {
     	if(x % P == 0) return -1;
     	ll res = z % P, sa, t = 1, sq = sqrt(P); M.clear();
@@ -88,7 +88,10 @@ struct Euler{
         if (m>1) P.pb(m),A.pb(1);
     }
     inline ll get_phi(ll p) {
-    	ll phi=p; for (auto t:P) phi=phi/t*(t-1); return phi;
+    	ll phi=p;
+//		for (auto t:P) phi=phi/t*(t-1);
+		rep(i,0,sz(P)) phi=phi/P[i]*(P[i]-1); 
+		return phi;
 	}
     inline bool check(ll m) {
         //if (m==1 || m==2 || m==4) return 1; 
@@ -99,11 +102,12 @@ struct Euler{
         return 1;
     }
     inline ll getRoot(ll p) {
-        if (p==1 || p==2 || p==4) return phi=p+1>>1,p-1;
+        if (p==1 || p==2 || p==4) return phi=p+1>>1,phi_phi=1,p-1;
         if (!check(p)) return -1;
-        phi=get_phi(p);
+        phi=p-1;
     	factor(phi),phi_phi=get_phi(phi);
-    	for (auto &t:P) t=phi/t;
+//    	for (auto &t:P) t=phi/t;
+		rep(i,0,sz(P)) P[i]=phi/P[i]; 
     	for (g=1; __gcd(g,p)!=1 || !check_g(g,p); ++g);
     	return g;
     }
@@ -117,27 +121,31 @@ struct Euler{
 	// solve equation: x^a=b(%p), p could not be prime
 	vector<ll> solve_high(ll a,ll b,ll p) {
 		vector<ll> ret;
+		if (!b) return ret;
 		ll g=getRoot(p);
 		if (g==-1) return ret;
-		ll _b=T.ex_bsgs(g,b,p);
+		ll _b=T.bsgs(g,b,p);
 		if (_b==-1) return ret;
-		factor(p); ll _p=get_phi(p);
+		ll _p=p-1;
 		pair<ll,ll> t=solve(a,_b,_p);
+		if (t.fi==-1) return ret;
 		ll _g=t.se,x=t.fi,ans=kpow(g,x,p),d=kpow(g,_p/_g,p);
 		ret.pb(ans);
 		rep(i,1,_g) ans=ans*d%p,ret.pb(ans);
-		sort(all(ret)); return ret;
+		sort(all(ret)); 
+		return ret;
 	}
 };
 
 ll a,b,p; Euler E;
 
 int main() {
-	file_put();
+//	file_put();
 	
 	scanf("%lld%lld%lld",&p,&a,&b);
 	vector<ll> ret=E.solve_high(a,b,p);
-	debug_arr(ret,sz(ret));
+	printf("%d\n",ret.size());
+	rep(i,0,sz(ret)) printf("%lld%c",ret[i]," \n"[i==sz(ret)-1]); 
 	
 	return 0;
 }
