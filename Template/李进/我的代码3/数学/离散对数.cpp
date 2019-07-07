@@ -34,6 +34,5 @@ struct BSGS{
     	}
     	z = z * Inv(w, P) % P, ans = bsgs(x, z, P);
     	return ans + (ans != -1) * c;
-
     }
 };
