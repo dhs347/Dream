@@ -121,7 +121,7 @@ struct Euler{
 	// solve equation: x^a=b(%p), p could not be prime
 	vector<ll> solve_high(ll a,ll b,ll p) {
 		vector<ll> ret;
-		if (!b) return ret;
+		if (!b) return ret.resize(1,0),ret;
 		ll g=getRoot(p);
 		if (g==-1) return ret;
 		ll _b=T.bsgs(g,b,p);
