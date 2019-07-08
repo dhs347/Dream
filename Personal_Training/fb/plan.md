@@ -514,6 +514,10 @@
 
   ​	把每个终点按时间展开成多个点，其他点按最短时间向终点连，然后每次按时间把终点向汇连一条流量为1的边，以及和上一次终点连接，看什么时候最大流等于点数。
 
+  O 11.http://www.lydsy.com/JudgeOnline/problem.php?id=2150
+
+  ​	最小不相交路径覆盖
+
   【2】费用流/带负权环（重点）
 
   指定题目：
@@ -527,6 +531,10 @@
   O 4.http://www.lydsy.com/JudgeOnline/problem.php?id=1834
 
   ​	费用流有每一次增广路长度不降的性质
+
+  O 5.http://www.lydsy.com/JudgeOnline/problem.php?id=2539
+
+  ​	数据有问题，有重边，以最后一次为准，二分图最大权匹配，可用费用流实现
 
   【网络流综合】
 
@@ -605,7 +613,9 @@
 
   32.http://www.lydsy.com/JudgeOnline/problem.php?id=3681
 
-  33.http://www.lydsy.com/JudgeOnline/problem.php?id=1497
+  O 33.http://www.lydsy.com/JudgeOnline/problem.php?id=1497
+
+  ​	最大权闭合子图，用最小割做，二元关系建图也可以
 
   34.http://www.lydsy.com/JudgeOnline/problem.php?id=1266
 
@@ -631,7 +641,9 @@
 
   45.http://www.lydsy.com/JudgeOnline/problem.php?id=3308
 
-  46.http://www.lydsy.com/JudgeOnline/problem.php?id=3996
+  O 46.http://www.lydsy.com/JudgeOnline/problem.php?id=3996
+
+  ​	也是看作每个变量有取和不取两种，求出所有和后减去最小割，发现建图用二元关系建确实比较好想。
 
   47.http://www.lydsy.com/JudgeOnline/problem.php?id=3272
 
@@ -707,7 +719,9 @@
 
   81.http://www.lydsy.com/JudgeOnline/problem.php?id=1305
 
-  82.http://www.lydsy.com/JudgeOnline/problem.php?id=1066
+  O 82.http://www.lydsy.com/JudgeOnline/problem.php?id=1066
+
+  ​	点上带限制的最大流
 
   83.http://poj.org/problem?id=1637
 
