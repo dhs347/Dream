@@ -1,7 +1,7 @@
 // id starts from 1
 namespace Centriod {
 	const int N = ::N;
-	bool vis[N]; int sz[N], par[N]; vi G;
+	bool vis[N]; int sz[N], par[N]; vi G[N];
 	void dfssz(int c,int fa,int Sz,int &rt){
 		sz[c] = 1;
 		for(auto t : g[c]) if(!vis[t]&&t!=fa) dfssz(t,c,Sz,rt) , sz[c]+=sz[t];
