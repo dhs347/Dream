@@ -86,10 +86,10 @@ struct Euler{
 		a/=g,b/=g,p/=g;
 		return mp(kpow(a,phi_phi-1,p)*b%p,g);//note that phi_phi 
 	}
-	// solve equation: x^a=b(%p), p could be not prime
+	// solve equation: x^a=b(%p), p is prime
 	vector<ll> solve_high(ll a,ll b,ll p) {
 		vector<ll> ret;
-		if (!b) return ret.resize(1,0),ret;
+		if (!b) return ret;
 		ll g=getRoot(p);
 		if (g==-1) return ret;
 		ll _b=T.bsgs(g,b,p);

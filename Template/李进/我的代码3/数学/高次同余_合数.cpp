@@ -57,8 +57,8 @@ struct Euler{
     }
     inline ll get_phi(ll p) {
     	ll phi=p;
-		for (auto t:P) phi=phi/t*(t-1);
-//		rep(i,0,sz(P)) phi=phi/P[i]*(P[i]-1); 
+//		for (auto t:P) phi=phi/t*(t-1);
+		rep(i,0,sz(P)) phi=phi/P[i]*(P[i]-1); 
 		return phi;
 	}
     inline bool check(ll m) {
@@ -70,12 +70,12 @@ struct Euler{
         return 1;
     }
     inline ll getRoot(ll p) {
-        if (p==1 || p==2 || p==4) return phi=p+1>>1,phi_phi=1,p-1;
+        if (p==1 || p==2 || p==4) return phi=p+1>>1,p-1;
         if (!check(p)) return -1;
-        phi=p-1;
+        phi=get_phi(p);
     	factor(phi),phi_phi=get_phi(phi);
-    	for (auto &t:P) t=phi/t;
-//		rep(i,0,sz(P)) P[i]=phi/P[i]; 
+//    	for (auto &t:P) t=phi/t;
+		rep(i,0,sz(P)) P[i]=phi/P[i]; 
     	for (g=1; __gcd(g,p)!=1 || !check_g(g,p); ++g);
     	return g;
     }
@@ -86,15 +86,15 @@ struct Euler{
 		a/=g,b/=g,p/=g;
 		return mp(kpow(a,phi_phi-1,p)*b%p,g);//note that phi_phi 
 	}
-	// solve equation: x^a=b(%p), p could be not prime
+	// solve equation: x^a=b(%p), p could not be prime
 	vector<ll> solve_high(ll a,ll b,ll p) {
 		vector<ll> ret;
 		if (!b) return ret.resize(1,0),ret;
 		ll g=getRoot(p);
 		if (g==-1) return ret;
-		ll _b=T.bsgs(g,b,p);
+		ll _b=T.ex_bsgs(g,b,p);
 		if (_b==-1) return ret;
-		ll _p=p-1;
+		factor(p); ll _p=get_phi(p);
 		pair<ll,ll> t=solve(a,_b,_p);
 		if (t.fi==-1) return ret;
 		ll _g=t.se,x=t.fi,ans=kpow(g,x,p),d=kpow(g,_p/_g,p);
