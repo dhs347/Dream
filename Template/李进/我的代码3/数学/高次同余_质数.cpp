@@ -100,7 +100,6 @@ struct Euler{
 		if (_b==-1) return ret;
 		ll _p=p-1;
 		pll t=solve(a,_b,_p);
-		debug(a); debug(_b); debug(_p); debug_pair(t);
 		if (t.fi==-1) return ret;
 		ll _g=t.se,x=t.fi,ans=kpow(g,x,p),d=kpow(g,_p/_g,p);
 		ret.pb(ans);
