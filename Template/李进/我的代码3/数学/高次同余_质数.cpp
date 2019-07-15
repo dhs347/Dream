@@ -1,5 +1,5 @@
 ll kpow(ll a, ll b, ll P) {
-    ll r = 1;
+    ll r = 1; assert(b>=0);
     for (; b; b>>=1, a = a * a % P) if (b & 1) r = r * a % P;
     return r; 
 }
@@ -55,6 +55,7 @@ struct Euler{
         }
         if (m>1) P.pb(m),A.pb(1);
     }
+	inline void norm(ll &x,ll p) { x=(x%p+p)%p; }
     inline ll get_phi(ll p) {
     	ll phi=p;
 		for (auto t:P) phi=phi/t*(t-1);
@@ -81,14 +82,14 @@ struct Euler{
     }
 	// solve equation: ax=b(%p), gcd(a,p)!=1
 	pair<ll,ll> solve(ll a,ll b,ll p) {
-		ll g=__gcd(a,p);
+		norm(a,p); norm(b,p); ll g=__gcd(a,p);
 		if (b%g) return mp(-1,g);
 		a/=g,b/=g,p/=g;
 		return mp(kpow(a,phi_phi-1,p)*b%p,g);//note that phi_phi 
 	}
 	// solve equation: x^a=b(%p), p could be not prime
 	vector<ll> solve_high(ll a,ll b,ll p) {
-		vector<ll> ret;
+		vector<ll> ret; norm(b,p); assert(p>0);
 		if (!b) return ret.resize(1,0),ret;
 		ll g=getRoot(p);
 		if (g==-1) return ret;
