@@ -38,8 +38,10 @@ struct BSGS{
     }
 };
 
+typedef vector<ll> vll;
+typedef pair<ll,ll> pll;
 struct Euler{
-	vector<ll> P,A; ll phi,g,phi_phi; BSGS T;
+	vll P,A; ll phi,g,phi_phi; BSGS T;
     inline bool check_g(ll g, ll p) {
     	rep(i,0,sz(P))
     		if (kpow(g, P[i], p) == 1)
@@ -81,22 +83,22 @@ struct Euler{
     	return g;
     }
 	// solve equation: ax=b(%p), gcd(a,p)!=1
-	pair<ll,ll> solve(ll a,ll b,ll p) {
+	pll solve(ll a,ll b,ll p) {
 		norm(a,p); norm(b,p); ll g=__gcd(a,p);
 		if (b%g) return mp(-1,g);
 		a/=g,b/=g,p/=g;
 		return mp(kpow(a,phi_phi-1,p)*b%p,g);//note that phi_phi 
 	}
-	// solve equation: x^a=b(%p), p could be not prime
-	vector<ll> solve_high(ll a,ll b,ll p) {
-		vector<ll> ret; norm(b,p); assert(p>0);
+	// solve equation: x^a=b(%p), p must be a prime
+	vll solve_high(ll a,ll b,ll p) {
+		vll ret; norm(b,p); assert(p>0);
 		if (!b) return ret.resize(1,0),ret;
 		ll g=getRoot(p);
 		if (g==-1) return ret;
 		ll _b=T.bsgs(g,b,p);
 		if (_b==-1) return ret;
 		ll _p=p-1;
-		pair<ll,ll> t=solve(a,_b,_p);
+		pll t=solve(a,_b,_p);
 		if (t.fi==-1) return ret;
 		ll _g=t.se,x=t.fi,ans=kpow(g,x,p),d=kpow(g,_p/_g,p);
 		ret.pb(ans);
@@ -105,3 +107,5 @@ struct Euler{
 		return ret;
 	}
 };
+
+// 注 : 返回所有 [0,p) 中的非负整数解
