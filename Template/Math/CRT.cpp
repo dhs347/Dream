@@ -4,7 +4,7 @@ ll a[N], mod[N];
 struct CRT{ 
 	ll M, R;
 	void exgcd(ll a, ll b, ll &x, ll &y){
-		if(b == 0) { x = 1; y = 0; return;}
+		if (!b) { x = 1; y = 0; return;}
 		exgcd(b, a % b, y, x);
 		y -= a / b * x;
 	}
