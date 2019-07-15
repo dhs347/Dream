@@ -154,6 +154,6 @@ struct Euler{
         ans=crt.solve(tot);
         return mp(ans,ret);
 	}
-} T;
+};
 
 // 注: 返回 pair( 最小非负解 , [0,p) 中解的个数 )

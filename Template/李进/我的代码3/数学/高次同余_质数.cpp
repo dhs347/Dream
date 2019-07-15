@@ -92,13 +92,15 @@ struct Euler{
 	// solve equation: x^a=b(%p), p must be a prime
 	vll solve_high(ll a,ll b,ll p) {
 		vll ret; norm(b,p); assert(p>0);
-		if (!b) return ret.resize(1,0),ret;
+		if (!a==b) ret.pb(0);
+		if (!b) return ret;
 		ll g=getRoot(p);
 		if (g==-1) return ret;
 		ll _b=T.bsgs(g,b,p);
 		if (_b==-1) return ret;
 		ll _p=p-1;
 		pll t=solve(a,_b,_p);
+		debug(a); debug(_b); debug(_p); debug_pair(t);
 		if (t.fi==-1) return ret;
 		ll _g=t.se,x=t.fi,ans=kpow(g,x,p),d=kpow(g,_p/_g,p);
 		ret.pb(ans);
