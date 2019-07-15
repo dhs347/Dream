@@ -2,7 +2,7 @@ const int N = 1e5+7;
 ll a[N], mod[N];
 
 struct CRT{ 
-	int M, R;
+	ll M, R;
 	void exgcd(ll a, ll b, ll &x, ll &y){
 		if(b == 0) { x = 1; y = 0; return;}
 		exgcd(b, a % b, y, x);
@@ -14,7 +14,7 @@ struct CRT{
 		x %= mod;
 		return x < 0 ? x + mod : x;
 	}
-	ll CRT(int n, ll *a, ll *mod){
+	ll solve(int n, ll *a, ll *mod){
 		M = mod[1], R = a[1];
 		rep(i, 2, n+1) {
 			ll g = __gcd(M, mod[i]);
