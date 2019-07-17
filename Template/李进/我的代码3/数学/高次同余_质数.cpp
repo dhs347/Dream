@@ -4,12 +4,12 @@ ll kpow(ll a, ll b, ll P) {
     return r; 
 }
 
-void ex_gcd(int a, int b, int &x, int &y){
+void ex_gcd(ll a, ll b, ll &x, ll &y){
 	b ? (ex_gcd(b, a % b, y, x), y -= a / b * x) : (x = 1, y = 0);
 }
 
-inline int Inv(int a, int P) {
-	int x, y; ex_gcd(a, P, x, y);
+inline ll Inv(ll a, ll P) {
+	ll x, y; ex_gcd(a, P, x, y);
 	return x < 0 ? x + P : x;
 }
 

@@ -4,12 +4,12 @@ ll kpow(ll a, ll b, ll P) {
     return r; 
 }
 
-void ex_gcd(int a, int b, int &x, int &y){
+void ex_gcd(ll a, ll b, ll &x, ll &y){
 	b ? (ex_gcd(b, a % b, y, x), y -= a / b * x) : (x = 1, y = 0);
 }
 
-inline int Inv(int a, int P) {
-	int x, y; ex_gcd(a, P, x, y);
+inline ll Inv(ll a, ll P) {
+	ll x, y; ex_gcd(a, P, x, y);
 	return x < 0 ? x + P : x;
 }
 
@@ -52,7 +52,7 @@ struct CRT{
 		x %= mod;
 		return x < 0 ? x + mod : x;
 	}
-	ll solve(int n){
+	ll solve(ll n){
 		M = mod[1], R = a[1];
 		rep(i, 2, n+1) {
 			ll g = __gcd(M, mod[i]);
@@ -125,7 +125,7 @@ struct Euler{
 	// solve equation: x^a=b(%pp^k), pp is a prime
 	pll solve_high(ll a,ll b,ll pp,int k) {
 	    assert(pp>1),assert(k>0);
-		ll p=get_pow(pp,k); norm(b,p); int t1,t2,t3;
+		ll p=get_pow(pp,k); norm(b,p); ll t1,t2,t3;
 		if (!a) return b==1?mp(0,p):mp(-1,0ll);
 		if (!b) return mp(!a,get_pow(pp,k-(k-1)/a-1));
 		ll g=getRoot(p);
