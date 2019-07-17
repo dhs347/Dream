@@ -1,15 +1,48 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define fi first
+#define se second
+#define mp make_pair
+#define pb push_back
+#define rep(i, a, b) for(int i=(a); i<(b); i++)
+#define per(i, a, b) for(int i=(b)-1; i>=(a); i--)
+#define sz(a) (int)a.size()
+#define de(a) cout << #a << " = " << a << endl
+#define dd(a) cout << #a << " = " << a << " "
+#define all(a) a.begin(), a.end()
+#define pw(x) (1ll<<(x))
+#define endl "\n"
+typedef long long ll;
+typedef pair<int, int> pii;
+typedef vector<int> vi;
+typedef double db;
+
+void file_put() {
+    freopen("filename.in", "r", stdin);
+    freopen("filename.out", "w", stdout);
+}
+
+#define rep_it(it,x) for (__typeof((x).begin()) it=(x).begin(); it!=(x).end(); it++)
+#define ____ puts("\n_______________\n\n") 
+#define debug(x) ____; cout<< #x << " => " << (x) << endl
+#define debug_pair(x) cout<<"\n{ "<<(x).fi<<" , "<<(x).se<<" }\n"
+#define debug_arr(x,n) ____; cout<<#x<<":\n"; rep(i,0,n+1) cout<<#x<<"["<<(i)<<"] => "<<x[i]<<endl
+#define debug_arr2(x,n,m) ____; cout<<#x<<":\n"; rep(i,0,n+1) rep(j,0,m+1) cout<<#x<<"["<<(i)<<"]["<<(j)<<"]= "<<x[i][j]<<((j==m)?"\n\n":"    ")
+#define debug_set(x) ____; cout<<#x<<": \n"; rep_it(it,x) cout<<(*it)<<" "; cout<<endl
+#define debug_map(x) ____; cout<<#x<<": \n"; rep_it(it,x) debug_pair(*it)
+
 ll kpow(ll a, ll b, ll P) {
-    ll r = 1; assert(b>=0);
+    ll r = 1;
     for (; b; b>>=1, a = a * a % P) if (b & 1) r = r * a % P;
     return r; 
 }
 
-void ex_gcd(ll a, ll b, ll &x, ll &y){
+void ex_gcd(int a, int b, int &x, int &y){
 	b ? (ex_gcd(b, a % b, y, x), y -= a / b * x) : (x = 1, y = 0);
 }
 
-inline ll Inv(ll a, ll P) {
-	ll x, y; ex_gcd(a, P, x, y);
+inline int Inv(int a, int P) {
+	int x, y; ex_gcd(a, P, x, y);
 	return x < 0 ? x + P : x;
 }
 
@@ -52,15 +85,15 @@ struct CRT{
 		x %= mod;
 		return x < 0 ? x + mod : x;
 	}
-	ll solve(ll n){
+	ll solve(int n){
 		M = mod[1], R = a[1];
 		rep(i, 2, n+1) {
 			ll g = __gcd(M, mod[i]);
 			ll inv = Inv(M / g, mod[i] / g);
-			if ((a[i] - R) % g) return -1; // æ— è§£ 
+			if ((a[i] - R) % g) return -1; // ÎŞ½â 
 			R += inv * ((a[i] - R) / g) % (mod[i] / g) * M;  
 			M = M / g * mod[i];
-			R = (R % M + M) % M; // å¯èƒ½ä¸º 0 çœ‹æ˜¯å¦éœ€è¦æ˜¯æ­£æ•´æ•° 
+			R = (R % M + M) % M; // ¿ÉÄÜÎª 0 ¿´ÊÇ·ñĞèÒªÊÇÕıÕûÊı 
 		}
 		return R;
 	}
@@ -101,7 +134,7 @@ struct Euler{
         return 1;
     }
     inline ll getRoot(ll p) {
-        if (p==1 || p==2 || p==4) return phi=p+1>>1,phi_phi=1,p-1;
+        if (p==1 || p==2 || p==4) return phi=p+1>>1,p-1;
         if (!check(p)) return -1;
         phi=get_phi(p);
     	factor(phi,P,A),phi_phi=get_phi(phi);
@@ -112,20 +145,20 @@ struct Euler{
     }
 	// solve equation: ax=b(%p), gcd(a,p)!=1
 	pll solve(ll a,ll b,ll p) {
-	    norm(a,p); norm(b,p); ll g=__gcd(a,p);
+		ll g=__gcd(a,p);
 		if (b%g) return mp(-1,g);
 		a/=g,b/=g,p/=g;
 		return mp(kpow(a,phi_phi-1,p)*b%p,g);//note that phi_phi 
 	}
 	ll get_pow(ll p,int k) {
-		ll ret=1; assert(k>=0);
+		ll ret=1;
 		rep(i,0,k) ret=ret*p;
 		return ret;
 	}
 	// solve equation: x^a=b(%pp^k), pp is a prime
 	pll solve_high(ll a,ll b,ll pp,int k) {
 	    assert(pp>1),assert(k>0);
-		ll p=get_pow(pp,k); norm(b,p); ll t1,t2,t3;
+		ll p=get_pow(pp,k); norm(b,p); int t1,t2,t3;
 		if (!a) return b==1?mp(0,p):mp(-1,0ll);
 		if (!b) return mp(!a,get_pow(pp,k-(k-1)/a-1));
 		ll g=getRoot(p);
@@ -140,20 +173,38 @@ struct Euler{
 		pair<ll,ll> t=solve(a,_b,_p);
 		if (t.fi==-1) return mp(-1,0);
 		ll _g=t.se,x=t.fi,ans=kpow(g,x,p),d=kpow(g,_p/_g,p),ret=_g;
+//		ret.pb(ans);
+//		rep(i,1,_g) ans=ans*d%p,ret.pb(ans);
+//		sort(all(ret));
         if (ok) ans*=t2,ret*=t3;
 		return mp(ans,ret);
 	}
-	// solve equation: x^a=b(%p), p could not be a prime, but p must have a primitive root, that is 8 cannot divide p 
+	// solve equation: x^a=b(%p), p could not be prime
 	pll solve_high(ll a,ll b,ll p) {
 	    assert(p>0); norm(b,p);
 	    if (p==1) return mp(0,1);
 	    factor(p,_P,_A); int tot=sz(_P); ll ret=1,ans; pll tmp[32];
 	    rep(i,0,tot) tmp[i+1]=solve_high(a,b,_P[i],_A[i]),
             crt.a[i+1]=tmp[i+1].fi,crt.mod[i+1]=get_pow(_P[i],_A[i]),ret*=tmp[i+1].se;
-        if (!ret) return mp(-1,0);
         ans=crt.solve(tot);
         return mp(ans,ret);
 	}
-};
+} T;
 
-// æ³¨: è¿”å› pair( æœ€å°éè´Ÿè§£ , [0,p) ä¸­è§£çš„ä¸ªæ•° )
+int TT,a,b,k;
+
+int main() {
+//    file_put();
+    
+    scanf("%d",&TT);
+    while (TT--) {
+        scanf("%d%d%d",&a,&b,&k);
+        k=2*k+1;
+        pll tmp=T.solve_high(a,b,k);
+//        debug_pair(tmp); 
+        printf("%lld\n",tmp.se);
+    }
+    
+	return 0;
+}
+

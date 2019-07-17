@@ -1,5 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define fi first
+#define se second
+#define mp make_pair
+#define pb push_back
+#define rep(i, a, b) for(int i=(a); i<(b); i++)
+#define per(i, a, b) for(int i=(b)-1; i>=(a); i--)
+#define sz(a) (int)a.size()
+#define de(a) cout << #a << " = " << a << endl
+#define dd(a) cout << #a << " = " << a << " "
+#define all(a) a.begin(), a.end()
+#define pw(x) (1ll<<(x))
+#define endl "\n"
+typedef __int128 ll;
+typedef pair<int, int> pii;
+typedef vector<int> vi;
+typedef double db;
+
+void file_put() {
+    freopen("filename.in", "r", stdin);
+    freopen("filename.out", "w", stdout);
+}
+
 ll kpow(ll a, ll b, ll P) {
-    ll r = 1; assert(b>=0);
+    ll r = 1; //assert(b>=0);
     for (; b; b>>=1, a = a * a % P) if (b & 1) r = r * a % P;
     return r; 
 }
@@ -17,7 +41,7 @@ struct BSGS{
     map<ll, int> M;
     ll bsgs(ll x, ll z, ll P) {
     	if(x % P == 0) return -1;
-    	ll res = z % P, sa, t = 1, sq = sqrt(P); M.clear();
+    	ll res = z % P, sa, t = 1, sq = sqrt((long long)P); M.clear();
     	rep(i, 0, sq+1) { if (M.count(t)) break; M[t] = i, t = t * x % P; }
     	t = P / sq, sa = Inv(kpow(x, sq, P), P);
     	rep(i, 0, t+1) if (M.count(res)) 
@@ -38,7 +62,7 @@ struct BSGS{
     }
 };
 
-typedef vector<ll> vll;
+typedef vector<long long> vll;
 typedef pair<ll,ll> pll;
 struct Euler{
 	vll P,A; ll phi,g,phi_phi; BSGS T;
@@ -91,7 +115,11 @@ struct Euler{
 	}
 	// solve equation: x^a=b(%p), p must be a prime
 	vll solve_high(ll a,ll b,ll p) {
-		vll ret; norm(b,p); assert(p>0);
+		vll ret; norm(b,p); //assert(p>0);
+		
+//		if (!a && !b) return ret.pb(0),ret;
+		
+		
 		if (!a==b) ret.pb(0);
 		if (!b) return ret;
 		ll g=getRoot(p);
@@ -109,4 +137,23 @@ struct Euler{
 	}
 };
 
-// 注 : 返回所有 [0,p) 中的非负整数解
+long long a,b,m; int cas=0; Euler E; vll ret;
+
+int main() {
+//    file_put();
+    
+    while (scanf("%lld%lld%lld",&a,&m,&b)!=EOF) {
+        printf("case%d:\n",++cas);
+        ret=E.solve_high(a,b,m);
+        bool ok=0;
+        b%=m;
+        for (auto t:ret) {
+//            if (!a && b==1 &&!t) continue;
+            printf("%lld\n",t); ok=1;
+        }
+        if (!ok) printf("-1\n");
+    }
+    
+	return 0;
+}
+
