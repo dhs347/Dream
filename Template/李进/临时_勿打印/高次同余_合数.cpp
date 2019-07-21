@@ -1,15 +1,15 @@
 ll kpow(ll a, ll b, ll P) {
-    ll r = 1; assert(b>=0);
+    ll r = 1;
     for (; b; b>>=1, a = a * a % P) if (b & 1) r = r * a % P;
     return r; 
 }
 
-void ex_gcd(ll a, ll b, ll &x, ll &y){
+void ex_gcd(int a, int b, int &x, int &y){
 	b ? (ex_gcd(b, a % b, y, x), y -= a / b * x) : (x = 1, y = 0);
 }
 
-inline ll Inv(ll a, ll P) {
-	ll x, y; ex_gcd(a, P, x, y);
+inline int Inv(int a, int P) {
+	int x, y; ex_gcd(a, P, x, y);
 	return x < 0 ? x + P : x;
 }
 
@@ -38,10 +38,8 @@ struct BSGS{
     }
 };
 
-typedef vector<ll> vll;
-typedef pair<ll,ll> pll;
 struct Euler{
-	vll P,A; ll phi,g,phi_phi; BSGS T;
+	vector<ll> P,A; ll phi,g,phi_phi; BSGS T;
     inline bool check_g(ll g, ll p) {
     	rep(i,0,sz(P))
     		if (kpow(g, P[i], p) == 1)
@@ -57,7 +55,6 @@ struct Euler{
         }
         if (m>1) P.pb(m),A.pb(1);
     }
-	inline void norm(ll &x,ll p) { x=(x%p+p)%p; }
     inline ll get_phi(ll p) {
     	ll phi=p;
 		for (auto t:P) phi=phi/t*(t-1);
@@ -83,23 +80,22 @@ struct Euler{
     	return g;
     }
 	// solve equation: ax=b(%p), gcd(a,p)!=1
-	pll solve(ll a,ll b,ll p) {
-		norm(a,p); norm(b,p); ll g=__gcd(a,p);
+	pair<ll,ll> solve(ll a,ll b,ll p) {
+		ll g=__gcd(a,p);
 		if (b%g) return mp(-1,g);
 		a/=g,b/=g,p/=g;
 		return mp(kpow(a,phi_phi-1,p)*b%p,g);//note that phi_phi 
 	}
-	// solve equation: x^a=b(%p), p must be a prime
-	vll solve_high(ll a,ll b,ll p) {
-		vll ret; norm(b,p); assert(p>0);
-		if (!a==b) ret.pb(0);
-		if (!b) return ret;
+	// solve equation: x^a=b(%p), p could be not prime
+	vector<ll> solve_high(ll a,ll b,ll p) {
+		vector<ll> ret;
+		if (!b) return ret.resize(1,0),ret;
 		ll g=getRoot(p);
 		if (g==-1) return ret;
 		ll _b=T.bsgs(g,b,p);
 		if (_b==-1) return ret;
 		ll _p=p-1;
-		pll t=solve(a,_b,_p);
+		pair<ll,ll> t=solve(a,_b,_p);
 		if (t.fi==-1) return ret;
 		ll _g=t.se,x=t.fi,ans=kpow(g,x,p),d=kpow(g,_p/_g,p);
 		ret.pb(ans);
@@ -108,5 +104,3 @@ struct Euler{
 		return ret;
 	}
 };
-
-// 注 : 返回所有 [0,p) 中的非负整数解
