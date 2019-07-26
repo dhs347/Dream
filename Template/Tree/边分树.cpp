@@ -1,3 +1,4 @@
+// init
 namespace ET {
 	const int N = ::N << 1;
 	Gra g, T; int L, n, sz[N]; bool vis[N << 1];
@@ -10,12 +11,12 @@ namespace ET {
 			if(rt == -1 || max(sz[g.to[rt]], Sz - sz[g.to[rt]]) > max(sz[v], Sz - sz[v])) rt = i;
 		}
 	}
+	void init(int n) {
+		fill_n(vis, n << 1, 0);
+	}
 	int dfs(int u) {
 		int I = 0; dfssz(u, 0, 0, I);
-		if(sz[u] == n) {
-			T.init(n);
-			fill_n(vis, n << 1, false);
-		}
+		if(sz[u] == n) { T.init(n); }
 		if(sz[u] == 1) return u;
 		dfssz(u, 0, sz[u], I = -1);
 		vis[I] = vis[I ^ 1] = true;
