@@ -14,7 +14,7 @@
 | 2019/6/30 [XIX Open Cup GP of Korea](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010435) **[done]** |  47  |  O   |  Ø   |  Ø   |  O   |  O   |  O   |  O   |  O   |  O   |  Ø   |  Ø   |  O   |  Ø   |
 | 2019/7/18 [2019牛客多校1](https://ac.nowcoder.com/acm/contest/881#question) |  3   |  O   |  O   |  O   |  Ø   |  O   |  O   |  .   |  O   |  O   |  O   |      |      |      |
 | 2019/7/22 [2019杭电多校1](http://acm.hdu.edu.cn/contests/contest_show.php?cid=848) |  21  |  .   |  .   |  .   |  O   |  O   |  .   |  .   |  .   |  O   |  .   |  O   |  O   |  O   |
-| 2019/7/25 [2019牛客多校3](https://ac.nowcoder.com/acm/contest/883#question) |  11  |  .   |  O   |  .   |  O   |  .   |  O   |  O   |  O   |  .   |  O   |      |      |      |
+| 2019/7/25 [2019牛客多校3](https://ac.nowcoder.com/acm/contest/883#question) |  11  |  Ø   |  O   |  Ø   |  O   |  .   |  O   |  O   |  O   |  Ø   |  O   |      |      |      |
 
 `. 尚未通过 O 当场通过  Ø 赛后通过  ! 放弃补题`
 
