@@ -1,21 +1,21 @@
-inline int upd(int a, int b, int P) {
+const int P = 1e9 + 7;
+inline int upd(int a, int b) {
 	if((a += b) >= P) a -= P;
 	return a < 0 ? a + P : a;
 }
-inline int mul(int a, int b, int P) {return 1ll * a * b % P; }
+inline int mul(int a, int b) {return 1ll * a * b % P; }
 
 struct Int{
-	static const int P = 1e9 + 7, Q = 1e9 + 9;
 	int a, b;
 	Int(int a = 0, int b = 0) : a(a), b(b) {}
-	inline Int operator + (const Int &c) const { return Int(upd(a, c.a, P), upd(b, c.b, Q)); }
-	inline Int operator - (const Int &c) const { return Int(upd(a, -c.a, P), upd(b, -c.b, Q)); }
-	inline Int operator * (const Int &c) const { return Int(mul(a, c.a, P), mul(b, c.b, Q)); }
+	inline Int operator + (const Int &c) const { return Int(upd(a, c.a), upd(b, c.b)); }
+	inline Int operator - (const Int &c) const { return Int(upd(a, -c.a), upd(b, -c.b)); }
+	inline Int operator * (const Int &c) const { return Int(mul(a, c.a), mul(b, c.b)); }
 	inline bool operator == (const Int &c) const {return a == c.a && b == c.b;}
 } _0 = Int(), _1 = Int(1, 1), B[N];
 
 void init(int n){
-	B[0] = _1; B[1] = Int(233, 233);
+	B[0] = _1; B[1] = Int(233, 241);
 	rep(i, 2, n+1) B[i] = B[i-1] * B[1];
 }
 
