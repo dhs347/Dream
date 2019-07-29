@@ -88,6 +88,42 @@ LCT维护边双缩点，常数比较大
 
 定义一条边的权值为它最小的端点标号，枚举出现的最大的点，维护最大瓶颈树，查询的时候只需要知道有多少边权值在 [l, r] 范围
 
+## 维护树直径
+
+https://blog.csdn.net/lvzelong2014/article/details/85605142
+
+http://xxccxcxc.top/post/268/
+
+```c++
+int lmx[N], rmx[N], mxs[N], sum[N], a[N]; 
+multiset<int> chain[N], path[N];
+void Up(int p) {
+	sum[p] = sum[ls] + sum[rs] + a[p]; // a[p] 是点权， sum[p] 表示当前链长
+	LL cha = max(0LL, fir(Chain[p])); // 从 p 沿虚儿子走的最远距离
+	LL L = max(cha, rmx[ls]) + a[p]; // 从 p 沿父亲走的最远距离
+	LL R = max(cha, lmx[rs]) + a[p]; // 从 p 沿实儿子走的最远距离
+	lmx[p] = max(lmx[ls], sum[ls] + R); // 从链顶出发的最远距离
+	rmx[p] = max(rmx[rs], sum[rs] + L); // 从链底出发的最远距离
+	mxs[p] = max(mxs[ls], mxs[rs]); // mxs[p] 表示链 p 及链 p 所有虚子树的最大答案 
+	Re(mxs[p], fir(Path[p])); // 虚子树中的最大答案
+	Re(mxs[p], rmx[ls] + R); // 经过 p 父边的答案
+	Re(mxs[p], lmx[rs] + L); // 经过 u 向下实边的答案
+	Re(mxs[p], cha + sec(Chain[p]) + a[p]); // 虚子树中到根路径最长的两条拼起来
+	Re(mxs[p], cha + a[p]); // 虚子树中到根路径最长的一条和 p 自己组成路径
+}
+void Access(int u) {
+	for(int p = u, pr = 0; p; pr = p, p = fa[p]) {
+		Splay(p);
+      	 // 虚子树变动时，更新保存虚子树答案和虚子树到根路径的 set 
+		if(pr) Era(Chain[u], lmx[v]), Era(Path[u], mxs[v]);
+		if(rs) Chain[u].insert(lmx[rs]), Path[u].insert(mxs[rs]); 
+		rs = pr; 
+		Up(p);		
+	}
+	Splay(u);
+}
+```
+
 ##TBD
 
 结合了其他知识点的题目、LCT维护树直径类似问题
