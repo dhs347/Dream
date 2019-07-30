@@ -1,7 +1,7 @@
 # 组队训练
 
-|                                          | rank |  A   |  B   |  C   |  D   |  E   |  F   |  G   |  H   |  I   |  J   |  K   |  L   |  M   |
-| :--------------------------------------: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
+|                                                              | rank |  A   |  B   |  C   |  D   |  E   |  F   |  G   |  H   |  I   |  J   |  K   |  L   |  M   |
+| :----------------------------------------------------------: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
 | 2019/4/20 [南昌网络赛](https://www.jisuanke.com/contest/2290?view=challengesteam353@nanchang.icpc9fKu8jHv)**[done]** |  9   |  O   |  Ø   |  Ø   |  O   |  Ø   |  Ø   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |
 | 2019/5/1 [2017-2018 NEERC Moscow Subregional](https://codeforces.com/group/aUVPeyEnI2/contest/243685http://codeforces.com/gym/101611) **[done]** |  21  |  O   |  Ø   |  O   |  O   |  !   |  O   |  O   |  O   |  O   |  Ø   |      |      |      |
 | 2019/5/2 [2013-2014 NEERC Northern Subregional](https://codeforces.com/group/aUVPeyEnI2/contest/243686https://codeforces.com/gym/100269) **[done]** |  35  |  O   |  O   |  Ø   |  O   |  O   |  O   |  O   |  O   |  !   |  Ø   |  O   |  Ø   |      |
@@ -15,7 +15,7 @@
 | 2019/7/18 [2019牛客多校1](https://ac.nowcoder.com/acm/contest/881#question) **[done]** |  3   |  O   |  O   |  O   |  Ø   |  O   |  O   |  Ø   |  O   |  O   |  O   |      |      |      |
 | 2019/7/22 [2019杭电多校1](http://acm.hdu.edu.cn/contests/contest_show.php?cid=848) |  21  |  Ø   |  .   |  Ø   |  O   |  O   |  Ø   |  Ø   |  .   |  O   |  Ø   |  O   |  O   |  O   |
 | 2019/7/25 [2019牛客多校3](https://ac.nowcoder.com/acm/contest/883#question) **[done]** |  11  |  Ø   |  O   |  Ø   |  O   |  !   |  O   |  O   |  O   |  Ø   |  O   |      |      |      |
-| 2019/7/29 [2019杭电多校3](http://acm.hdu.edu.cn/contests/contest_show.php?cid=850) |  17  |  .   |  O   |  Ø   |  O   |  Ø   |  O   |  O   |  O   |  O   |  .   |  O   |      |      |
+| 2019/7/29 [2019杭电多校3](http://acm.hdu.edu.cn/contests/contest_show.php?cid=850) |  17  |  .   |  O   |  Ø   |  O   |  Ø   |  O   |  O   |  O   |  O   |  Ø   |  O   |      |      |
 
 `. 尚未通过 O 当场通过  Ø 赛后通过  ! 放弃补题`
 
