@@ -16,6 +16,7 @@
 | 2019/7/22 [2019杭电多校1](http://acm.hdu.edu.cn/contests/contest_show.php?cid=848) |  21  |  Ø   |  .   |  Ø   |  O   |  O   |  Ø   |  Ø   |  .   |  O   |  Ø   |  O   |  O   |  O   |
 | 2019/7/25 [2019牛客多校3](https://ac.nowcoder.com/acm/contest/883#question) **[done]** |  11  |  Ø   |  O   |  Ø   |  O   |  !   |  O   |  O   |  O   |  Ø   |  O   |      |      |      |
 | 2019/7/29 [2019杭电多校3](http://acm.hdu.edu.cn/contests/contest_show.php?cid=850) **[done]** |  17  |  Ø   |  O   |  Ø   |  O   |  Ø   |  O   |  O   |  O   |  O   |  Ø   |  O   |      |      |
+| 2019/7/31 [2019杭电多校4](http://acm.hdu.edu.cn/contests/contest_show.php?cid=851) | 305  |  O   |  .   |  .   |  .   |  .   |  .   |  O   |  O   |  .   |  .   |      |      |      |
 
 `. 尚未通过 O 当场通过  Ø 赛后通过  ! 放弃补题`
 
