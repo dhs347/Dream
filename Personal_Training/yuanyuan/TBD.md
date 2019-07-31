@@ -30,7 +30,7 @@ https://www.lydsy.com/JudgeOnline/problem.php?id=4998
 
 **给定凸包以及n个点，求哪些点在凸包内部**（上交板子）
 
-平面图的对偶图
+平面图转对偶图
 
 http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010433 L
 
