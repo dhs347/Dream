@@ -1,115 +1,255 @@
-
 #include<bits/stdc++.h>
 using namespace std;
 #define fi first
 #define se second
-#define pb push_back
 #define mp make_pair
-#define per(i, a, b) for(int i = (b) - 1; i >= (a); --i)
-#define rep(i, a, b) for(int i = (a); i < (b); ++i)
-#define de(x) cout << #x << " = " << x << endl
-#define dd(x) cout << #x << " = " << x << " "
-#define endl "\n"
+#define pb push_back
+#define rep(i, a, b) for(int i=(a); i<(b); i++)
+#define per(i, a, b) for(int i=(b)-1; i>=(a); i--)
+#define sz(a) (int)a.size()
+#define de(a) cout << #a << " = " << a << endl
+#define dd(a) cout << #a << " = " << a << " "
+#define all(a) (a).begin(), (a).end()
 #define pw(x) (1ll<<(x))
-#define all(x) x.begin(), x.end()
-#define sz(x) (int)x.size()
-typedef long long ll;
-typedef pair<int, int> pii;
+#define lb(x) ((x) & -(x))
+#define endl "\n"
+#define FI(x) freopen(#x".in","r",stdin)
+#define FO(x) freopen(#x".out","w",stdout)
 typedef double db;
+typedef long long ll;
+typedef unsigned long long ull;
 typedef vector<int> vi;
+//typedef uniform_int_distribution<ll> RR;
+const int P = 1e9 + 7;
+//ll rnd(ll l, ll r) { mt19937 gen(rand()); RR dis(l, r); return dis(gen); }
+int add(int a, int b) {if((a += b) >= P) a -= P; return a < 0 ? a + P : a;}
+int mul(int a, int b) {return 1ll * a * b % P;}
+int kpow(int a, int b) {int r=1;for(;b;b>>=1,a=mul(a,a)) {if(b&1)r=mul(r,a);}return r;}
+//----
+ll cc = 0;
+namespace prime {
+	using uint128 = __uint128_t;
+	using uint64 = unsigned long long;
+	using int64 = long long;
+	using uint32 = unsigned int;
+	using pii = std::pair<uint64, uint32>;
 
-ll mulmod(ll a, ll b, ll p) {
-	__int128 t = a;
-	return t * b % p;
-}
+	inline uint64 sqr(uint64 x) { return x * x; }
+	inline uint32 isqrt(uint64 x) { return sqrtl(x); }
+	inline uint32 ctz(uint64 x) { return __builtin_ctzll(x); }
 
-ll powmod(ll a, ll b, ll p) {
-	a %= p;
-	ll r = 1;
-	while(b) {
-		if(b & 1) r = mulmod(r, a, p);
-		a = mulmod(a, a, p);
-		b >>= 1;
+	template <typename word>
+	word gcd(word a, word b) { 
+		while (b) { word t = a % b; a = b; b = t; } 
+		return a;
 	}
-	return r;
-}
-int spp(ll n, int base) 
-{
-	ll n2 = n - 1, res;
-	int s = 0;
-	while(n2 % 2 == 0) n2 >>= 1, s++;
-	res = powmod(base, n2, n);
-	if((res == 1) || (res == n - 1)) return 1;
-	s--;
-	while(s >= 0) {
-		res = mulmod(res, res, n);
-		if(res == n - 1) return 1;
-		s--;
-	}
-	return 0;
-}
-int isp(ll n) {
-	static ll testNum[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37};
-	static ll lim[] = {4, 0, 1373653ll, 25326001ll, 25000000000ll, 2152302898747ll, 3474749660383ll, 341550071728321ll, 0, 0, 0, 0};
-	if(n < 2 || n == 3215031751ll) return 0;
-	for(int i = 0; i < 12; ++i) {
-		if(n < lim[i]) return 1;
-		if(spp(n, testNum[i]) == 0) return 0;
-	}
-	return 1;
-}
-int ansn; ll ans[1000];
-ll func(ll x, ll n) {
-	return (mulmod(x, x, n) + 1) % n;
-}
-ll pd(ll n) {
-	ll i, x, y, p;
-	if(isp(n)) return n;
-	if(!(n & 1)) return 2;
-	for(i = 1; i < 20; ++i) {
-		x = i; y = func(x, n); p = __gcd((y - x + n) % n, n) % n;
-		while(p == 1) {
-			x = func(x, n); y = func(func(y, n), n); p = __gcd((y - x + n) % n, n) % n;
-		}
-		if(p == 0 || p == n) continue;
-		return p;
-	}
-	assert(0);
-}
-void factor(ll n) {
-	ll x;
-	x = pd(n);
-	if(x == n) {
-		ans[ansn++] = x; return ;
-	}
-	factor(x), factor(n / x);
-}
 
-int T;
-ll n;
+	template <typename word, typename dword, typename sword>
+	struct Mod {
+  		Mod(): x(0) {}
+		Mod(word _x): x(init(_x)) {}
+  		bool operator == (const Mod& rhs) const { return x == rhs.x; }
+  		bool operator != (const Mod& rhs) const { return x != rhs.x; }
+  		Mod& operator += (const Mod& rhs) { if ((x += rhs.x) >= mod) x -= mod; return *this; }
+  		Mod& operator -= (const Mod& rhs) { if (sword(x -= rhs.x) < 0) x += mod; return *this; }
+  		Mod& operator *= (const Mod& rhs) { x = reduce(dword(x) * rhs.x); return *this; }
+  		Mod operator + (const Mod &rhs) const { return Mod(*this) += rhs; }
+  		Mod operator - (const Mod &rhs) const { return Mod(*this) -= rhs; }
+  		Mod operator * (const Mod &rhs) const { return Mod(*this) *= rhs; }
+  		Mod operator - () const { return Mod() - *this; }
+  		Mod pow(uint64 e) const {
+    		Mod ret(1);
+    		for (Mod base = *this; e; e >>= 1, base *= base) {
+      			if (e & 1) ret *= base;
+    		}
+    		return ret;
+  		}
+  		word get() const { return reduce(x); }
+  		static constexpr int word_bits = sizeof(word) * 8;
+  		static word modulus() { return mod; }
+  		static word init(word w) { return reduce(dword(w) * r2); }
+  		static void set_mod(word m) { mod = m, inv = mul_inv(mod), r2 = -dword(mod) % mod; }
+  		static word reduce(dword x) {
+    		word y = word(x >> word_bits) - word((dword(word(x) * inv) * mod) >> word_bits);
+    		return sword(y) < 0 ? y + mod : y;
+  		}
+  		static word mul_inv(word n, int e = 6, word x = 1) {
+    		return !e ? x : mul_inv(n, e - 1, x * (2 - x * n));
+  		}	
+  		static word mod, inv, r2;
+  		word x;
+	};
+
+	using Mod64 = Mod<uint64, uint128, int64>;
+	using Mod32 = Mod<uint32, uint64, int>;
+	template <> uint64 Mod64::mod = 0;
+	template <> uint64 Mod64::inv = 0;
+	template <> uint64 Mod64::r2 = 0;
+	template <> uint32 Mod32::mod = 0;
+	template <> uint32 Mod32::inv = 0;
+	template <> uint32 Mod32::r2 = 0;
+
+	template <class word, class mod>
+	bool composite(word n, const uint32* bases, int m) {
+  		mod::set_mod(n);
+  		int s = __builtin_ctzll(n - 1);
+  		word d = (n - 1) >> s;
+  		mod one{1}, minus_one{n - 1};
+  		for (int i = 0, j; i < m; ++i) {
+    		mod a = mod(bases[i]).pow(d);
+    		if (a == one || a == minus_one) continue;
+    		for (j = s - 1; j > 0; --j) {
+      			if ((a *= a) == minus_one) break;
+    		}
+    		if (j == 0) return true;
+  		}
+  		return false;
+	}
+
+	bool is_prime(uint64 n) { // reference: http://miller-rabin.appspot.com
+  		assert(n < (uint64(1) << 63));
+  		static const uint32 bases[][7] = {
+    		{2, 3},
+    		{2, 299417},
+    		{2, 7, 61},
+    		{15, 176006322, uint32(4221622697)},
+    		{2, 2570940, 211991001, uint32(3749873356)},
+    		{2, 2570940, 880937, 610386380, uint32(4130785767)},
+    		{2, 325, 9375, 28178, 450775, 9780504, 1795265022}
+  		};
+  		if (n <= 1) return false;
+  		if (!(n & 1)) return n == 2;
+  		if (n <= 8) return true;
+  		int x = 6, y = 7;
+  		if (n < 1373653) x = 0, y = 2;
+  		else if (n < 19471033) x = 1, y = 2;
+  		else if (n < 4759123141) x = 2, y = 3;
+  		else if (n < 154639673381) x = y = 3;
+  		else if (n < 47636622961201) x = y = 4;
+  		else if (n < 3770579582154547) x = y = 5;
+  		if (n < (uint32(1) << 31)) {
+    		return !composite<uint32, Mod32>(n, bases[x], y);
+  		} else if (n < (uint64(1) << 63)) {
+    		return !composite<uint64, Mod64>(n, bases[x], y);
+  		}
+  		return true;
+	}
+
+	struct ExactDiv {
+  		ExactDiv() {}
+  		ExactDiv(uint64 n) : n(n), i(Mod64::mul_inv(n)), t(uint64(-1) / n) {}
+  		friend uint64 operator / (uint64 n, ExactDiv d) { return n * d.i; };
+  		bool divide(uint64 n) { return n / *this <= t; }
+  		uint64 n, i, t;
+	};
+
+	std::vector<ExactDiv> primes;
+
+	void init(uint32 n) {
+  		uint32 sqrt_n = sqrt(n);
+  		std::vector<bool> is_prime(n + 1, 1);
+  		primes.clear();
+  		for (uint32 i = 2; i <= sqrt_n; ++i) if (is_prime[i]) {
+    		if (i != 2) primes.push_back(ExactDiv(i));
+    		for (uint32 j = i * i; j <= n; j += i) is_prime[j] =  0;
+  		}
+	}
+
+	template <typename word, typename mod>
+	word brent(word n, word c) { // n must be composite and odd.
+  		const uint64 s = 256;
+  		mod::set_mod(n);
+  		const mod one = mod(1), mc = mod(c);
+  		mod y = one;
+  		for (uint64 l = 1; ; l <<= 1) {
+    		auto x = y;
+    		for (int i = 0; i < (int)l; ++i) y = y * y + mc;
+    		mod p = one;
+    		for (int k = 0; k < (int)l; k += s) {
+      			auto sy = y;
+      			for (int i = 0; i < (int)std::min(s, l - k); ++i) {
+        			y = y * y + mc;
+        			p *= y - x;
+      			}
+      			word g = gcd(n, p.x);
+      			if (g == 1) continue;
+      			if (g == n) for (g = 1, y = sy; g == 1; ) {
+        		y = y * y + mc, g = gcd(n, (y - x).x);
+      			}
+      			return g;
+    		}
+  		}
+	}
+
+	uint64 brent(uint64 n, uint64 c) {
+  		if (n < (uint32(1) << 31)) {
+   			return brent<uint32, Mod32>(n, c);
+  		} else if (n < (uint64(1) << 63)) {
+    		return brent<uint64, Mod64>(n, c);
+  		}
+  		return 0;
+	}
+
+	std::vector<pii> factors(uint64 n) {
+  	assert(n < (uint64(1) << 63));
+  	if (n <= 1) return {};
+  	std::vector<pii> ret;
+  	uint32 v = sqrtl(n);
+  	if (uint64(v) * v == n) {
+    	ret = factors(v);
+    	for (auto &&e: ret) e.second *= 2;
+    	return ret;
+  	}
+  	v = cbrtl(n);
+  	if (uint64(v) * v * v == n) {
+   		ret = factors(v);
+    	for (auto &&e: ret) e.second *= 3;
+   		return ret;
+  	}
+  	if (!(n & 1)) {
+    	uint32 e = __builtin_ctzll(n);
+    	ret.emplace_back(2, e);
+    	n >>= e;
+ 	}
+  	uint64 lim = sqr(primes.back().n);
+  	for (auto &&p: primes) {
+    	if (sqr(p.n) > n) break;
+    	if (p.divide(n)) {
+      		uint32 e = 1; n = n / p;
+      		while (p.divide(n)) n = n / p, e++;
+      		ret.emplace_back(p.n, e);
+    	}
+  	}
+  	uint32 s = ret.size();
+  	while (n > lim && !is_prime(n)) {
+    	for (uint64 c = 1; ; ++c) {
+      		uint64 p = brent(n, c);
+      		if (!is_prime(p)) continue;
+      		uint32 e = 1; n /= p;
+      		while (n % p == 0) n /= p, e += 1;
+      		ret.emplace_back(p, e);
+      		break;
+    	}
+  	}
+  	if (n > 1) ret.emplace_back(n, 1);
+  	if (ret.size() - s >= 2) sort(ret.begin() + s, ret.end());
+  	return ret;
+	}
+}
 
 int main() {
-	std::ios::sync_with_stdio(0);
-	std::cin.tie(0);
-	cin >> T;
-	//ll p = 1ll * 2 * 3 * 5 * 7 * 11 * 13 * 17 * 19 * 23 * 29 * 31 * 37 * 41 * 43; 
-	//de(p);
-	T =  50000;
-	ll p = 1ll * 2 * 3 * 5 * 7 * 11;
-	rep(cas, 0, T) {
-		ansn = 0;
-		//cin >> n;
-		//n = 1000000000000000000ll;
-		n = p;	
-		factor(n);
-		
-		sort(ans, ans+ansn);
-		int cnt = 1, an = 100;
-		rep(i, 1, ansn) {
-			if (ans[i] != ans[i-1]) an = min(an, cnt), cnt = 1;else cnt++;
-		}
-		an = min(an, cnt);
-		cout << an << endl;
+	srand((unsigned)time(NULL));
+	freopen("a.in", "r",stdin);
+	//freopen("a.out", "w", stdout);
+	int t;
+	cin>>t;
+	prime :: init(100000);
+	while(t--) {
+		ll n;
+        cin >> n; 
+        vector<prime :: pii> ans = prime :: factors(n);
+        int an = 100;
+        for (auto u : ans) an = min(an, (int)u.se);
+        //cout << an << endl;
 	}
-	return 0;
 }
