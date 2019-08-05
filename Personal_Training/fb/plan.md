@@ -851,7 +851,6 @@
 
   146.http://codeforces.com/gym/101981/attachments I题
 
-  
 
   
 
@@ -913,7 +912,7 @@
 
   28.http://codeforces.com/problemset/problem/863/F
 
-  
+
 - [ ] simpson积分法 0.50
 
 - [ ] 2-sat 2.00
@@ -973,3 +972,5 @@
 - [ ] 数论 1.00
 
 - [ ] 数据结构 1.00
+
+- [ ] 整体二分 1.00
