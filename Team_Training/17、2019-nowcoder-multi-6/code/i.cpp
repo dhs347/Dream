@@ -33,65 +33,82 @@ int n, T, sum, ans[N], m, u, v, a, b;
 vector<pii> g[N];
 namespace BCC{
     const int N = 202020;
-    vi key , bcc[N];
-    int dfn[N] , low[N] , id[N] , st[N] , _st , _;
-    bool vis[N], use[N];
-    void dfs(int c,int dep,vector<pii> g[]){
-        int cc=0;st[_st++]=c;
+    vi key , dcc[N];
+    int dfn[N] , low[N] , st[N] , _st , _, vis[N], id[N], use[N], fa[N];
+    unordered_map<ll, int> M;
+    ll ID(int u, int v) {
+		if (u > v) swap(u, v);
+		return 1ll * u * (n + 1) + v;
+	}
+    
+    void dfs(int c,int dep,const vector<pii> g[]){
+        int cc=0,out=1<dep;st[_st++]=c;
         dfn[c]=low[c]=dep;
-        for(auto e:g[c]){
-            int t=e.fi;
-            if(!dfn[t]){
+        for(auto v:g[c]) {
+            int t = v.fi;
+			if(!dfn[t]){
                 dfs(t,dep+1,g);
                 low[c]=min(low[c],low[t]);
-               // if(low[t]>dfn[c]) key.pb(e.se);
+                if(low[t]>=dfn[c]){
+                    //if(++out==2) key.pb(c);
+                    int now = c;
+					while(st[--_st]!=t) {
+						M[ID(st[_st], now)] = _;
+						//dcc[st[_st]].pb(_);
+						now = st[_st];
+                	}
+					//dcc[c].pb(_);dcc[t].pb(_++);
+					M[ID(t, now)] = _;
+					M[ID(c, t)] = _;
+					_++;
+                }
             } else if(dfn[t] != dfn[c] - 1 || cc++)
                 low[c] = min(low[c] , dfn[t]);
-        }
-        if(low[c]==dfn[c]){
-            do{id[st[--_st]]=_;}while(st[_st]!=c);
-            _++;
-        }
+		}
     }
     
-    void get1(int u, vector<pii> g[], vi &tmp, int w) {
-		vis[u] = 1; tmp.pb(u); ans[u] = add(1, -w);
-		for (auto v : g[u]) if (id[v.fi] == id[u] && !vis[v.fi]) {
-			get1(v.fi, g, tmp, mul(w, v.se));
+    void get1(int u, vector<pii> g[], vi &tmp, int w, int pre, int id) {
+		vis[u] = 1; tmp.pb(u); ans[u] = add(1, -w); fa[u] = pre;
+		for (auto v : g[u]) {
+			ll t = ID(u, v.fi);
+			if (!use[v.fi] && !vis[v.fi] && (id == -1 || (M.count(t) && M[t] == id))) 
+				get1(v.fi, g, tmp, mul(w, v.se), u, id == -1 ? M[t] : id);
 		}
 	}
     
-    void get2(int u, vector<pii> g[], int w) { 
-		vis[u] = 0; ans[u] = add(1, -mul(ans[u], add(1, -w)));
+    void get2(int u, vector<pii> g[], int w, int pre, int id) { 
+		vis[u] = 0; 
+		if (pre != fa[u]) ans[u] = add(1, -mul(ans[u], add(1, -w)));
+		else ans[u] = add(1, -ans[u]);
 		per(i, 0, sz(g[u])) {
 		 	auto v = g[u][i]; 
-			if (id[v.fi] == id[u] && vis[v.fi]) {
-				get2(v.fi, g, mul(w, v.se));
+		 	ll t = ID(u, v.fi);
+			if (!use[v.fi] && vis[v.fi] && (id == -1 || (M.count(t) && M[t] == id))) {
+				get2(v.fi, g, mul(w, v.se), u, id == -1 ? M[t] : id);
 			}
 		}
 	}
     
     void dfs2(int u, vector<pii> g[], int w) {
-    	use[id[u]] = 1;
 		vi tmp; 
-		get1(u, g, tmp, 1);
-		get2(u, g, 1);
+		get1(u, g, tmp, 1, 0, -1);
+		get2(u, g, 1, 0, -1);
+		for (auto v : tmp) use[v] = 1;
 		for (auto v : tmp) {
 			ans[v] = mul(ans[v], w);
-			for (auto vv : g[v]) if (!use[id[vv.fi]]) dfs2(vv.fi, g, mul(ans[v], vv.se));
+			if (v != u) dfs2(v, g, ans[v]);
 		}
 	}
     
     int solve(int n,vector<pii> g[]){
+    	M.clear();
         fill_n(dfn,n+1,_=0);
         fill_n(low,n+1,_st=0);
-        fill_n(use,n+1, 0);
+        //fill_n(dcc,n+1,key=vi());
+        fill_n(use,n+1,0);
         rep(i,1,n+1) if(!dfn[i]) dfs(i,1,g);
-        /*rep(i,1,n+1) for(auto j:g[i]) if(id[i]!=id[j.fi])
-            bcc[id[i]].pb(id[j.fi]);
-        */
-		//rep(i, 1, n+1) V[id[i]].pb(i);
-        dfs2(1, g, 1);
+        //rep(i,1,n+1) if(sz(dcc[i]) == 0) dcc[i].pb(_++);
+		dfs2(1, g, 1);
         return _;
     }
 };
