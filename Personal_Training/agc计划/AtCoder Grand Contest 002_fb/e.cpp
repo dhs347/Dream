@@ -28,12 +28,28 @@ int mul(int a, int b) {return 1ll * a * b % P;}
 int kpow(int a, int b) {int r=1;for(;b;b>>=1,a=mul(a,a)) {if(b&1)r=mul(r,a);}return r;}
 //----
 
+const int N = 1e5 + 7;
+int n, t, now, a[N];
+
 int main() {
 	//FI(a);
 	ios::sync_with_stdio(0);
 	cin.tie(0);
 	//cout << setiosflags(ios::fixed);
 	//cout << setprecision(2);
+	cin >> n; 
+	rep(i, 1, n+1) cin >> a[i];
+	sort(a+1, a+n+1);
+	per(i, 1, n+1) {
+		if (a[i-1] <= now + 1) break;
+		now++;
+	}
+	de(now); 
+	int ok2 = 0;
+	per(i, 1, n - now + 1) if (a[i] <= now) break; else ok2 ^= 1;
+	int ok1 = (a[n - now] - now) & 1;
+	
+	if (ok1 && ok2) cout << "Second";else cout << "First";	
 	return 0;
 }
 
