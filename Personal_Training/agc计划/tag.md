@@ -1,0 +1,216 @@
+- agc013
+  - A greedy
+  - B construction
+  - C observation
+  - D dynamic-program double-count
+  - E dynamic-program transformation
+  - F greedy
+- arc071
+  - C easy
+  - D count
+  - E observation
+  - F dynamic-program
+- agc012
+  - A sort
+  - B global-optimization
+  - C construction ascending-subsequence
+  - D observation disjoint-sets
+  - E dynamic-program
+  - F dynamic-program transformation
+- arc070
+  - C easy
+  - D dynamic-program knapsack
+  - E dynamic-program polygon-line
+  - F interactive stack
+- agc011
+  - A greedy
+  - B prefix-sum
+  - C bipartite-graph observation
+  - D observation loop
+  - E transformation
+  - F observation segment-tree
+- mujin-programming-challenge-2017
+  - A observation stack
+  - B observation greedy
+  - C dynamic-program stack
+  - D transformation dynamic-program double-count
+- arc069
+  - C greedy
+  - D enumeration recursion
+  - E greedy
+  - F two-sat segment-tree
+- agc010
+  - A parity
+  - B difference
+  - C transformation
+  - D observation parity
+  - E observation dfs-tree min-max
+  - F observation dynamic-program
+- arc068
+  - C classification-discussion
+  - D greedy
+  - E two-cases fenwick-tree
+  - F dynamic-program state-design
+- agc009
+  - A greedy
+  - B greedy
+  - C dynamic-program
+  - D greedy k-index
+  - E dynamic-program k-index
+- arc067
+  - C factor
+  - D greedy
+  - E dynamic-program combination
+  - F stack
+- agc008
+  - A classification-discussion
+  - B greedy
+  - C classification-discussion greedy
+  - D greedy
+  - E observation dynamic-program
+  - F observation dynamic-program
+- arc066
+  - C easy
+  - D dynamic-program digit
+  - E dynamic-program stack
+  - F dynamic-program convex-hull divide-conquer
+- arc065
+  - C dynamic-program greedy
+  - D disjoint-set
+  - E Chebyshev-distance binary-search bfs
+  - F dynamic-program
+- arc064
+  - C greedy
+  - D observation parity
+  - E minimal-distance
+  - F dynamic-program factor
+- arc059
+  - C brute-force
+  - D observation
+  - E dynamic-program
+  - F dynamic-program optimization-state
+- arc058
+  - C brute-force
+  - D combination
+  - E dynamic-program bitmask
+  - F dynamic-program z-algorithm
+- agc001
+  - A sort
+  - B gcd
+  - C tree-diameter
+  - D construction parity
+  - E combination global-optimization
+  - F topological inversion segment-tree
+- agc002
+  - A classification-discussion
+  - B dynamic-program
+  - C reverse stack
+  - D global-binary-research
+  - E observation
+  - F dynamic-program combination
+- code-festival-2016-qual-A
+  - A easy
+  - B easy
+  - C greedy
+  - D observation dfs
+  - E greedy global
+- code-festival-2016-qual-B
+  - A easy
+  - B easy
+  - C minimal-spanning-tree
+  - D greedy
+  - E trie lexicographic-order
+- code-festival-2016-qual-C
+  - A easy
+  - B greedy
+  - C constraint-condition
+  - D dynamic-program global-to-local
+  - E reverse-order classification-discussion
+- code-festival-2016-elimination-round1
+  - A minimal-spanning-tree
+  - B binary-research suffix-array
+- code-festival-2016-elimination-round2
+  - A probability
+  - B observation global-to-local brute-force
+- code-festival-2016-elimination-round3
+  - A dynamic-program monotonous-queue
+  - B binary-research segment
+- code-festival-2016-relay
+  - A easy
+  - B easy
+  - C easy
+  - D equation
+  - E gcd
+  - F recursion
+  - G dynamic-program
+  - H pre-sum
+  - I construction
+  - J construction
+  - K greedy
+- code-festival-2016-final
+  - A easy
+  - B greedy
+  - C disjoint-set
+  - D greedy
+  - E brute-force binary-research
+  - F dynamic-program strongly-connected-components
+  - G minimal-spanning-tree edge-reduce
+  - H dynamic-program observation
+  - I reverse-order spanning-tree black-white-color
+  - J minimal-cost-flow dfs elimination
+- code-festival-2016-grandfinal
+  - A stack
+  - B geometry
+  - C nim
+  - D minimax-theorem
+  - E dynamic-program minimal-spanning-tree
+  - F greedy dynamic-program
+  - G construct combination
+  - H matrix-space dynamic-program
+  - I construct geometry
+  - J classification-discussion combination
+- code-festival-2016-exhibition
+  - A shortest-distance match greedy
+  - B dynamic-program segment-reduce
+- kyoto-university-programming-contest-2016
+  - A easy
+  - B greedy
+  - C greedy
+  - D interactive incremental
+  - E max-flow
+  - F binary-research parser
+  - G greedy suffix-array
+  - H minimal-cost-flow segment-tree
+  - I greedy dynamic-program
+  - J burnside-theorem hash kmp manacher
+  - K circle-inversion quadratic-equation
+- arc086
+  - C greedy
+  - D construct pre-sum
+  - E dynamic-program second-longest
+  - F observation difference range
+- arc087
+  - C easy
+  - D dynamic-program knapsack-problem
+  - E grundy-number
+  - F inclusion-exclusion combination dynamic
+- arc088
+  - C greedy
+  - D observation
+  - E sort inversion
+  - F binary-research dynamic-program
+- arc089
+  - C parity
+  - D pre-sum
+  - E construction shortest-distance
+  - F observation combination dynamic-program
+- arc090
+  - C easy
+  - D dfs
+  - E minimal-distance
+  - F observation two-cases
+- arc091
+  - C parity
+  - D remainder
+  - E construction longest-increasing-subsequence
+  - F grundy-number recursion
