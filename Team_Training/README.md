@@ -21,6 +21,7 @@
 | 2019/8/3 [2019-nowcoder-multi-6](https://ac.nowcoder.com/acm/contest/886#question) |  51  |  O   |  O   |  Ø   |  O   |  Ø   |  Ø   |  O   |  Ø   |  Ø   |  O   |      |      |      |
 | 2019/8/5 [2019-hdu-multi-5](http://acm.hdu.edu.cn/contests/contest_show.php?cid=852) |  86  |  .   |  .   |  .   |  O   |  O   |  O   |  O   |  .   |  .   |  .   |      |      |      |
 | 2019/8/7 [2019-hdu-multi-6](http://acm.hdu.edu.cn/contests/contest_show.php?cid=853) |  12  |  .   |  O   |  .   |  O   |  O   |  O   |  .   |  O   |  .   |  O   |  O   |  O   |      |
+| 2019/8/8 [2019-nowcoder-multi-7](https://ac.nowcoder.com/acm/contest/887#question) |  16  |  O   |  O   |  O   |  O   |  O   |  .   |  O   |  O   |  .   |  O   |  .   |      |      |
 
 `. 尚未通过 O 当场通过  Ø 赛后通过  ! 放弃补题`
 
