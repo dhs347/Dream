@@ -17,26 +17,76 @@ typedef pair<int, int> pii;
 typedef double db;
 typedef vector<int> vi;
 
-const int N = 101010, B = 316;
+const int N = 1e5 + 5, B = 316;
 
-int n, m, col[N], id[N], who[N];
+int n, m, col[N], id[N], who[N], ed[N], dv[N], bst[N], bed[N];
 vi g[N];
 set<int> st[N];
 
-struct Seg {
-	const int N = ::N * 18;
-}seg;
+struct FW {
+#define lb(x) (x)&(-(x))
+	int a[N];
+	void init() { fill_n(a + 1, n, 0); }
+	void upd(int p, int c) {
+		p = n + 1 - p;
+		for( ; p <= n; p += lb(p)) a[p] += c;
+	}
+	int qry(int p) {
+		p = n + 1 - p;
+		int ans = 0;
+		for( ; p; p ^= lb(p)) ans += a[p];
+		return ans;
+	}
+}fw;
 
 struct Blo {
-	int ans[N / B + 5][N], res[N], la[N / B + 5];
-	void dfs(int u, int fa) {
-		int rt = 0;
-		for(auto v : g[u]) if(v != fa) {
-			dfs(v, u);
+	int ans[N / B + 5][N << 1], res[N], la[N / B + 5], pre[N];
+	vi vec[N];
+	void build() {
+		rep(i, 1, n + 1) vec[i].clear();
+		rep(i, 1, n + 1) vec[ed[i]].pb(i);
+		memset(pre, 0, sizeof(pre));
+		fw.init();
+		rep(i, 1, n + 1) {
+			int c = col[who[i]];
+			if(pre[c]) fw.upd(pre[c], -1);
+			fw.upd(pre[c] = i, 1); 
+			for(auto j : vec[i]) {
+				res[id[j]] = fw.qry(id[j]);
+			}
+		}
+		memset(ans, 0, sizeof(ans));
+		memset(la, 0, sizeof(la));
+		rep(i, 1, n + 1) ans[dv[i]][res[i]]++;
+		rep(i, 1, n + 1) {
+			if(i == 1 || dv[i] != dv[i - 1]) bst[dv[i]] = i;
+			if(i == n || dv[i] != dv[i + 1]) bed[dv[i]] = i;
 		}
 	}
-	void build() {
-		dfs(1, 0);
+	void down(int b) {
+		if(!la[b]) return ;
+		rep(i, bst[b], bed[b] + 1) --ans[b][res[i]], res[i] += la[b], ++ans[b][res[i]];
+		la[b] = 0;
+	}
+	void gao(int l, int r, int c) {
+		int b = dv[l];
+		rep(i, l, r + 1) --ans[b][res[i]], res[i] += c, ++ans[b][res[i]];
+	}
+	void upd(int l, int r, int c) {
+		if(l > r) return ;
+		rep(i, dv[l] + 1, dv[r]) la[i] += c;
+		down(dv[l]);
+		if(dv[l] != dv[r]) down(dv[r]);
+		gao(l, min(bed[dv[l]], r), c);
+		if(dv[l] != dv[r]) gao(bst[dv[r]], r, c);
+	}
+	int qry(int k) {
+	//	if(k < 1 || k > n) return 0;
+		int r = 0;
+		rep(i, dv[1], dv[n] + 1) {
+			if(k - la[i] >= 0) r += ans[i][k - la[i]];
+		}
+		return r;
 	}
 }blo;
 
@@ -62,6 +112,7 @@ struct HeavyChain{
 		if(!top[c]) top[c] = c;
 		if(s) top[s] = top[c], dfs2(s, c, g);
 		for(auto t : g[c]) if(t != fa && t != s) dfs2(t, c, g);
+		ed[c] = _;
 	}
 	int lca(int a, int b){
 		int fa = top[a], fb = top[b];
@@ -76,12 +127,13 @@ struct HeavyChain{
 		return b;
 	}
 	void upd(int a, int b, int c) {
+		if(a == b) return ;
 		int fa = top[a], fb = top[b];
 		while(fa != fb) {
 			blo.upd(id[fa], id[a], c);
 			a = par[fa], fa = top[a];
 		}
-		blo.upd(id[b] + 1, id[a]);
+		blo.upd(id[b] + 1, id[a], c);
 	}
 	void Build(vi g[]){
 		dfs(1, 0, g);
@@ -120,6 +172,8 @@ void solve() {
 			}
 			hc.upd(u, res, -1);
 			st[old].erase(np);
+
+
 			res = 0;
 			pos = st[c].lower_bound(id[u]);
 			if(pos != st[c].end()) {
@@ -144,6 +198,7 @@ void solve() {
 int main() {
 	std::ios::sync_with_stdio(0);
 	std::cin.tie(0);
+	rep(i, 0, N) dv[i] = i / B;
 	int T; cin >> T;
 	while(T--) solve();
 	return 0;
