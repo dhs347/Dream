@@ -2,37 +2,34 @@
 using namespace std;
 #define fi first
 #define se second
-#define pb push_back
 #define mp make_pair
+#define pb push_back
 #define rep(i, a, b) for(int i = (a); i < (b); ++i)
 #define per(i, a, b) for(int i = (b) - 1; i >= (a); --i)
-#define de(x) cout << #x << " = " << x << endl
-#define dd(x) cout << #x << " = " << x << " "
-#define endl '\n'
-#define pw(x) (1ll<<(x))
-#define sz(x) (int)x.size()
-#define all(x) x.begin(), x.end()
+#define sz(a) (int)a.size()
+#define de(a) cout << #a << " = " << a << endl
+#define dd(a) cout << #a << " = " << a << " "
+#define all(a) a.begin(), a.end()
+#define endl "\n"
+#define pw(a) (1ll << (a))
 typedef long long ll;
-typedef long double db;
 typedef pair<int, int> pii;
 typedef vector<int> vi;
+typedef long double db;
 
-const int N = 66;
+const int N = 66, K = 22;
 
 struct P {
-	int i;
-	int x, y;
+	int x, y, i;
 	P() {}
 	P(int x, int y) : x(x), y(y) {}
-	void read() {
-		cin >> x >> y;
+	void read() { cin >> x >> y; }
+	P operator - (const P &c) const {
+		return P(x - c.x, y - c.y);
 	}
 	bool operator < (const P &c) const {
 		if(x != c.x) return x < c.x;
 		return y < c.y;
-	}
-	P operator - (const P &c) const {
-		return P(x - c.x, y - c.y);
 	}
 	int len2() {
 		return x * x + y * y;
@@ -41,16 +38,29 @@ struct P {
 		return sqrt(len2());
 	}
 };
-
-int n, k, cntp, cntt;
-P a[N], ps[N], tmp[N];
-int ans[N], cnta;
-db res;
-
-int det(P a, P b) {
-	return a.x * b.y - a.y * b.x;
+struct L {
+	P a, b;
+	L() {}
+	L(P a, P b) : a(a), b(b) {}
+};
+ll det(P a, P b) {
+	return a.x * 1ll * b.y - a.y * 1ll * b.x;
 }
-int det(P o, P a, P b) {
+struct Node {
+	int i, j; P p;
+	Node() {}
+	Node(int i, int j, P p) : i(i), j(j), p(p) {}
+	bool operator < (const Node &c) const {
+		int o = P(0, 0) < p, t = P(0, 0) < c.p;
+		if(o != t) return o < t;
+		return det(p, c.p) > 0;
+	}
+}nd[N * N];
+int cntn;
+ll dot(P a, P b) {
+	return a.x * 1ll * b.x + a.y * 1ll * b.y;
+}
+ll det(P o, P a, P b) {
 	return det(a - o, b - o);
 }
 int sign(ll x) {
@@ -59,126 +69,111 @@ int sign(ll x) {
 	return x;
 }
 
-vector<P> ch(vector<P> &ps) {
-	int n = sz(ps);
-	if(n <= 1) return ps;
-	sort(all(ps));
-	vector<P> qs;
-	for(int i = 0; i < n; qs.pb(ps[i++])) {
-		while(sz(qs) > 1 && sign(det(qs[sz(qs) - 2], qs.back(), ps[i])) <= 0) qs.pop_back();
-	}
-	for(int i = n - 2, t = sz(qs); i >= 0; qs.pb(ps[i--])) {
-		while(sz(qs) > t && sign(det(qs[sz(qs) - 2], qs.back(), ps[i])) <= 0) qs.pop_back();
-	}
-	qs.pop_back();
-	return qs;
+int n, k;
+P p[N];
+db f[N][K][N];
+pii pre[N][K][N];
+int c1[N][N], c2[N][N][N];
+
+bool onSeg(L l, P p) {
+	return det(p - l.a, l.b - l.a) == 0 && dot(p - l.a, p - l.b) <= 0;
 }
-bool in(P p, const vector<P> &ps) {
+bool in(P a, P b, P c, P p) {
+	int oa = sign(det(p, a, b));
+	int ob = sign(det(p, b, c));
+	int oc = sign(det(p, c, a));
+	return oa == ob && oa == oc;
+}
+void Mi(db &a, db b) {
+	if(a > b) a = b;
+}
+int calc(int i, int j) {
+	if(i == j) return 1;
+	if(i > j) swap(i, j);
+	return c1[i][j];
+}
+int calc(int i, int j, int k) {
+	if(i > j) swap(i, j);
+	if(i > k) swap(i, k);
+	if(j > k) swap(j, k);
+	if(i == j) return c1[i][k];
+	if(j == k) return c1[i][j];
+	return c2[i][j][k];
+}
+bool in(P p, vector<P> ps) {
 	rep(i, 0, sz(ps)) {
 		int j = (i == sz(ps) - 1 ? 0 : i + 1);
-		if(det(ps[i], ps[j], p) < 0) return 0;
+		if(det(ps[j], ps[i], p) < 0) return 0;
 	}
 	return 1;
 }
-
-void gao() {
-	if(cntp <= k + 2) {
-		int sel[N] = {0};
-		rep(i, cntp - k + 1, cntp + 1) sel[i] = 1;
-		do {
-			vector<P> pt = vector<P>(k);
-			int pos = 0;
-			rep(i, 1, cntp + 1) if(sel[i]) pt[pos++] = ps[i];
-			vector<P> p = ch(pt);
-			db r = 0;
-			rep(i, 0, sz(p)) {
-				int j = (i == sz(p) - 1 ? 0 : i + 1);
-				r += (p[i] - p[j]).len();
-			}
-			if(res > r) {
-				res = r;
-				cnta = k;
-				rep(i, 0, cnta) ans[i] = pt[i].i;
-			}
-		} while(next_permutation(sel + 1, sel + 1 + cntp));
-	} else {
-		int old = cntp;
-		db mi = 1e18; 
-		rep(times, 0, 6) {
-			random_shuffle(ps + 1, ps + 1 + cntp);
-			vector<P> p = vector<P>(ps + 1, ps + 1 + k); p = ch(p);
-			db r = 0;
-			rep(i, 0, sz(p)) {
-				int j = (i == sz(p) - 1 ? 0 : i + 1);
-				r += (p[i] - p[j]).len();
-			}
-			if(res > r) {
-				res = r;
-				cnta = k;
-				rep(i, 0, cnta) ans[i] = ps[i + 1].i;
-			}
-			if(mi > r) {
-				mi = r;
-				cntt = 0;
-				rep(i, 1, cntp + 1) if(in(ps[i], p)) tmp[++cntt] = ps[i];
-			}
-		}
-		if(cntt != old && cntt >= k) {
-			cntp = cntt;
-			rep(i, 1, cntt + 1) ps[i] = tmp[i];
-			gao();
-		}
-	}
-}
-
 int main() {
 	freopen("convexset.in", "r", stdin);
 	freopen("convexset.out", "w", stdout);
-	srand(time(0));
-	/*
-		 P x = P(0, 0);
-		 vector<P> ps;
-		 ps.pb(P(1, 1));
-		 ps.pb(P(1, -1));
-		 ps.pb(P(-1, 1));
-		 ps.pb(P(-1, -1));
-		 ps = ch(ps);
-		 de(in(x, ps));
-	 */
 	std::ios::sync_with_stdio(0);
 	std::cin.tie(0);
-	clock_t st = clock();
 	cout << setiosflags(ios::fixed);
 	cout << setprecision(7);
 	cin >> n >> k;
-	assert(n >= k);
-	rep(i, 1, n + 1) a[i].read(), a[i].i = i;
+	rep(i, 1, n + 1) p[i].read(), p[i].i = i;
 	if(k == 1) {
-		cout << 0. << endl;
-		cout << 1 << endl;
+		cout << 0. << endl << 1 << endl;
+		return 0;
 	} else if(k == 2) {
-		cout << 0. << endl;
-		cout << 1 << " " << 2 << endl;
-	} else {
-		res = 1e18;
-		sort(ps + 1, ps + 1 + n);
-		rep(i, 1, n - k + 2 - 2) {
-			int j = i + k - 1 + 2;
-			cntp = k + 2;
-			rep(t, 1, k + 1 + 2) ps[t] = a[i + t - 1];
-			gao();
-		}
-		while((clock() - st) * 1. / CLOCKS_PER_SEC < 1.9) {
-			int lx = rand() % 500, rx = lx + 500;
-			int ly = rand() % 500, ry = ly + 500;
-			if(lx > rx) swap(lx, rx);
-			if(ly > ry) swap(ly, ry);
-			cntp = 0;
-			rep(i, 1, n + 1) if(lx <= ps[i].x && ps[i].x <= rx && ly <= ps[i].y && ps[i].y <= ry) ps[++cntp] = a[i];
-			gao();
-		}
-		cout << res << endl;
-		rep(i, 0, cnta) cout << ans[i] << " \n"[i == cnta - 1];
+		cout << 0. << endl << "1 2" << endl;
+		return 0;
 	}
+	rep(i, 1, n + 1) rep(j, i + 1, n + 1) {
+		rep(k, 1, n + 1) c1[i][j] += onSeg(L(p[i], p[j]), p[k]);
+	//	dd(i), dd(j), de(c1[i][j]);
+	}
+	rep(i, 1, n + 1) rep(j, i + 1, n + 1) rep(k, j + 1, n + 1) {
+		rep(t, 1, n + 1) c2[i][j][k] += in(p[i], p[j], p[k], p[t]);
+		c2[i][j][k] += 3;
+//		dd(i), dd(j), dd(k), de(c2[i][j][k]);
+	}
+	rep(i, 1, n + 1) rep(j, 1, n + 1) if(i != j) {
+		nd[++cntn] = Node(i, j, p[j] - p[i]); // ij
+	}
+	sort(nd + 1, nd + 1 + cntn);
+	rep(i, 0, N) rep(j, 0, K) rep(k, 0, N) f[i][j][k] = 1e18;
+	rep(i, 1, n + 1) f[i][1][i] = 0;
+	rep(_, 1, cntn + 1) {
+		int j = nd[_].i, t = nd[_].j;
+	//	dd(_), dd(j), de(t);
+		rep(s, 1, n + 1) if(s != t && (s == j || det(p[j], p[t], p[s]) > 0)) rep(i, 1, k + 1) {
+			int ad = calc(s, j, t) - calc(s, j);
+			//de(ad);
+			if(i + ad <= k) {
+				db &x = f[s][i + ad][t];
+				db y = f[s][i][j] + (p[t] - p[j]).len();
+				if(x > y) {
+					x = y;
+					pre[s][i + ad][t] = mp(i, j);
+				}
+				//dd(i + ad), dd(s), dd(t), de(f[s][i + ad][t]);
+			}
+		}
+	}
+	int I = 1, J = 2;
+	db ans = 1e18;
+	rep(i, 1, n + 1) rep(j, 1, n + 1) if(i != j) {
+		db res = f[i][k][j] + (p[i] - p[j]).len();
+		if(ans > res) {
+			ans = res; I = i, J = j;
+		}
+	}
+	cout << ans << endl;
+//	de(I);
+	vector<P> res;
+	while(J) {
+		res.pb(p[J]);
+		auto t = pre[I][k][J];
+	//	dd(I), dd(k), de(J);
+		k = t.fi, J = t.se;
+	}
+	vi vec;
+	rep(i, 1, n + 1) if(in(p[i], res)) vec.pb(i);
+	rep(i, 0, sz(vec)) cout << vec[i] << " \n"[i == sz(vec) - 1];
 	return 0;
 }
