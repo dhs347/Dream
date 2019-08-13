@@ -24,6 +24,8 @@
 | 2019/8/8 [2019-nowcoder-multi-7](https://ac.nowcoder.com/acm/contest/887#question) |  16  |  O   |  O   |  O   |  O   |  O   |  .   |  O   |  O   |  .   |  O   |  .   |      |      |
 | 2019/8/10 [2019-nowcoder-multi-8](https://ac.nowcoder.com/acm/contest/888#question) |  5   |  O   |  O   |  O   |  O   |  O   |  .   |  O   |  .   |  O   |  O   |      |      |      |
 | 2019/8/11 [XIV Open Cup GP of SPb](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010231) |  29  |  O   |  O   |  Ø   |  .   |  O   |  O   |  O   |  O   |  .   |  O   |  O   |      |      |
+| 2019/8/12 [Petrozavodsk Summer-2011. Warsaw U Contest](http://sua2019.contest.codeforces.com/group/H7nsMkHC7I/contest/249915) |  13  |  O   |  O   |  O   |  .   |  O   |  O   |  O   |  .   |  O   |  O   |      |      |      |
+| 2019/8/13 [Petrozavodsk Summer-2016. Pavel Khaustov Contest 2](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001482) |  39  |  Ø   |  .   |  .   |  Ø   |  O   |  O   |  .   |  .   |  O   |      |      |      |      |
 
 `. 尚未通过 O 当场通过  Ø 赛后通过  ! 放弃补题`
 
