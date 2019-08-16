@@ -52,6 +52,13 @@ int main() {
 	d -= f;
 	d1 = sqrt(a * a + b * b);
 	d2 = sqrt(c * c + d * d);
+	/*if (d1 < d2) {
+		swap(d1, d2);
+		swap(a, c);
+		swap(b, d);
+	}*/
+	//dd(a),de(b); 
+	//dd(c),de(d); 
 	if(check()) {
 		cout << fabs(d1 - d2) << endl;
 		return 0;
@@ -59,16 +66,18 @@ int main() {
 
 	db pi = acos(-1);
 	ang = angle();
+	//de(ang);
 	if (fabs(d1 - d2) <= eps) {
 		cout << ang * d1 << endl;
 	}else {
+		//de(233);
 		cc = ang / log(d2 / d1);
-		db ans1 = cc * d1 * (d2 / d1 - 1);;
+		db ans1 = cc  * sqrt(d1 * d1 + d1 * d1 / cc / cc) * (exp(ang / cc) - 1);;
 		ang = 2 * pi - ang;
 		cc = ang / log(d2 / d1);
 		db ans2 = cc * d1 * (d2 / d1 - 1);;
-		assert(min(ans1, ans2) >= 0);
-		cout << min(ans1, ans2) << endl;
+		//assert(min(ans1, ans2) >= 0);
+		cout << ans1 << endl;
 	}
 	return 0;
 }
