@@ -1,7 +1,7 @@
 # 组队训练
 
-|                                          | rank |  A   |  B   |  C   |  D   |  E   |  F   |  G   |  H   |  I   |  J   |  K   |  L   |  M   |
-| :--------------------------------------: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
+|                                                              | rank |  A   |  B   |  C   |  D   |  E   |  F   |  G   |  H   |  I   |  J   |  K   |  L   |  M   |
+| :----------------------------------------------------------: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
 | 2019/4/20 [南昌网络赛](https://www.jisuanke.com/contest/2290?view=challengesteam353@nanchang.icpc9fKu8jHv)**[done]** |  9   |  O   |  Ø   |  Ø   |  O   |  Ø   |  Ø   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |
 | 2019/5/1 [2017-2018 NEERC Moscow Subregional](https://codeforces.com/group/aUVPeyEnI2/contest/243685http://codeforces.com/gym/101611) **[done]** |  21  |  O   |  Ø   |  O   |  O   |  !   |  O   |  O   |  O   |  O   |  Ø   |      |      |      |
 | 2019/5/2 [2013-2014 NEERC Northern Subregional](https://codeforces.com/group/aUVPeyEnI2/contest/243686https://codeforces.com/gym/100269) **[done]** |  35  |  O   |  O   |  Ø   |  O   |  O   |  O   |  O   |  O   |  !   |  Ø   |  O   |  Ø   |      |
@@ -26,7 +26,11 @@
 | 2019/8/11 [XIV Open Cup GP of SPb](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010231) |  29  |  O   |  O   |  Ø   |  .   |  O   |  O   |  O   |  O   |  .   |  O   |  O   |      |      |
 | 2019/8/12 [Petrozavodsk Summer-2011. Warsaw U Contest](http://sua2019.contest.codeforces.com/group/H7nsMkHC7I/contest/249915) |  13  |  O   |  O   |  O   |  .   |  O   |  O   |  O   |  .   |  O   |  O   |      |      |      |
 | 2019/8/13 [Petrozavodsk Summer-2016. Pavel Khaustov Contest 2](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001482) |  39  |  Ø   |  Ø   |  .   |  Ø   |  O   |  O   |  X   |  .   |  O   |      |      |      |      |
+<<<<<<< HEAD
 | 2019/8/15 [Petrozavodsk Summer-2013. Moscow IPT Contest](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001423) |  26  |  O   |  .   |  O   |  Ø   |  O   |  O   |  .   |  .   |  O   |  O   |  O   |      |      |
+=======
+| 2019/8/15 [Petrozavodsk Summer-2013. Moscow IPT Contest](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001423) |  26  |  O   |  .   |  O   |  .   |  O   |  O   |  .   |  Ø   |  O   |  O   |  O   |      |      |
+>>>>>>> f39f0c98b875d7fdc07bef621905c8df9f814215
 
 `. 尚未通过 O 当场通过  Ø 赛后通过  ! 放弃补题 X 理论AC`
 
