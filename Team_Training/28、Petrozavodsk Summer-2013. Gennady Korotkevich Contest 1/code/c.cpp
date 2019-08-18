@@ -17,10 +17,20 @@ typedef pair<int, int> pii;
 typedef double db;
 typedef vector<int> vi;
 
+
+#define rep_it(it,x) for (__typeof((x).begin()) it=(x).begin(); it!=(x).end(); it++)
+#define ____ puts("\n_______________\n\n") 
+#define debug(x) ____; cout<< #x << " => " << (x) << endl
+#define debug_pair(x) cout<<"\n{ "<<(x).fir<<" , "<<(x).sec<<" }\n"
+#define debug_arr(x,n) ____; cout<<#x<<":\n"; rep(i,0,n+1) cout<<#x<<"["<<(i)<<"] => "<<x[i]<<endl
+#define debug_arr2(x,n,m) ____; cout<<#x<<":\n"; rep(i,0,n+1) rep(j,0,m+1) cout<<#x<<"["<<(i)<<"]["<<(j)<<"]= "<<x[i][j]<<((j==m)?"\n\n":"    ")
+#define debug_set(x) ____; cout<<#x<<": \n"; rep_it(it,x) cout<<(*it)<<" "; cout<<endl
+#define debug_map(x) ____; cout<<#x<<": \n"; rep_it(it,x) debug_pair(*it)
+
 const int N = 101010, P = 1e9 + 7;
 
 int n, m, cnt[10], ans;
-int h[6][N], c[N], jc[N], in[N], tmp[2][N];
+int h[6][N], c[N], jc[N], in[N], tmp[2][N], lim[100];
 char s[N];
 
 int add(int a, int b) {
@@ -48,19 +58,21 @@ int C(int m, int n) {
 	return ans;
 }
 
-int calc(int x, int y, int o = 0) {
+int calc(int x, int y, int o = 0, int l1 = 0, int l2 = 0) {
 	//dd(x), de(y);
 	if(x % 2 != 0) return 0; 
 	if(o) {
-		x /= 2; if(x < 0) x = 0;
+		//
+		x = x / 2 - l1; if(x < 0) x = 0; 
 		int ans = 0;
 		for(int k = 0; x + k <= y; ++k) {
-			ans = add(ans, C(x + k, y));
+			if (y - x - k - l1 - l2 >= 0) ans = add(ans, C(x + k + l1, y));
 		}
 		return ans;
 	} else {
-		if(x < 0) return 0;
-		return C(x >> 1, y);
+		x =  x / 2 - l1;
+		if(x < 0 || y - x - l1 - l2 < 0) return 0;
+		return C(x + l1, y);
 	}
 }
 
@@ -68,9 +80,11 @@ int solve() {
 	rep(i, 0, 5) {
 		int j = 9 - i;
 		c[i] = cnt[j] - cnt[i];
-		rep(d, 0, m + 1) h[i][d] = mul(calc(c[i] + d, d, i == 0), in[d]);//, dd(i), dd(d), de(h[i][d]);
+		rep(d, 0, m + 1) h[i][d] = mul(calc(c[i] + d, d, i == 0, lim[i], lim[j]), in[d]);//, dd(i), dd(d), de(h[i][d]);
 	}
 	int o = 1;
+	//debug_arr(c,4);
+	//debug_arr(h[0],m);
 	rep(i, 0, m + 1) tmp[0][i] = h[0][i];
 	rep(t, 1, 5) {
 		fill_n(tmp[o], m + 1, 0);
@@ -87,8 +101,8 @@ int solve() {
 }
 
 int main() {
-//	freopen("can.in", "r", stdin);
-//	freopen("can.out", "w", stdout);
+	freopen("can.in", "r", stdin);
+	freopen("can.out", "w", stdout);
 	std::ios::sync_with_stdio(0);
 	std::cin.tie(0);
 	cin >> (s + 1);
@@ -107,9 +121,14 @@ int main() {
 	rep(i, 1, 6) {
 		int j = 10 - i;
 		--cnt[i], --cnt[j];
+		if (cnt[i] < 0) lim[i] = abs(cnt[i]);
+		if (cnt[j] < 0) lim[j] = abs(cnt[j]);
 		ans = add(ans, solve());
+		//dd(i), dd(j), de(ans); 
 		++cnt[i], ++cnt[j];
+		lim[i] = lim[j] = 0;
 	}
 	cout << ans << endl;
 	return 0;
 }
+
