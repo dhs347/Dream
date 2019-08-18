@@ -29,7 +29,7 @@
 | 2019/8/14 [2019-nowcoder-multi-10](https://ac.nowcoder.com/acm/contest/890#question) |  11  |  O   |  O   |  .   |  O   |  O   |  O   |  O   |  O   |  .   |  O   |      |      |      |
 | 2019/8/15 [Petrozavodsk Summer-2013. Moscow IPT Contest](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001423) |  26  |  O   |  .   |  O   |  Ø   |  O   |  O   |  .   |  Ø   |  O   |  O   |  O   |      |      |
 | 2019/8/16 [XV Open Cup GP of Siberia](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010272) |  30  |  .   |  O   |  O   |  O   |  O   |  .   |  O   |  O   |  .   |  Ø   |  .   |  O   |      |
-| 2019/8/18 [Petrozavodsk Summer-2013. Gennady Korotkevich Contest 1](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001421) |  35  |  O   |  O   |  Ø   |  .   |  O   |  .   |  O   |  O   |  Ø   |  O   |      |      |      |
+| 2019/8/18 [Petrozavodsk Summer-2013. Gennady Korotkevich Contest 1](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001421) **[done]** |  35  |  O   |  O   |  Ø   |  Ø   |  O   |  Ø   |  O   |  O   |  Ø   |  O   |      |      |      |
 
 `. 尚未通过 O 当场通过  Ø 赛后通过  ! 放弃补题 X 理论AC`
 
