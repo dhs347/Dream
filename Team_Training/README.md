@@ -30,7 +30,7 @@
 | 2019/8/15 [Petrozavodsk Summer-2013. Moscow IPT Contest](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001423) |  26  |  O   |  .   |  O   |  Ø   |  O   |  O   |  .   |  Ø   |  O   |  O   |  O   |      |      |
 | 2019/8/16 [XV Open Cup GP of Siberia](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010272) |  30  |  .   |  O   |  O   |  O   |  O   |  .   |  O   |  O   |  .   |  Ø   |  .   |  O   |      |
 | 2019/8/18 [Petrozavodsk Summer-2013. Gennady Korotkevich Contest 1](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001421) **[done]** |  35  |  O   |  O   |  Ø   |  Ø   |  O   |  Ø   |  O   |  O   |  Ø   |  O   |      |      |      |
-| 2019/8/19 [Petrozavodsk Summer-2016. Moscow IPT Contest](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001483) |  39  |  O   |  Ø   |  O   |  O   |  Ø   |  .   |  Ø   |  O   |  .   |  Ø   |  O   |      |      |
+| 2019/8/19 [Petrozavodsk Summer-2016. Moscow IPT Contest](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001483) |  39  |  O   |  Ø   |  O   |  O   |  Ø   |  Ø   |  Ø   |  O   |  .   |  Ø   |  O   |      |      |
 
 `. 尚未通过 O 当场通过  Ø 赛后通过  ! 放弃补题 X 理论AC`
 
