@@ -17,22 +17,24 @@ typedef double db;
 typedef vector<int> vi;
 typedef pair<int, int> pii;
 
-const int N = 5e5 + 7, M = 30;
+const int N = 505050;
 
-int n, a[N], ans[M];
+int n, a[N];
 
 struct Seg {
 #define ls rt << 1
 #define rs ls | 1
 	static const int N = ::N << 2;
-	int la[M][N], mi[N];
+	int la[N], a[N], o[N], mi[N];
 	void up(int rt) {
+		a[rt] = a[ls] & a[rs];
+		o[rt] = o[ls] | o[rs];
 		mi[rt] = min(mi[ls], mi[rs]);
 	}
 	void build(int l = 1, int r = n, int rt = 1) {
-		rep(i, 0, M) la[i][rt] = -1;
+		la[rt] = 0;
 		if(l == r) {
-			mi[rt] = a[l];
+			a[rt] = o[rt] = mi[rt] = ::a[l];
 			return ;
 		}
 		int mid = l + r >> 1;
@@ -40,34 +42,47 @@ struct Seg {
 		build(mid + 1, r, rs);
 		up(rt);
 	}
-	// 0: and
-	void gao(int rt, int l, int r, int i, int o) {
-		la[i][rt] = o;
-		if(o == 0) mi[rt] &= (pw(M) - 1 - pw(i));
-		else mi[rt] |= pw(i);
+	void gao(int rt, int c) {
+		mi[rt] += c;
+		a[rt] += c;
+		o[rt] += c;
+		la[rt] += c;
 	}
-	void down(int rt, int l, int r, int mid) {
-		rep(i, 0, M) if(~la[i][rt]) {
-			gao(ls, l, mid, i, la[i][rt]);
-			gao(rs, mid + 1, r, i, la[i][rt]);
-			la[i][rt] = -1;
+	void down(int rt) {
+		if(la[rt]) {
+			gao(ls, la[rt]);
+			gao(rs, la[rt]);
+			la[rt] = 0;
 		}
 	}
-	void upd(int L, int R, int c, int o, int l = 1, int r = n, int rt = 1) {
-		if(L <= l && r <= R) {
-			rep(i, 0, M) if((c >> i & 1) == o) gao(rt, l, r, i, o);
+	void updand(int L, int R, int c, int l = 1, int r = n, int rt = 1) {
+		if(L <= l && r <= R && ((a[rt] & ~c) == (o[rt] & ~c))) {
+			int x = (a[rt] & ~c);
+			gao(rt, -x);
 			return ;
 		}
 		int mid = l + r >> 1;
-		down(rt, l, r, mid);
-		if(L <= mid) upd(L, R, c, o, l, mid, ls);
-		if(R > mid) upd(L, R, c, o, mid + 1, r, rs);
+		down(rt);
+		if(L <= mid) updand(L, R, c, l, mid, ls);
+		if(R > mid) updand(L, R, c, mid + 1, r, rs);
+		up(rt);
+	}
+	void updor(int L, int R, int c, int l = 1, int r = n, int rt = 1) {
+		if(L <= l && r <= R && ((a[rt] & c) == (o[rt] & c))) {
+			int x = (~a[rt] & c);
+			gao(rt, x);
+			return ;
+		}
+		int mid = l + r >> 1;
+		down(rt);
+		if(L <= mid) updor(L, R, c, l, mid, ls);
+		if(R > mid) updor(L, R, c, mid + 1, r, rs);
 		up(rt);
 	}
 	int qry(int L, int R, int l = 1, int r = n, int rt = 1) {
 		if(L <= l && r <= R) return mi[rt];
 		int mid = l + r >> 1, ans = pw(30);
-		down(rt, l, r, mid);
+		down(rt);
 		if(L <= mid) ans = min(ans, qry(L, R, l, mid, ls));
 		if(R > mid) ans = min(ans, qry(L, R, mid + 1, r, rs));
 		return ans;
@@ -79,13 +94,17 @@ int main() {
 	std::cin.tie(0);
 	cin >> n;
 	rep(i, 1, n + 1) cin >> a[i];
-	seg.build();
 	int m; cin >> m;
-	while(m--) {
-		string s; int l, r, x; cin >> s >> l >> r;
-		if(s[0] != '?') {
+	seg.build();
+	rep(i, 1, m + 1) {
+		string o; int l, r, x;
+		cin >> o >> l >> r;
+		if(o[0] == '&') {
 			cin >> x;
-			seg.upd(l, r, x, s[0] == '|');
+			seg.updand(l, r, x);
+		} else if(o[0] == '|') {
+			cin >> x;
+			seg.updor(l, r, x);
 		} else {
 			cout << seg.qry(l, r) << endl;
 		}
