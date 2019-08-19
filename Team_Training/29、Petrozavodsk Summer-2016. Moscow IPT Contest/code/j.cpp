@@ -21,11 +21,6 @@ const int N = 1e6 + 7;
 
 int n, d, pre[N];
 vi g[N];
-int mmd[N];
-
-int vec[N], cntv;
-int dep[N], maxdep, md;
-vi sx[N], sy[N];
 
 int find(int x) {
 	return x == pre[x] ? x : pre[x] = find(pre[x]);
@@ -34,56 +29,77 @@ void join(int x, int y) {
 	x = find(x), y = find(y);
 	pre[x] = y;
 }
-void gao(vi &vec) {
-	rep(i, 1, sz(vec)) join(vec[i], vec[i - 1]);
-	vec = vi(1, vec[0]);
+
+int L, hd[N], ne[N], val[N], las[N], sz[N];
+
+void pb(int u, int v) {
+	val[L] = v, ne[L] = hd[u];
+	if(hd[u] == -1) las[u] = L;
+	hd[u] = L++; sz[u]++;
 }
-namespace Cen {
-	const int N = ::N;
-	bool vis[N];
-	int sz[N];
-	void dfssz(int c, int fa, int Sz, int &rt) {
-		sz[c] = 1;
-		for(auto t : g[c]) if(!vis[t] && t != fa) dfssz(t, c, Sz, rt), sz[c] += sz[t];
-		if(!rt && sz[c] * 2 > Sz) rt = c;
+void ins(int x, int y) {
+	sz[x] += sz[y];
+	ne[las[x]] = hd[y];
+	las[x] = las[y];
+	hd[y] = -1;
+}
+int fi(int u) {
+	return val[hd[u]];
+}
+void gao(int x) {
+	int u = 0, v = 0;
+	for(int i = hd[x]; ~i; i = ne[i]) {
+		v = val[i];
+		if(u) join(u, v);
+		u = v;
 	}
-	void dfs(int u, int fa) {
-		dep[u] = dep[fa] + 1;
-		vec[++cntv] = u;
-		md = max(md, dep[u]);
-		if(dep[u] < d) for(auto v : g[u]) if(v != fa && !vis[v]) dfs(v, u);
+	ne[hd[x]] = -1;
+	las[x] = hd[x];
+	sz[x] = 1;
+}
+
+struct LongChain{
+	static const int N = ::N;
+	int wson[N] , top[N] , dep[N];
+	int id[N] , who[N] , _;
+	void dfs(int c,int fa,vi g[]){
+		dep[c]=1;int &s=wson[c]=top[c]=0;
+		for(auto t:g[c]) if(t!=fa)
+			dfs(t,c,g),dep[c]=max(dep[t]+1,dep[c]),(dep[t]>=dep[s])&&(s=t);
 	}
-	void dfs(int c) {
-		int rt = 0; dfssz(c, 0, 0, rt); dfssz(c, 0, sz[c], rt = 0);
-		vis[rt] = 1;
-
-		maxdep = 0;
-
-		sx[0].pb(rt);
-		dep[rt] = 0;
-		for(auto u : g[rt]) if(!vis[u]) {
-			//de(u);
-			cntv = md = 0; dfs(u, rt);
-		//	de(u);
-			rep(i, 0, md + 1) sy[i].clear();
-	//		de(md);
-			rep(i, 1, cntv + 1) sy[dep[vec[i]]].pb(vec[i]);
-//			de(1);
-			rep(i, 1, md + 1) if(d - i <= maxdep && sz(sx[d - i])) {
-				gao(sx[d - i]);
-				gao(sy[i]);
-				join(sx[d - i][0], sy[i][0]);
-			}
-			rep(i, 0, md + 1) sx[i].insert(sx[i].end(), all(sy[i]));
-			maxdep = max(maxdep, md);
-			mmd[u] = md;
+	void dfs2(int c,int fa,vi g[]){
+		if(!top[c]) top[c]=c;
+		who[id[c]=++_]=c;
+		int s=wson[c];
+		if(s) top[s]=top[c],dfs2(s,c,g);
+		for(auto t:g[c]) if(t!=fa&&t!=s) dfs2(t,c,g);
+	}
+	void Build(vi g[]){
+		dfs(1,0,g);_=0;dfs2(1,0,g);
+	}
+	void solve(int c, int fa, vi g[]) {
+		for(auto t : g[c]) if(t != fa) solve(t, c, g);
+		pb(id[c], c);
+		int md = min(d, dep[c] - 1);
+		if(d == md) {
+			gao(id[c]);
+			gao(id[c] + d);
+			join(fi(id[c]), fi(id[c] + d));
 		}
-
-		rep(i, 0, maxdep + 1) sx[i].clear();
-
-		for(auto t : g[rt]) if(!vis[t] && 2 * mmd[t] >= d) dfs(t);
+		if(wson[c]) {
+			int s = wson[c];
+			for(auto t : g[c]) if(t != fa && t != s) {
+				int td = min(d, dep[t]);
+				rep(i, 1, td + 1) if(d - i <= md && sz[id[c] + d - i]) {
+					gao(id[c] + d - i);
+					gao(id[t] + i - 1);
+					join(fi(id[c] + d - i), fi(id[t] + i - 1));
+				}
+				rep(i, 1, td + 1) ins(id[c] + i, id[t] + i - 1);
+			}
+		} 
 	}
-};
+}hc;
 
 int main() {
 	std::ios::sync_with_stdio(0);
@@ -93,15 +109,16 @@ int main() {
 		int u, v; cin >> u >> v;
 		g[u].pb(v), g[v].pb(u);
 	}
-	if(d == 0) {
+	if(d > n || d == 0) {
 		cout << n << endl;
 	} else if(d == 1) {
 		cout << 1 << endl;
 	} else {
-		rep(i, 1, n + 1) pre[i] = i;
-		Cen::dfs(1);
+		rep(i, 1, n + 1) pre[i] = i, hd[i] = las[i] = -1;
+		hc.Build(g);
+		hc.solve(1, 0, g);
 		int ans = 0;
-		rep(i, 1, n + 1) ans += i == find(i);
+		rep(i, 1, n + 1) if(i == find(i)) ++ans;
 		cout << ans << endl;
 	}
 	return 0;
