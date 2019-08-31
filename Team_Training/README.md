@@ -34,6 +34,7 @@
 | 2019/8/20 [Petrozavodsk Winter-2015. Michael Tikhomirov Contest 1](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001459) |  73  |  Ø   |  .   |  .   |  .   |  O   |  .   |  O   |  .   |  .   |  .   |      |      |      |
 | 2019/8/21 [Petrozavodsk Winter-2014. Warsaw U Contest](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001434) |  32  |  O   |  O   |  .   |  Ø   |  O   |  O   |  .   |  O   |  O   |  O   |      |      |      |
 |        2019/8/23 [2019CCPC网络赛]()         |  19  |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  .   |  .   |      |      |
+| 2019/8/31 [2019ICPC银川网络赛](https://www.jisuanke.com/contest/2991?view=challenges  team343@yinchuan2019.icpc Fn89RbzX) |      |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  .   |  O   |  O   |  .   |  .   |
 
 `. 尚未通过 O 当场通过  Ø 赛后通过  ! 放弃补题 X 理论AC`
 
