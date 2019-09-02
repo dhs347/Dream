@@ -31,9 +31,9 @@
 | 2019/8/16 [XV Open Cup GP of Siberia](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010272) |  30  |  .   |  O   |  O   |  O   |  O   |  .   |  O   |  O   |  .   |  Ø   |  .   |  O   |      |
 | 2019/8/18 [Petrozavodsk Summer-2013. Gennady Korotkevich Contest 1](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001421) **[done]** |  35  |  O   |  O   |  Ø   |  Ø   |  O   |  Ø   |  O   |  O   |  Ø   |  O   |      |      |      |
 | 2019/8/19 [Petrozavodsk Summer-2016. Moscow IPT Contest](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001483) |  39  |  O   |  Ø   |  O   |  O   |  Ø   |  Ø   |  Ø   |  O   |  .   |  Ø   |  O   |      |      |
-| 2019/8/20 [Petrozavodsk Winter-2015. Michael Tikhomirov Contest 1](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001459) |  73  |  Ø   |  .   |  .   |  .   |  O   |  .   |  O   |  .   |  .   |  .   |      |      |      |
+| 2019/8/20 [Petrozavodsk Winter-2015. Michael Tikhomirov Contest 1](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001459) |  73  |  Ø   |  .   |  .   |  .   |  O   |  Ø   |  O   |  .   |  .   |  .   |      |      |      |
 | 2019/8/21 [Petrozavodsk Winter-2014. Warsaw U Contest](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001434) |  32  |  O   |  O   |  .   |  Ø   |  O   |  O   |  .   |  O   |  O   |  O   |      |      |      |
-|                 2019/8/23 [2019CCPC网络赛](http://acm.hdu.edu.cn/userloginex.php?cid=869)                 |  19  |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  .   |  .   |      |      |
+| 2019/8/23 [2019CCPC网络赛](http://acm.hdu.edu.cn/userloginex.php?cid=869) |  19  |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  .   |  .   |      |      |
 | 2019/8/31 [2019ICPC银川网络赛](https://www.jisuanke.com/contest/2991?view=challenges  team343@yinchuan2019.icpc Fn89RbzX)**[done]** |      |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  Ø   |  O   |  O   |  Ø   |  Ø   |
 | 2019/9/1 [2019ICPC南京网络赛](https://www.jisuanke.com/contest/3004?view=challenges  team323@nanjing2019.icpc P89EMWMP) **[done]** |  9   |  O   |  O   |  O   |  O   |  O   |  O   |  Ø   |  O   |  O   |      |      |      |      |
 
