@@ -6,23 +6,23 @@ struct TwoSat {
     void init(int _n) { per(i, 0, (n = _n << 1)) g[i].clear(); }
     int  new_node( ) { rep(i, 0, 2) g[n++].clear(); return n >> 1; }
     /// optionals begin
-    void addedge(int a, int va, int b, int vb) { // va Ñ¡ÁË vb ±ØÑ¡  
+    void addedge(int a, int va, int b, int vb) { // va é€‰äº† vb å¿…é€‰  
 		a = a << 1 | va; b = b << 1 | vb;
         g[a].pb(b); g[b ^ 1].pb(a ^ 1);
 	}
-    void add_set(int a, int va) { a = a << 1 | va; g[a ^ 1].pb(a); } // va ±ØÑ¡   
+    void add_set(int a, int va) { a = a << 1 | va; g[a ^ 1].pb(a); } // va å¿…é€‰   
     
-    void add_then(int a, int va, int b, int vb) { // va ºÍ vb ²»ÄÜÍ¬Ê±È¡
+    void add_then(int a, int va, int b, int vb) { // va å’Œ vb ä¸èƒ½åŒæ—¶å–
     	addedge(a, va, b, vb ^ 1); 
     }
-    void add_or (int a, int va, int b, int vb) { // va ºÍ vb ²»ÄÜÍ¬Ê±²»È¡ 
+    void add_or (int a, int va, int b, int vb) { // va å’Œ vb ä¸èƒ½åŒæ—¶ä¸å– 
     	addedge(a, va ^ 1, b, vb);
     }
-    void add_xor(int a, int va, int b, int vb) { // va ºÍ vb Í¬Ê±È¡»òÍ¬Ê±²»È¡
+    void add_xor(int a, int va, int b, int vb) { // va å’Œ vb åŒæ—¶å–æˆ–åŒæ—¶ä¸å–
         addedge(a, va, b, vb);
         addedge(b, vb, a, va);
     }
-    // ĞèÒª sz(vu) ¸ö¶îÍâµÄ dp ±äÁ¿
+    // éœ€è¦ sz(vu) ä¸ªé¢å¤–çš„ dp å˜é‡
     void add_at_most_one(vector<pii> vu) {
         int pre = -1;
         rep(i, 0, sz(vu)) {
@@ -59,7 +59,7 @@ struct TwoSat {
         rep(i,0,n) --id[i];
         return;
     }
-    bool solve() { // ¹¹ÔìÈÎÒâ½â 
+    bool solve() { // æ„é€ ä»»æ„è§£ 
         find();
         for (int i = 0; i < n; i += 2) {
             if (id[i] == id[i + 1]) return 0;
