@@ -239,7 +239,7 @@ namespace prime {
 
 int main() {
 	srand((unsigned)time(NULL));
-	freopen("a.in", "r",stdin);
+//	freopen("a.in", "r",stdin);
 	//freopen("a.out", "w", stdout);
 	int t;
 	cin>>t;
