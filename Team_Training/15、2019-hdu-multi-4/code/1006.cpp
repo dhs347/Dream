@@ -45,7 +45,7 @@ void print(pii x) {
 	dd(x.fi); de(x.se);
 }
 int main() {
-	FI(a);
+//	FI(a);
 	ios::sync_with_stdio(0);
 	cin.tie(0);
 	//cout << setiosflags(ios::fixed);

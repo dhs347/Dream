@@ -162,8 +162,8 @@ void solve(long long n) {
 } 
 
 int main() {
-	FI(a);
-	FO(a);
+//	FI(a);
+//	FO(a);
 	//ios::sync_with_stdio(0);
 	//cin.tie(0);
 	//cout << setiosflags(ios::fixed);
