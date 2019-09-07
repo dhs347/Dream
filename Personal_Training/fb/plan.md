@@ -911,15 +911,55 @@
 
 - [x] 最小割树 0.50
 
-  1.https://www.luogu.org/problem/P3329
+  O 1.https://www.luogu.org/problem/P3329
 
-  2.https://www.luogu.org/problem/P4123
+  O 2.https://www.luogu.org/problem/P4123
 
-  3.https://www.luogu.org/problem/P4897
+  O 3.https://www.luogu.org/problem/P4897
 
   ​	模板题，主要就是最小割只有n-1种，以及可以通过递归建出一个特殊的最小割树，有两点间最小割为树上路径最小值的性质	
 
 - [ ] 2-sat 2.00
+
+  O 1.http://www.lydsy.com/JudgeOnline/problem.php?id=1997
+
+  ​	判断一个环上连一些边能不能平面嵌入，每条边有可以在内部和外部两种，处理出之间的限制看2-sat有没有解即可
+
+  2.http://hzwer.com/5711.html
+
+  O 3.http://www.lydsy.com/JudgeOnline/problem.php?id=1823
+
+  4.http://poj.org/problem?id=3683
+
+  5.http://poj.org/problem?id=3207
+
+  6.http://www.lydsy.com/JudgeOnline/problem.php?id=4945
+
+  7.http://blog.csdn.net/braketbn/article/details/51865230
+
+  O 8.http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010435 B
+
+  首先建到达关系的图，缩完点后发现一个物品会被取到至少要访问到横线或竖线中一个，就是在新的DAG途中的两个点，题目转化为固定起点，判断在DAG中是否存在路径可以经过所有限制中至少一个，用2-sat建图求解。然后这个对普通应该图也是可行的，只是复杂度是O(n^2)的。
+
+  9.http://codeforces.com/problemset/problem/780/D
+
+  10.http://codeforces.com/problemset/problem/776/D
+
+  11.http://codeforces.com/problemset/problem/587/D
+
+  12.http://codeforces.com/problemset/problem/568/C
+
+  13.http://codeforces.com/problemset/problem/538/H
+
+  14.http://codeforces.com/problemset/problem/538/H
+
+  15.http://codeforces.com/problemset/problem/228/E
+
+  16.http://codeforces.com/problemset/problem/27/D
+
+  17.http://codeforces.com/problemset/problem/193/A
+
+  18.https://arc069.contest.atcoder.jp/tasks/arc069_d
 
 - [ ] min25筛法 2.00
 
