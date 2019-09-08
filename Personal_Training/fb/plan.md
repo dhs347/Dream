@@ -925,7 +925,7 @@
 
   ​	判断一个环上连一些边能不能平面嵌入，每条边有可以在内部和外部两种，处理出之间的限制看2-sat有没有解即可
 
-  2.http://hzwer.com/5711.html
+  2.https://www.lydsy.com/JudgeOnline/problem.php?id=2199
 
   O 3.http://www.lydsy.com/JudgeOnline/problem.php?id=1823
 
@@ -933,7 +933,7 @@
 
   5.http://poj.org/problem?id=3207
 
-  6.http://www.lydsy.com/JudgeOnline/problem.php?id=4945
+  O 6.http://www.lydsy.com/JudgeOnline/problem.php?id=4945
 
   7.http://blog.csdn.net/braketbn/article/details/51865230
 
