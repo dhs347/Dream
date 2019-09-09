@@ -11,12 +11,12 @@
 | 2019/6/9 [2019广东江苏省赛](https://cn.vjudge.net/contest/305967#overview) |      |  Ø   |  O   |  O   |  .   |  O   |  Ø   |  O   |  Ø   |  O   |  .   |  O   |  O   |      |
 | 2019/6/25 [XIX Open Cup GP of SPb](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010433) **[done]** |  99  |  O   |  !   |  Ø   |  O   |  Ø   |  O   |  O   |  Ø   |  Ø   |  Ø   |  Ø   |  !   |      |
 | 2019/6/29 [XIX Open Cup GP of Peterhof ](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010439) **[done]** |  35  |  O   |  Ø   |  O   |  !   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |      |      |
-| 2019/6/30 [XIX Open Cup GP of Korea](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010435) **[done]** |  47  |  O   |  Ø   |  Ø   |  O   |  O   |  O   |  O   |  O   |  O   |  Ø   |  Ø   |  O   |  Ø   |
+| 2019/6/30 [XIX Open Cup GP of Korea](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010435) **[done]** |  47  |  O   |  c   |  Ø   |  O   |  O   |  O   |  O   |  O   |  O   |  Ø   |  Ø   |  O   |  Ø   |
 | 2019/7/18 [2019-nowcoder-multi-1](https://ac.nowcoder.com/acm/contest/881#question) **[done]** |  3   |  O   |  O   |  O   |  Ø   |  O   |  O   |  Ø   |  O   |  O   |  O   |      |      |      |
 | 2019/7/22 [2019-hdu-multi-1](http://acm.hdu.edu.cn/contests/contest_show.php?cid=848) |  21  |  Ø   |  Ø   |  Ø   |  O   |  O   |  Ø   |  Ø   |  .   |  O   |  Ø   |  O   |  O   |  O   |
 | 2019/7/25 [2019-nowcoder-multi-3](https://ac.nowcoder.com/acm/contest/883#question) **[done]** |  11  |  Ø   |  O   |  Ø   |  O   |  !   |  O   |  O   |  O   |  Ø   |  O   |      |      |      |
 | 2019/7/29 [2019-hdu-multi-3](http://acm.hdu.edu.cn/contests/contest_show.php?cid=850) **[done]** |  17  |  Ø   |  O   |  Ø   |  O   |  Ø   |  O   |  O   |  O   |  O   |  Ø   |  O   |      |      |
-| 2019/7/31 [2019-hdu-multi-4](http://acm.hdu.edu.cn/contests/contest_show.php?cid=851) | 305  |  O   |  Ø   |  .   |  .   |  Ø   |  Ø   |  O   |  O   |  .   |  Ø   |      |      |      |
+| 2019/7/31 [2019-hdu-multi-4](http://acm.hdu.edu.cn/contests/contest_show.php?cid=851) | 305  |  O   |  Ø   |  Ø   |  .   |  Ø   |  Ø   |  O   |  O   |  .   |  Ø   |      |      |      |
 | 2019/8/1 [2019-nowcoder-multi-5](https://ac.nowcoder.com/acm/contest/885#question) **[done]** |  4   |  O   |  O   |  O   |  Ø   |  O   |  O   |  O   |  O   |  O   |  Ø   |      |      |      |
 | 2019/8/3 [2019-nowcoder-multi-6](https://ac.nowcoder.com/acm/contest/886#question) **[done]** |  51  |  O   |  O   |  Ø   |  O   |  Ø   |  Ø   |  O   |  Ø   |  Ø   |  O   |      |      |      |
 | 2019/8/5 [2019-hdu-multi-5](http://acm.hdu.edu.cn/contests/contest_show.php?cid=852) |  86  |  .   |  .   |  .   |  O   |  O   |  O   |  O   |  .   |  .   |  .   |      |      |      |
