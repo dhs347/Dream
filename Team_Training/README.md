@@ -19,7 +19,7 @@
 | 2019/7/31 [2019-hdu-multi-4](http://acm.hdu.edu.cn/contests/contest_show.php?cid=851) | 305  |  O   |  Ø   |  Ø   |  .   |  Ø   |  Ø   |  O   |  O   |  .   |  Ø   |      |      |      |
 | 2019/8/1 [2019-nowcoder-multi-5](https://ac.nowcoder.com/acm/contest/885#question) **[done]** |  4   |  O   |  O   |  O   |  Ø   |  O   |  O   |  O   |  O   |  O   |  Ø   |      |      |      |
 | 2019/8/3 [2019-nowcoder-multi-6](https://ac.nowcoder.com/acm/contest/886#question) **[done]** |  51  |  O   |  O   |  Ø   |  O   |  Ø   |  Ø   |  O   |  Ø   |  Ø   |  O   |      |      |      |
-| 2019/8/5 [2019-hdu-multi-5](http://acm.hdu.edu.cn/contests/contest_show.php?cid=852) |  86  |  .   |  .   |  .   |  O   |  O   |  O   |  O   |  .   |  .   |  .   |      |      |      |
+| 2019/8/5 [2019-hdu-multi-5](http://acm.hdu.edu.cn/contests/contest_show.php?cid=852) |  86  |  .   |  Ø   |  X   |  O   |  O   |  O   |  O   |  X   |  .   |  .   |      |      |      |
 | 2019/8/7 [2019-hdu-multi-6](http://acm.hdu.edu.cn/contests/contest_show.php?cid=853) |  12  |  Ø   |  O   |  .   |  O   |  O   |  O   |  .   |  O   |  .   |  O   |  O   |  O   |      |
 | 2019/8/8 [2019-nowcoder-multi-7](https://ac.nowcoder.com/acm/contest/887#question) |  16  |  O   |  O   |  O   |  O   |  O   |  X   |  O   |  O   |  .   |  O   |  .   |      |      |
 | 2019/8/10 [2019-nowcoder-multi-8](https://ac.nowcoder.com/acm/contest/888#question) |  5   |  O   |  O   |  O   |  O   |  O   |  .   |  O   |  Ø   |  O   |  O   |      |      |      |
