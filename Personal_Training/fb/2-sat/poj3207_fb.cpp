@@ -127,21 +127,18 @@ int main() {
 	rep(cas, 0, T) {
 		cin >> n >> m;
 		rep(i, 1, m+1) cin >> u[i] >> v[i];
-		ts.init(n);
-		rep(i, 1, m+1) {
-			if (id[u[i]] % n + 1 == id[v[i]]) continue;
-			rep(j, i+1, m+1) {
-				if (id[u[j]] % n + 1 == id[v[j]]) continue;
-				if (id[u[i]] < id[u[j]]) {
-					if (id[v[i]] < id[v[j]] && id[v[i]] > id[u[j]]) ts.add_then(i-1, 1, j-1, 1), ts.add_then(i-1, 0, j-1, 0); 
-				}
-				if (id[u[i]] > id[u[j]]) {
-					if (id[v[j]] < id[v[i]] && id[v[j]] > id[u[i]]) ts.add_then(i-1, 1, j-1, 1), ts.add_then(i-1, 0, j-1, 0);
-				}
+		ts.init(m);
+		rep(i, 1, m+1) if (u[i] > v[i]) swap(u[i], v[i]);
+		rep(i, 1, m+1) rep(j, i+1, m+1) {
+			int l = max(u[i], u[j]), r = min(v[i], v[j]);
+			if (l < r) {
+				bool o1 = l == u[i] && r == v[i];
+				bool o2 = l == u[j] && r == v[j];
+				if (!o1 && !o2) ts.add_xor(i-1, 1, j-1, 0);
  			}
 		}
-		if (ts.solve()) cout << "YES" << endl;
-		else cout << "NO" << endl;
+		if (ts.solve()) cout << "panda is telling the truth..." << endl;
+		else cout << "the evil panda is lying again" << endl;
 	}
 	return 0;
 }

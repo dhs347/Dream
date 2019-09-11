@@ -919,23 +919,27 @@
 
   ​	模板题，主要就是最小割只有n-1种，以及可以通过递归建出一个特殊的最小割树，有两点间最小割为树上路径最小值的性质	
 
-- [ ] 2-sat 2.00
+- [x] 2-sat 2.00
 
   O 1.http://www.lydsy.com/JudgeOnline/problem.php?id=1997
 
   ​	判断一个环上连一些边能不能平面嵌入，每条边有可以在内部和外部两种，处理出之间的限制看2-sat有没有解即可
 
-  2.https://www.lydsy.com/JudgeOnline/problem.php?id=2199
+  O 2.https://www.lydsy.com/JudgeOnline/problem.php?id=2199
+
+  ​	2-sat有两种解法，一种是缩点后求任意解，另一种是直接暴力dfs，可以确定字典序最小解，一个元素是不是必选之类的问题。
 
   O 3.http://www.lydsy.com/JudgeOnline/problem.php?id=1823
 
-  4.http://poj.org/problem?id=3683
+  O 4.http://poj.org/problem?id=3683
 
-  5.http://poj.org/problem?id=3207
+  O 5.http://poj.org/problem?id=3207
 
   O 6.http://www.lydsy.com/JudgeOnline/problem.php?id=4945
 
-  7.http://blog.csdn.net/braketbn/article/details/51865230
+  O 7.https://www.lydsy.com/JudgeOnline/problem.php?id=4078
+
+  ​	把图中点分成两个集合，使两个集合内的最大距离相加最小，枚举大的集合限制，有奇偶环优化，即不行的边不能构成基环，以及构成偶环的最小边不会是限制，用并查集维护，判断方案是否可行用2-sat。
 
   O 8.http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010435 B
 
