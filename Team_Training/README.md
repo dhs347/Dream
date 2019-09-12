@@ -24,7 +24,7 @@
 | 2019/8/8 [2019-nowcoder-multi-7](https://ac.nowcoder.com/acm/contest/887#question) |  16  |  O   |  O   |  O   |  O   |  O   |  X   |  O   |  O   |  .   |  O   |  .   |      |      |
 | 2019/8/10 [2019-nowcoder-multi-8](https://ac.nowcoder.com/acm/contest/888#question) **[done]** |  5   |  O   |  O   |  O   |  O   |  O   |  Ø   |  O   |  Ø   |  O   |  O   |      |      |      |
 | 2019/8/11 [XIV Open Cup GP of SPb](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010231) **[done]** |  29  |  O   |  O   |  Ø   |  Ø   |  O   |  O   |  O   |  O   |  !   |  O   |  O   |      |      |
-| 2019/8/12 [Petrozavodsk Summer-2011. Warsaw U Contest](http://sua2019.contest.codeforces.com/group/H7nsMkHC7I/contest/249915) |  13  |  O   |  O   |  O   |  .   |  O   |  O   |  O   |  .   |  O   |  O   |      |      |      |
+| 2019/8/12 [Petrozavodsk Summer-2011. Warsaw U Contest](http://sua2019.contest.codeforces.com/group/H7nsMkHC7I/contest/249915_19aug25_smx3pukt1h) |  13  |  O   |  O   |  O   |  .   |  O   |  O   |  O   |  .   |  O   |  O   |      |      |      |
 | 2019/8/13 [Petrozavodsk Summer-2016. Pavel Khaustov Contest 2](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001482) |  39  |  Ø   |  Ø   |  .   |  Ø   |  O   |  O   |  X   |  !   |  O   |      |      |      |      |
 | 2019/8/14 [2019-nowcoder-multi-10](https://ac.nowcoder.com/acm/contest/890#question) **[done]** |  11  |  O   |  O   |  X   |  O   |  O   |  O   |  O   |  O   |  X   |  O   |      |      |      |
 | 2019/8/15 [Petrozavodsk Summer-2013. Moscow IPT Contest](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001423) |  26  |  O   |  .   |  O   |  Ø   |  O   |  O   |  Ø   |  Ø   |  O   |  O   |  O   |      |      |
