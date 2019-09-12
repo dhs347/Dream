@@ -28,7 +28,7 @@ struct SegGraph {
 		if (R > mid)  link(mid+1, r, rs, L, R, w, o);
 	}
 
-	void link(int l1, int r1, int l2, int r2, int w, int n) {
+	void link(int l1, int r1, int l2, int r2, int w, int n) { // [l1, r1] -> [l2, r2] weight = w 
 		++tim;
 		link(1, n, 1, l1, r1, w, 0);
 		link(1, n, 1, l2, r2, w, 1);
