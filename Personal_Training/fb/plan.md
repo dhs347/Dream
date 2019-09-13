@@ -947,7 +947,11 @@
 
   9.http://codeforces.com/problemset/problem/780/D
 
+  裸题
+
   10.http://codeforces.com/problemset/problem/776/D
+
+  裸题
 
   11.http://codeforces.com/problemset/problem/587/D
 
@@ -963,7 +967,9 @@
 
   17.http://codeforces.com/problemset/problem/193/A
 
-  18.https://arc069.contest.atcoder.jp/tasks/arc069_d
+  O 18.https://arc069.contest.atcoder.jp/tasks/arc069_d
+
+  二分后线段树优化建图，再用tarjan判断是否可行
 
 - [ ] min25筛法 2.00
 
