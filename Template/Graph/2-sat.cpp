@@ -67,4 +67,26 @@ struct TwoSat {
         }
         return 1;
     }
+	
+	int col[N], ans[N], tot;
+	bool dfs(int u) {
+        if (col[u] == -1) return 0;
+        if (col[u] ==  1) return 1;
+        ans[tot++] = u;
+        col[u] = 1; col[u ^ 1] = -1;
+        for (auto v : g[u]) if (!dfs(v)) return 0;
+        return 0;
+    }
+	
+    bool solve2() { // 构造字典序最小解
+		for (int i = 0; i < n; i += 2) if (!col[i]) {
+            tot = 0;
+            if (!dfs(i)) {
+                rep(j, 0, tot) col[ans[j]] = col[ans[j] ^ 1] = 0;
+                if (!dfs(i ^ 1)) return 0;
+            }
+        }
+        return 1;
+    }
+	
 }  ts;
