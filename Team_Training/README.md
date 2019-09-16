@@ -27,7 +27,7 @@
 | 2019/8/12 [Petrozavodsk Summer-2011. Warsaw U Contest](http://sua2019.contest.codeforces.com/group/H7nsMkHC7I/contest/249915_19aug25_smx3pukt1h) |  13  |  O   |  O   |  O   |  Ø   |  O   |  O   |  O   |  .   |  O   |  O   |      |      |      |
 | 2019/8/13 [Petrozavodsk Summer-2016. Pavel Khaustov Contest 2](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001482) |  39  |  Ø   |  Ø   |  .   |  Ø   |  O   |  O   |  X   |  !   |  O   |      |      |      |      |
 | 2019/8/14 [2019-nowcoder-multi-10](https://ac.nowcoder.com/acm/contest/890#question) **[done]** |  11  |  O   |  O   |  X   |  O   |  O   |  O   |  O   |  O   |  X   |  O   |      |      |      |
-| 2019/8/15 [Petrozavodsk Summer-2013. Moscow IPT Contest](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001423) |  26  |  O   |  .   |  O   |  Ø   |  O   |  O   |  Ø   |  Ø   |  O   |  O   |  O   |      |      |
+| 2019/8/15 [Petrozavodsk Summer-2013. Moscow IPT Contest](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001423) **[done]** |  26  |  O   |  !   |  O   |  Ø   |  O   |  O   |  Ø   |  Ø   |  O   |  O   |  O   |      |      |
 | 2019/8/16 [XV Open Cup GP of Siberia](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=010272) **[done]** |  30  |  !   |  O   |  O   |  O   |  O   |  !   |  O   |  O   |  !   |  Ø   |  !   |  O   |      |
 | 2019/8/18 [Petrozavodsk Summer-2013. Gennady Korotkevich Contest 1](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001421) **[done]** |  35  |  O   |  O   |  Ø   |  Ø   |  O   |  Ø   |  O   |  O   |  Ø   |  O   |      |      |      |
 | 2019/8/19 [Petrozavodsk Summer-2016. Moscow IPT Contest](http://opentrains.snarknews.info/~ejudge/team.cgi?contest_id=001483) **[done]** |  39  |  O   |  Ø   |  O   |  O   |  Ø   |  Ø   |  Ø   |  O   |  X   |  Ø   |  O   |      |      |
@@ -37,8 +37,8 @@
 | 2019/8/31 [2019ICPC银川网络赛](https://www.jisuanke.com/contest/2991?view=challengesteam343@yinchuan2019.icpcFn89RbzX)**[done]** |      |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  Ø   |  O   |  O   |  Ø   |  Ø   |
 | 2019/9/1 [2019ICPC南京网络赛](https://www.jisuanke.com/contest/3004?view=challengesteam323@nanjing2019.icpcP89EMWMP) **[done]** |  9   |  O   |  O   |  O   |  O   |  O   |  O   |  Ø   |  O   |  O   |      |      |      |      |
 | 2019/9/7 [2019ICPC徐州网络赛](https://www.jisuanke.com/contest/3005?view=challengesteam2139@xuzhou2019.icpc5GubAJWq) **[done]** |  14  |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |
-| 2019/9/14 [2019ICPC沈阳网络赛](https://www.jisuanke.com/contest/3007?view=challenges) |  69  |  O   |  O   |  O   |  O   |  .   |  O   |  O   |  O   |  .   |  O   |  O   |      |      |
-| 2019/9/15 [2019ICPC上海网络赛](https://www.jisuanke.com/contest/3003?view=challenges_ team452@shanghai2019.icpc_ gGCQheJs) |  88  |  O   |  O   |  O   |  O   |  Ø   |  O   |  .   |  .   |  .   |  O   |  .   |  O   |      |
+| 2019/9/14 [2019ICPC沈阳网络赛](https://www.jisuanke.com/contest/3007?view=challengesteam347@shenyang2019.icpcENqNqySQ) |  69  |  O   |  O   |  O   |  O   |  .   |  O   |  O   |  O   |  .   |  O   |  O   |      |      |
+| 2019/9/15 [2019ICPC上海网络赛](https://www.jisuanke.com/contest/3003?view=challengesteam452@shanghai2019.icpcgGCQheJs) |  88  |  O   |  O   |  O   |  O   |  Ø   |  O   |  Ø   |  Ø   |  .   |  O   |  .   |  O   |      |
 
 `. 尚未通过 O 当场通过  Ø 赛后通过  ! 放弃补题 X 理论AC`
 

@@ -953,7 +953,9 @@
 
   裸题
 
-  11.http://codeforces.com/problemset/problem/587/D
+  O 11.http://codeforces.com/problemset/problem/587/D
+
+  一堆变量至多选一个的这种特殊限制可以用前后缀优化来实现
 
   12.http://codeforces.com/problemset/problem/568/C
 
@@ -970,6 +972,10 @@
   O 18.https://arc069.contest.atcoder.jp/tasks/arc069_d
 
   二分后线段树优化建图，再用tarjan判断是否可行
+
+  O 19.http://codeforces.com/problemset/problem/1215/F
+
+  每个变量上有区间，需要确定$f$, 使选的变量区间都包含$f$，通过类似前后缀优化的思想，引入额外变量$m_i$表示选了这个变量就会有$f >= i$ ,即可优化限制数量。
 
 - [ ] min25筛法 2.00
 

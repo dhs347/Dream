@@ -4,7 +4,7 @@ struct TwoSat {
     vi g[N];
     int mark[N], n;
     void init(int _n) { per(i, 0, (n = _n << 1)) g[i].clear(); }
-    int  new_node( ) { rep(i, 0, 2) g[n++].clear(); return n >> 1; }
+    int  new_node( ) { rep(i, 0, 2) g[n++].clear(); return n / 2 - 1; }
     /// optionals begin
     void addedge(int a, int va, int b, int vb) { // va 选了 vb 必选  
 		a = a << 1 | va; b = b << 1 | vb;
@@ -28,10 +28,10 @@ struct TwoSat {
         rep(i, 0, sz(vu)) {
             int a = vu[i].fi, va = vu[i].se;
             int dpi = new_node();
-            add_then(a, va, dpi, 1);
+            addedge(a, va, dpi, 1);
             if (i) {
-                add_then(pre, 1, dpi, 1);
-                add_then(pre, 1, a, va ^ 1);
+                addedge(pre, 1, dpi, 1);
+                addedge(pre, 1, a, va ^ 1);
             }
             pre = dpi;
         }
@@ -52,11 +52,11 @@ struct TwoSat {
         }
     }
     void find(){
-        fill_n(dfn,n,cc=0);
-        fill_n(low,n,_st=0);
-        fill_n(id,n,_=0);
-        rep(i,0,n) if(!dfn[i]) dfs(i, g);
-        rep(i,0,n) --id[i];
+        fill_n(dfn, n, cc=0);
+        fill_n(low, n, _st=0);
+        fill_n(id, n, _=0);
+        rep(i, 0, n) if(!dfn[i]) dfs(i, g);
+        rep(i, 0, n) --id[i];
         return;
     }
     bool solve() { // 构造任意解 
@@ -67,4 +67,26 @@ struct TwoSat {
         }
         return 1;
     }
+	
+	int col[N], ans[N], tot;
+	bool dfs(int u) {
+        if (col[u] == -1) return 0;
+        if (col[u] ==  1) return 1;
+        ans[tot++] = u;
+        col[u] = 1; col[u ^ 1] = -1;
+        for (auto v : g[u]) if (!dfs(v)) return 0;
+        return 0;
+    }
+	
+    bool solve2() { // 构造字典序最小解
+		for (int i = 0; i < n; i += 2) if (!col[i]) {
+            tot = 0;
+            if (!dfs(i)) {
+                rep(j, 0, tot) col[ans[j]] = col[ans[j] ^ 1] = 0;
+                if (!dfs(i ^ 1)) return 0;
+            }
+        }
+        return 1;
+    }
+	
 }  ts;

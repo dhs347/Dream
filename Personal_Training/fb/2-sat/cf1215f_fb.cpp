@@ -1,6 +1,4 @@
-#include<iostream>
-#include<cstdio>
-#include<vector>
+#include<bits/stdc++.h>
 using namespace std;
 #define fi first
 #define se second
@@ -31,7 +29,7 @@ int mul(int a, int b) {return 1ll * a * b % P;}
 int kpow(int a, int b) {int r=1;for(;b;b>>=1,a=mul(a,a)) {if(b&1)r=mul(r,a);}return r;}
 //----
 
-const int N = 1e5 + 7;
+const int N = 1e6 + 7; 
 
 struct TwoSat {
     static const int N = ::N << 1;
@@ -63,10 +61,10 @@ struct TwoSat {
         rep(i, 0, sz(vu)) {
             int a = vu[i].fi, va = vu[i].se;
             int dpi = new_node();
-            add_then(a, va, dpi, 1);
+            addedge(a, va, dpi, 1);
             if (i) {
-                add_then(pre, 1, dpi, 1);
-                add_then(pre, 1, a, va ^ 1);
+                addedge(pre, 1, dpi, 1);
+                addedge(pre, 1, a, va ^ 1);
             }
             pre = dpi;
         }
@@ -126,39 +124,39 @@ struct TwoSat {
 	
 }  ts;
 
-bool check(int l1, int r1, int l2, int r2) {
-	return max(l1, l2) < min(r1, r2);
-}
 
-int n, h1[N], m1[N], h2[N], m2[N], t1[N], d[N], t2[N];
-
+int f, n, p, M, m, u, v, l, r;
+vi ans;
 int main() {
-	FI(a);
-	//ios::sync_with_stdio(0);
-	//cin.tie(0);
+	//FI(a);
+	ios::sync_with_stdio(0);
+	cin.tie(0);
 	//cout << setiosflags(ios::fixed);
 	//cout << setprecision(2);
-	cin >> n;
-	rep(i, 0, n) {
-		scanf("%d:%d%d:%d%d", &h1[i], &m1[i], &h2[i], &m2[i], &d[i]);
-		t1[i] = h1[i] * 60 + m1[i];
-		t2[i] = h2[i] * 60 + m2[i];
+	cin >> n >> p >> M >> m;
+	ts.init(p + M);
+	rep(i, 1, n+1) {
+		cin >> u >> v; u--; v--;
+		ts.add_or(u, 1, v, 1);
 	}
-	ts.init(n);
-	rep(i, 0, n) rep(j, i+1, n) {
-		if (check(t1[i], t1[i] + d[i], t1[j], t1[j] + d[j])) ts.add_then(i, 0, j, 0);
-		if (check(t1[i], t1[i] + d[i], t2[j] - d[j], t2[j])) ts.add_then(i, 0, j, 1);
-		if (check(t2[i] - d[i], t2[i], t1[j], t1[j] + d[j])) ts.add_then(i, 1, j, 0);
-		if (check(t2[i] - d[i], t2[i], t2[j] - d[j], t2[j])) ts.add_then(i, 1, j, 1);
+	rep(i, 1, p+1) {
+		cin >> l >> r;
+		ts.add_or(l + p - 1, 1, i - 1, 0);
+		if (r < M) ts.add_or(r + p, 0, i - 1, 0);
 	}
-	if (!ts.solve()) {
-		cout << "NO" << endl;
-	}else {
-		cout << "YES" << endl;
-		rep(i, 0, n) if (!ts.mark[i]) {
-			printf("%02d:%02d %02d:%02d\n", t1[i] / 60, t1[i] % 60, (t1[i] + d[i]) / 60, (t1[i] + d[i]) % 60);
-		}else 
-			printf("%02d:%02d %02d:%02d\n", (t2[i] - d[i]) / 60, (t2[i] - d[i]) % 60, t2[i] / 60, t2[i] % 60);
+	rep(i, 1, m+1) {
+		cin >> u >> v; u--; v--;
+		ts.add_then(u, 1, v, 1);
+	}
+	rep(i, 1, M) {
+		ts.addedge(i + p, 1, i + p - 1, 1);
+	}
+	if (!ts.solve()) cout << -1 << endl;
+	else {
+		rep(i, 0, p) if (ts.mark[i]) ans.pb(i + 1);
+		rep(i, p, M + p) if (ts.mark[i]) f = i - p + 1;
+		cout << sz(ans) << " " << f << endl;
+		rep(i, 0, sz(ans)) cout << ans[i] << " \n"[i == sz(ans) - 1];
 	}
 	return 0;
 }
