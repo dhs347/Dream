@@ -4,7 +4,7 @@ struct TwoSat {
     vi g[N];
     int mark[N], n;
     void init(int _n) { per(i, 0, (n = _n << 1)) g[i].clear(); }
-    int  new_node( ) { rep(i, 0, 2) g[n++].clear(); return n >> 1; }
+    int  new_node( ) { rep(i, 0, 2) g[n++].clear(); return n / 2 - 1; }
     /// optionals begin
     void addedge(int a, int va, int b, int vb) { // va 选了 vb 必选  
 		a = a << 1 | va; b = b << 1 | vb;
@@ -52,11 +52,11 @@ struct TwoSat {
         }
     }
     void find(){
-        fill_n(dfn,n,cc=0);
-        fill_n(low,n,_st=0);
-        fill_n(id,n,_=0);
-        rep(i,0,n) if(!dfn[i]) dfs(i, g);
-        rep(i,0,n) --id[i];
+        fill_n(dfn, n, cc=0);
+        fill_n(low, n, _st=0);
+        fill_n(id, n, _=0);
+        rep(i, 0, n) if(!dfn[i]) dfs(i, g);
+        rep(i, 0, n) --id[i];
         return;
     }
     bool solve() { // 构造任意解 
