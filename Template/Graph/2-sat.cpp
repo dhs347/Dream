@@ -28,10 +28,10 @@ struct TwoSat {
         rep(i, 0, sz(vu)) {
             int a = vu[i].fi, va = vu[i].se;
             int dpi = new_node();
-            add_then(a, va, dpi, 1);
+            addedge(a, va, dpi, 1);
             if (i) {
-                add_then(pre, 1, dpi, 1);
-                add_then(pre, 1, a, va ^ 1);
+                addedge(pre, 1, dpi, 1);
+                addedge(pre, 1, a, va ^ 1);
             }
             pre = dpi;
         }
