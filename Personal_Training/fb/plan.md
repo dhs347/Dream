@@ -953,7 +953,9 @@
 
   裸题
 
-  11.http://codeforces.com/problemset/problem/587/D
+  O 11.http://codeforces.com/problemset/problem/587/D
+
+  一堆变量至多选一个的这种特殊限制可以用前后缀优化来实现
 
   12.http://codeforces.com/problemset/problem/568/C
 
