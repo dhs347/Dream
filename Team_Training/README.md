@@ -1,7 +1,7 @@
 # 组队训练
 
-|                                          | rank |  A   |  B   |  C   |  D   |  E   |  F   |  G   |  H   |  I   |  J   |  K   |  L   |  M   |
-| :--------------------------------------: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
+|                                                              | rank |  A   |  B   |  C   |  D   |  E   |  F   |  G   |  H   |  I   |  J   |  K   |  L   |  M   |
+| :----------------------------------------------------------: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: | :--: |
 | 2019/4/20 [南昌网络赛](https://www.jisuanke.com/contest/2290?view=challengesteam353@nanchang.icpc9fKu8jHv)**[done]** |  9   |  O   |  Ø   |  Ø   |  O   |  Ø   |  Ø   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |
 | 2019/5/1 [2017-2018 NEERC Moscow Subregional](https://codeforces.com/group/aUVPeyEnI2/contest/243685http://codeforces.com/gym/101611) **[done]** |  21  |  O   |  Ø   |  O   |  O   |  !   |  O   |  O   |  O   |  O   |  Ø   |      |      |      |
 | 2019/5/2 [2013-2014 NEERC Northern Subregional](https://codeforces.com/group/aUVPeyEnI2/contest/243686https://codeforces.com/gym/100269) **[done]** |  35  |  O   |  O   |  Ø   |  O   |  O   |  O   |  O   |  O   |  !   |  Ø   |  O   |  Ø   |      |
@@ -38,7 +38,7 @@
 | 2019/9/1 [2019ICPC南京网络赛](https://www.jisuanke.com/contest/3004?view=challengesteam323@nanjing2019.icpcP89EMWMP) **[done]** |  9   |  O   |  O   |  O   |  O   |  O   |  O   |  Ø   |  O   |  O   |      |      |      |      |
 | 2019/9/7 [2019ICPC徐州网络赛](https://www.jisuanke.com/contest/3005?view=challengesteam2139@xuzhou2019.icpc5GubAJWq) **[done]** |  14  |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |  O   |
 | 2019/9/14 [2019ICPC沈阳网络赛](https://www.jisuanke.com/contest/3007?view=challengesteam347@shenyang2019.icpcENqNqySQ) |  69  |  O   |  O   |  O   |  O   |  .   |  O   |  O   |  O   |  .   |  O   |  O   |      |      |
-| 2019/9/15 [2019ICPC上海网络赛](https://www.jisuanke.com/contest/3003?view=challengesteam452@shanghai2019.icpcgGCQheJs) |  88  |  O   |  O   |  O   |  O   |  Ø   |  O   |  Ø   |  Ø   |  .   |  O   |  .   |  O   |      |
+| 2019/9/15 [2019ICPC上海网络赛](https://www.jisuanke.com/contest/3003?view=challengesteam452@shanghai2019.icpcgGCQheJs) |  88  |  O   |  O   |  O   |  O   |  Ø   |  O   |  Ø   |  Ø   |  .   |  O   |  Ø   |  O   |      |
 
 `. 尚未通过 O 当场通过  Ø 赛后通过  ! 放弃补题 X 理论AC`
 
