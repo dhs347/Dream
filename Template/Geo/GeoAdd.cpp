@@ -118,7 +118,7 @@ db areaCPoly(C c, vector<P> p) { // 求圆与多边形交面积
 	}
 	return fabs(ans) / 2;
 }
-C Mincir(P *p,int n){ // ? 最小圆覆盖
+C Mincir(P *p,int n){ // 最小圆覆盖
 	random_shuffle(p , p + n);
 	P o = p[0];db r = 0;
 	rep(i,1,n) {
