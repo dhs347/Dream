@@ -1,5 +1,5 @@
 namespace Simpson {
-	const db eps = 1e-10;
+	const db eps = 1e-10; // 精度感觉一般要多设1e-3左右
 	inline db F(db x) { F(x) = (?) } 
 	inline db simpson(db fa, db fb, db fc, db a, db c) {
 		return (fa + 4 * fb + fc) * (c - a) / 6;
