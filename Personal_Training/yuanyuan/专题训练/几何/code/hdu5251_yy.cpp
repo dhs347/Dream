@@ -1,6 +1,4 @@
-#include<vector>
-#include<algorithm>
-#include<iostream>
+#include<bits/stdc++.h>
 using namespace std;
 #define fi first
 #define se second
@@ -36,6 +34,9 @@ struct P {
 	ll len2() {
 		return x * x + y * y;
 	}
+	void print() {
+		cout << x << " " << y << endl;
+	}
 };
 
 ll det(P a, P b) {
@@ -43,6 +44,9 @@ ll det(P a, P b) {
 }
 ll det(P o, P a, P b) {
 	return det(a - o, b - o);
+}
+ll dot(P a, P b) {
+	return a.x * b.x + a.y * b.y;
 }
 
 vector<P> ch(vector<P> ps) {
@@ -59,27 +63,34 @@ vector<P> ch(vector<P> ps) {
 	return qs;
 }
 
-int main() {
-	std::ios::sync_with_stdio(false);
-	std::cin.tie(0);
-	int n; cin >> n;
+void solve() {
+	int n; cin >> n; n <<= 2;
 	vector<P> ps = vector<P>(n);
 	rep(i, 0, n) ps[i].read();
 	ps = ch(ps); n = sz(ps);
-	if(sz(ps) <= 1) {
-		cout << 0 << endl;
-	} else if(sz(ps) == 2) {
-		cout << (ps[1] - ps[0]).len2() << endl;
-	} else {
-		ll ans = 0; int p = 1;
-		reverse(all(ps));
-		rep(i, 0, n) {
-			P t = ps[i] - ps[(i + 1) % n];
-			while(det(t, ps[(p + 1) % n] - ps[p]) > 0) p = (p + 1) % n;
-			ans = max(ans, (ps[i] - ps[p]).len2());
-			ans = max(ans, (ps[(i + 1) % n] - ps[p]).len2());
-		}
-		cout << ans << endl;
+	reverse(all(ps));
+	db ans = 1e18;
+	int p = 1, l = 1, r;
+	rep(i, 0, n) {
+		P t = ps[i] - ps[(i + 1) % n];
+		while(det(t, ps[(p + 1) % n] - ps[p]) > 0) p = (p + 1) % n;	
+		while(dot(t, ps[(l + 1) % n] - ps[l]) < 0) l = (l + 1) % n;
+		r = (p + 1) % n;
+		while(dot(t, ps[(r + 1) % n] - ps[r]) > 0) r = (r + 1) % n;
+		ll et = abs(det(ps[p], ps[i], ps[(i + 1) % n]));
+		ll ot = abs(dot(t, ps[l] - ps[r]));
+		ans = min(ans, (db)et * ot / t.len2());
 	}
+
+	cout << setiosflags(ios::fixed);
+	cout << setprecision(0);
+	cout << ans << endl;
+}
+
+int main() {
+	std::ios::sync_with_stdio(false);
+	std::cin.tie(0);
+	int T; cin >> T;
+	rep(ca, 1, T + 1) cout << "Case #" << ca << ":" << endl, solve();
 	return 0;
 }
