@@ -2,6 +2,22 @@ struct P {
 	int quad() const { return sign(y) > 0 || (sign(y) == 0 && sign(x) >= 0); }
 };
 struct L {
+	// ax + by + c >= 0, (a != 0 || b != 0)
+	L(db a, db b, db c) { 
+		if(sign(a)==0) {
+			this->a=P(0,-c/b);this->b=P(sign(b),-c/b);
+		} else if(sign(b)==0) {
+			this->a=P(-c/a,0);this->b=P(-c/a,-sign(a));
+		} else {
+			if(sign(c)!=0) {
+				int x=sign(c)*sign(det(P(-c/a,0), P(0,-c/b)));
+				if(x==1) this->a=P(-c/a,0),this->b=P(0,-c/b);
+				else this->a=P(0,-c/b),this->b=P(-c/a,0);
+			} else {
+				this->a=P(0,0);this->b=P(sign(b),sign(b)*(-a/b));
+			}
+		}
+	}
 	bool includer(const P &p) const { return sign(det(b - a, p - a)) > 0; }
 	bool include(const P &p) const { return sign(det(b - a, p - a)) >= 0; }
 	// 向内（右手方向）推
