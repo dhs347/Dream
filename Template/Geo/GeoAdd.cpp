@@ -6,6 +6,15 @@
 	if(o != t) return o < t;
 	return det(a, b) > 0;
 }
+P isLL(L l, db a, db b, db c) {
+	db u = a * l.a.x + b * l.a.y + c;
+	db v = -(a * l.b.x + b * l.b.y + c);
+	return (l.a * v + l.b * u) / (u + v);
+}
+P isLL(db a0, db b0, db c0, db a1, db b1, db c1) {
+	db d = a0 * b1 - a1 * b0;
+	return P(b0 * c1 - b1 * c0, a1 * c0 - a0 * c1) / d;
+}
 bool isSSr(const L &a, const L &b){ // 线段规范相交
 	db c1 = det(a.t - a.s, b.s - a.s), c2 = det(a.t - a.s, b.t - a.s),
 		 c3 = det(b.t - b.s, a.s - b.s), c4 = det(b.t - b.s, a.t - b.s);
