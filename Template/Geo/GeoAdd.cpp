@@ -48,6 +48,15 @@ P outC(P A, P B, P C) { // 外心
 	db dB = b.len2(), dC = c.len2(), d = 2 * det(b, c);
 	return A - P(b.y * dC - c.y * dB, c.x * dB - b.x * dC) / d;
 }
+P baryC(P p[], int n) { // 重心
+	P fz(0, 0); db fm = 0;
+	rep(i, 1, n - 1) {
+		db t = det(p[0], p[i], p[i + 1]);
+		fm += t;
+		fz = fz + (p[0] + p[i] + p[i + 1]) * t / 3;
+	}
+	return fz / fm;
+}
 db diameter(vector<P> A) { // 求凸包最远点对
 	int n = sz(A);
 	if(n <= 1) return 0;
@@ -85,8 +94,8 @@ namespace NearestPoints { // 点集中最近点对
 db polyInter(vector<P> &p, vector<P> &q) {
 	int n = sz(p), m = sz(q);
 	if(n < 3 || m < 3) return 0;
-	if(area(p) < 0) reverse(all(p));
-	if(area(q) < 0) reverse(all(q));
+//	if(area(p) < 0) reverse(all(p));
+//	if(area(q) < 0) reverse(all(q));
 	db ans = 0;
 	rep(i, 1, n - 1) {
 		P p1 = p[i], p2 = p[i + 1];
@@ -104,7 +113,7 @@ db polyInter(vector<P> &p, vector<P> &q) {
 			ans += res;
 		}
 	}
-	return ans;
+	return fabs(ans);
 }
 // 注意相等关系
 // 4:相离 3:外切 2:相交 1:内切 0:内含
