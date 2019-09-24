@@ -6,6 +6,11 @@
 	if(o != t) return o < t;
 	return det(a, b) > 0;
 }
+P isLL(L l1, L l2) {
+	db s1 = det(l2.b - l2.a, l1.a - l2.a);
+	db s2 = -det(l2.b - l2.a, l1.b - l2.a);
+	return (l1.a * s2 + l1.b * s1) / (s1 + s2);
+}
 P isLL(L l, db a, db b, db c) {
 	db u = a * l.a.x + b * l.a.y + c;
 	db v = -(a * l.b.x + b * l.b.y + c);
@@ -43,13 +48,6 @@ P outC(P A, P B, P C) { // 外心
 	db dB = b.len2(), dC = c.len2(), d = 2 * det(b, c);
 	return A - P(b.y * dC - c.y * dB, c.x * dB - b.x * dC) / d;
 }
-bool isconvex(vector<P> A) { // 判断是否是凸包 逆时针
-	bool ok = 1;
-	int n = sz(A);
-	rep(i, 0, 2) A.pb(A[i]);
-	rep(i, 0, n) ok &= det(A[i + 1] - A[i], A[i + 2] - A[i]) >= 0;
-	return ok;
-}
 db diameter(vector<P> A) { // 求凸包最远点对
 	int n = sz(A);
 	if(n <= 1) return 0;
@@ -82,6 +80,31 @@ namespace NearestPoints { // 点集中最近点对
 		sort(all(A), [&](P a, P b){return a.x < b.x;});
 		return solve(0, sz(A) - 1, A);
 	}
+}
+// 简单多边形求交
+db polyInter(vector<P> &p, vector<P> &q) {
+	int n = sz(p), m = sz(q);
+	if(n < 3 || m < 3) return 0;
+	if(area(p) < 0) reverse(all(p));
+	if(area(q) < 0) reverse(all(q));
+	db ans = 0;
+	rep(i, 1, n - 1) {
+		P p1 = p[i], p2 = p[i + 1];
+		bool f1 = 0;
+		if(det(p[0], p1, p2) < 0) swap(p1, p2), f1 = 1;
+		rep(j, 1, m - 1) {
+			P q1 = q[j], q2 = q[j + 1];
+			bool f2 = 0;
+			if(det(q[0], q1, q2) < 0) swap(q1, q2), f2 = 1;
+			vector<P> ps({p[0], p1, p2});
+			convexCut(ps, L(q[0], q1));
+			convexCut(ps, L(q1, q2));
+			convexCut(ps, L(q2, q[0]));
+			db res = f1 == f2 ? area(ps) : -area(ps);
+			ans += res;
+		}
+	}
+	return ans;
 }
 // 注意相等关系
 // 4:相离 3:外切 2:相交 1:内切 0:内含
