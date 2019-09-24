@@ -907,7 +907,9 @@
   28.http://codeforces.com/problemset/problem/863/F
 
 
-- [ ] simpson积分法 0.50
+- [x] simpson积分法 0.50
+
+  O 1.http://acm.hdu.edu.cn/showproblem.php?pid=1724
 
 - [x] 最小割树 0.50
 
@@ -989,7 +991,11 @@
 
 - [ ] 容斥原理以及各种反演 1.00
 
-- [ ] 稳定婚姻系统 0.50
+- [x] 稳定婚姻系统 0.50
+
+  1.http://acm.hdu.edu.cn/showproblem.php?pid=1435
+
+  O 2.http://poj.org/problem?id=3487
 
 - [x] 支配树 1.00
 
@@ -997,13 +1003,25 @@
 
   ​	多建一个超级源，求支配树上size
 
-- [ ] 瓶颈路 0.50
+- [x] 瓶颈路 0.50
+
+  1.https://www.lydsy.com/JudgeOnline/problem.php?id=3732
+
+  裸题，建最小生成树后转树上路径询问，倍增或树剖都可以
 
 - [ ] 类欧几里得算法 0.50
 
 - [ ] 线性代数 1.00
 
-- [ ] 最优比率生成树/最优比率环/01规划 0.50
+- [x] 最优比率生成树/最优比率环/01规划 0.50
+
+  O 1.http://poj.org/problem?id=2976
+
+  ​	2.http://poj.org/problem?id=2728
+
+  O 3.http://poj.org/problem?id=3621
+
+  ​		二分以后就转成有向图负环判断
 
 - [x] 高维偏序问题 1.00
 
@@ -1019,7 +1037,9 @@
 
 - [ ] 度限制最小生成树 1.00
 
-- [ ] 连分数 0.50
+- [x] 连分数 0.50
+
+  1.http://acm.hdu.edu.cn/showproblem.php?pid=4180
 
 - [ ] 整体二分 1.00
 
