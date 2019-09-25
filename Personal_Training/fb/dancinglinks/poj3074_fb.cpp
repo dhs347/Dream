@@ -1,5 +1,7 @@
 #include<iostream>
 #include<vector>
+#include<cstring>
+#include<algorithm>
 using namespace std;
 #define fi first
 #define se second
@@ -33,25 +35,27 @@ int kpow(int a, int b) {int r=1;for(;b;b>>=1,a=mul(a,a)) {if(b&1)r=mul(r,a);}ret
 struct DLX{
 #define FOR(i, ne, t) for(int i = ne[t]; i != t; i = ne[i])
 	static const int N = 1e4 + 8;
-	int n, m, tim, sz, ansd;
+	int n, m, tim, ansd;
 	int row[N], col[N], s[N], ans[N];
 	int l[N], r[N], u[N], d[N];
-	void init(int _n, int _m) {
-		n = _n, m = _m;
+	pair<pii, int> pos[N];
+	string ss;
+	void init(int _m) {
+		m = _m;
 		rep(i, 0, m+1) l[i] = i-1, r[i] = i+1, u[i] = d[i] = i;
 		l[0] = m, r[m] = 0, tim = m+1;
 		rep(i, 0, m+1) s[i] = 0; 
 	}
-	void add(int R, vi tmp){
+	void add(int R, const vi &tmp){
 		int first = tim;
-		rep(i, 0, sz(tmp)) if (tmp[i]) {
-			int c = i+1;
+		rep(i, 0, sz(tmp)) {
+			int c = tmp[i];
 			l[tim] = tim-1, r[tim] = tim+1, u[tim] = u[c], d[tim] = c;
 			u[c] = tim; d[u[tim]] = tim;
 			row[tim] = R, col[tim] = c;
 			tim++, s[c]++;
 		}
-		l[first] = tim-1, r[tim-1] = first;
+		if (sz(tmp)) l[first] = tim-1, r[tim-1] = first;
 	}
 	inline void remove(int c) {
 		l[r[c]] = l[c];
@@ -79,22 +83,44 @@ struct DLX{
 		restore(c);
 		return 0;
 	}
+	vi tmp;
+	void ins(int x, int y, int c) {
+		n++; pos[n] = mp(mp(x, y), c);
+		int p = ((x - 1) / 3 * 3 + (y - 1) / 3) * 9 + c;
+		tmp[0] = ((x - 1) * 9 + y);
+		tmp[1] = (81 * 1 + (x - 1) * 9 + c);
+		tmp[2] = (81 * 2 + (y - 1) * 9 + c);
+		tmp[3] = (81 * 3 + p);
+		add(n, tmp);
+	} 
+	
 	void work() {
-		cin >> n >> m;
-		init(n, m);
-		rep(i, 1, n+1) {
-			vi tmp; int t;
-			rep(j, 1, m+1) cin >> t, tmp.pb(t);
-			add(i, tmp);
+		while(cin >> ss) {
+			tmp.resize(4);
+			n = 0; if (ss == "end") return;
+			init(81 * 4);
+			rep(i, 0, sz(ss)) {
+				int x = i / 9 + 1, y = i % 9 + 1;
+				if (ss[i] == '.') {
+					rep(i, 1, 10) ins(x, y, i);
+				}else ins(x, y, ss[i] - '0');
+			}
+	    	bool flag = dance(1);
+	    	if (flag) {
+				rep(i, 1, ansd) {
+					//cout << ans[i] << " \n"[i == ansd - 1];
+					int x = pos[ans[i]].fi.fi, y = pos[ans[i]].fi.se, c = pos[ans[i]].se;
+					ss[(x - 1) * 9 + y - 1] = c + '0';
+				}
+				cout << ss << endl;
+			}	
+			else cout << "No Solution!" << endl; 
 		}
-	    bool flag = dance(1);
-	    if (flag) rep(i, 1, ansd) cout << ans[i] << " \n"[i == ansd - 1];
-		else cout << "No Solution!" << endl; 
 	}
 } T;
 
 int main() {
-	//FI(a);
+	FI(a);
 	ios::sync_with_stdio(0);
 	cin.tie(0);
 	//cout << setiosflags(ios::fixed);
