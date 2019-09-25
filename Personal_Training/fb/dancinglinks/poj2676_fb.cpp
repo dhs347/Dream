@@ -34,12 +34,13 @@ int kpow(int a, int b) {int r=1;for(;b;b>>=1,a=mul(a,a)) {if(b&1)r=mul(r,a);}ret
 
 struct DLX{
 #define FOR(i, ne, t) for(int i = ne[t]; i != t; i = ne[i])
-	static const int N = 1e4 + 8;
-	int n, m, tim, ansd;
+	static const int N = 2e4 + 8;
+	static const int D = 3, len = 9;
+	int n, m, tim, ansd, T;
 	int row[N], col[N], s[N], ans[N];
 	int l[N], r[N], u[N], d[N];
 	pair<pii, int> pos[N];
-	string ss;
+	string ss[100];
 	void init(int _m) {
 		m = _m;
 		rep(i, 0, m+1) l[i] = i-1, r[i] = i+1, u[i] = d[i] = i;
@@ -74,7 +75,7 @@ struct DLX{
 		int c = r[0];
 		FOR(i, r, 0) if (s[c] > s[i]) c = i;
 		remove(c);
-		FOR(i, d, c) {
+		FOR(i, d, c) { 
 			ans[dep] = row[i];
 			FOR(j, r, i) remove(col[j]);
 			if (dance(dep+1)) return 1;
@@ -86,35 +87,35 @@ struct DLX{
 	vi tmp;
 	void ins(int x, int y, int c) {
 		n++; pos[n] = mp(mp(x, y), c);
-		int p = ((x - 1) / 3 * 3 + (y - 1) / 3) * 9 + c;
-		tmp[0] = ((x - 1) * 9 + y);
-		tmp[1] = (81 * 1 + (x - 1) * 9 + c);
-		tmp[2] = (81 * 2 + (y - 1) * 9 + c);
-		tmp[3] = (81 * 3 + p);
+		int p = ((x - 1) / D * D + (y - 1) / D) * len + c;
+		tmp[0] = ((x - 1) * len + y);
+		tmp[1] = (len * len * 1 + (x - 1) * len + c);
+		tmp[2] = (len * len * 2 + (y - 1) * len + c);
+		tmp[3] = (len * len * 3 + p);
 		add(n, tmp);
 	} 
 	
 	void work() {
-		while(cin >> ss) {
-			tmp.resize(4);
-			n = 0; if (ss == "end") return;
-			init(81 * 4);
-			rep(i, 0, sz(ss)) {
-				int x = i / 9 + 1, y = i % 9 + 1;
-				if (ss[i] == '.') {
-					rep(i, 1, 10) ins(x, y, i);
-				}else ins(x, y, ss[i] - '0');
+		tmp.resize(4);
+		cin >> T;
+		rep(cas, 0, T) {
+			n = 0; init(len * len * 4);
+			rep(i, 1, len+1) {
+				cin >> ss[i];
+				rep(j, 1, len+1) {
+					if (ss[i][j-1] == '0') rep(k, 1, len+1) ins(i, j, k);
+					else ins(i, j, ss[i][j-1] - '0');
+				}
 			}
-	    	bool flag = dance(1);
-	    	if (flag) {
+	    	bool ok = dance(1);
+			if (ok) {
 				rep(i, 1, ansd) {
 					//cout << ans[i] << " \n"[i == ansd - 1];
-					int x = pos[ans[i]].fi.fi, y = pos[ans[i]].fi.se, c = pos[ans[i]].se;
-					ss[(x - 1) * 9 + y - 1] = c + '0';
+					int p = ans[i], x = pos[p].fi.fi, y = pos[p].fi.se, c = pos[p].se;
+					ss[x][y - 1] = c + '0';
 				}
-				cout << ss << endl;
+				rep(i, 1, len+1) cout << ss[i] << endl;
 			}	
-			else cout << "No Solution!" << endl; 
 		}
 	}
 } T;
