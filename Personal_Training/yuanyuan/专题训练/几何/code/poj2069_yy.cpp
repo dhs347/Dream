@@ -170,6 +170,16 @@ P3 MinSphere(vector<P3> p) {
 }
 
 void solve() {
+	int n; 
+	while(cin >> n) {
+		if(!n) break;
+		vector<P3> p(n);
+		rep(i, 0, n) p[i].read();
+		P3 ans = MinSphere(p);
+		db res = 0;
+		rep(i, 0, n) res = max(res, (p[i] - ans).len());
+		cout << res << endl;
+	}
 }
 
 int main() {
