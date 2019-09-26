@@ -1,3 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define fi first
+#define se second
+#define mp make_pair
+#define pb push_back
+#define rep(i, a, b) for(int i=(a); i<(b); i++)
+#define per(i, a, b) for(int i=(b)-1; i>=(a); i--)
+#define sz(a) (int)a.size()
+#define de(a) cout << #a << " = " << a << endl
+#define dd(a) cout << #a << " = " << a << " "
+#define all(a) (a).begin(), (a).end()
+#define pw(x) (1ll<<(x))
+#define lb(x) ((x) & -(x))
+#define endl "\n"
+#define FI(x) freopen(#x".in","r",stdin)
+#define FO(x) freopen(#x".out","w",stdout)
+typedef double db;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef pair<int, int> pii;
+typedef vector<int> vi;
+//typedef uniform_int_distribution<ll> RR;
+//mt19937 gen(998244353);
+//ll rnd(ll l, ll r) { RR dis(l, r); return dis(gen); }
+
 namespace _lo { //\sum_{x = 0} ^ {n} x ^ {k_1} {\left \lfloor \frac{ax + b}{c} \right \rfloor} ^ {k_2}
 	static const int K = 10, P = 998244353; // e1+e2 <= K
 	int inv[K + 2], C[K + 2][K + 2], B[K + 1]; // ²®Å¬ÀûÊý
@@ -71,45 +97,18 @@ namespace _lo { //\sum_{x = 0} ^ {n} x ^ {k_1} {\left \lfloor \frac{ax + b}{c} \
 	}
 }
 
+int n, a, b, c, T;
 
-// f = \sum\limits_{i=0}^{n}\lfloor \frac{ai+b}{c} \rfloor
-// g = \sum\limits_{i=0}^{n}{\lfloor \frac{ai+b}{c} \rfloor}^2
-// h = \sum\limits_{i=0}^{n}i\lfloor \frac{ai+b}{c} \rfloor
-
-#define R register
-const int P=998244353,inv2=499122177,inv6=166374059;
-inline int add(R int x,R int y){return x+y>=P?x+y-P:x+y;}
-inline int dec(R int x,R int y){return x-y<0?x-y+P:x-y;}
-inline int mul(R int x,R int y){return 1ll*x*y-1ll*x*y/P*P;}
-inline int pow(R int x){return 1ll*x*x%P;}
-inline int s(R int x){return 1ll*x*(x+1)%P*inv2%P;}
-inline int ss(R int x){return 1ll*x*(x+1)%P*((x<<1)+1)%P*inv6%P;}
-int ksm(R int x,R int y){
-    R int res=1;
-    for(;y;y>>=1,x=mul(x,x))if(y&1)res=mul(res,x);
-    return res;
-}
-struct node{int f,g,h;}res;
-void get(int a,int b,int c,int n){
-    int x=a/c,y=b/c;
-    if(!a){
-        res.f=1ll*y*(n+1)%P;
-        res.g=1ll*pow(y)*(n+1)%P;
-        res.h=1ll*y*s(n)%P;
-        return;
-    }
-    if(a>=c||b>=c){
-        get(a%c,b%c,c,n);
-        res.g=add(res.g,add(1ll*(x<<1)*res.h%P,add(1ll*(y<<1)*res.f%P,add(1ll*ss(n)*pow(x)%P,add(1ll*n*(n+1)%P*x%P*y%P,1ll*(n+1)*pow(y)%P)))));
-        res.h=add(res.h,add(1ll*ss(n)*x%P,1ll*s(n)*y%P));
-        res.f=add(res.f,add(1ll*s(n)*x%P,1ll*(n+1)*y%P));
-        return;
-    }
-    int M=(1ll*a*n+b)/c;
-    get(c,c-b-1,a,M-1);
-    int h=res.h,g=res.g,f=res.f;
-    res.f=dec(1ll*n*M%P,res.f);
-    res.g=dec(dec(dec(1ll*n*M%P*(M+1)%P,res.f),mul(h,2)),mul(f,2));
-    res.h=1ll*inv2*dec(dec(1ll*M*n%P*(n+1)%P,g),f)%P;
-    return;
+int main() {
+	freopen("a.in", "r", stdin);
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	_lo :: init();
+	cin >> T;
+	rep(cas, 0, T) {
+		cin >> n >> a >> b >> c;
+		cout <<  _lo :: run(n, a, b, c, 0, 1) << " ";
+		cout <<  _lo :: run(n, a, b, c, 0, 2) << " ";
+		cout <<  _lo :: run(n, a, b, c, 1, 1) << endl;
+	}
 }
