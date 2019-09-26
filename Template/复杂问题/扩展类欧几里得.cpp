@@ -70,3 +70,46 @@ namespace _lo { //\sum_{x = 0} ^ {n} x ^ {k_1} {\left \lfloor \frac{ax + b}{c} \
 		return res;
 	}
 }
+
+
+// f = \sum\limits_{i=0}^{n}\lfloor \frac{ai+b}{c} \rfloor
+// g = \sum\limits_{i=0}^{n}{\lfloor \frac{ai+b}{c} \rfloor}^2
+// h = \sum\limits_{i=0}^{n}i\lfloor \frac{ai+b}{c} \rfloor
+
+#define R register
+const int P=998244353,inv2=499122177,inv6=166374059;
+inline int add(R int x,R int y){return x+y>=P?x+y-P:x+y;}
+inline int dec(R int x,R int y){return x-y<0?x-y+P:x-y;}
+inline int mul(R int x,R int y){return 1ll*x*y-1ll*x*y/P*P;}
+inline int pow(R int x){return 1ll*x*x%P;}
+inline int s(R int x){return 1ll*x*(x+1)%P*inv2%P;}
+inline int ss(R int x){return 1ll*x*(x+1)%P*((x<<1)+1)%P*inv6%P;}
+int ksm(R int x,R int y){
+    R int res=1;
+    for(;y;y>>=1,x=mul(x,x))if(y&1)res=mul(res,x);
+    return res;
+}
+struct node{int f,g,h;}res;
+void get(int a,int b,int c,int n){
+    int x=a/c,y=b/c;
+    if(!a){
+        res.f=1ll*y*(n+1)%P;
+        res.g=1ll*pow(y)*(n+1)%P;
+        res.h=1ll*y*s(n)%P;
+        return;
+    }
+    if(a>=c||b>=c){
+        get(a%c,b%c,c,n);
+        res.g=add(res.g,add(1ll*(x<<1)*res.h%P,add(1ll*(y<<1)*res.f%P,add(1ll*ss(n)*pow(x)%P,add(1ll*n*(n+1)%P*x%P*y%P,1ll*(n+1)*pow(y)%P)))));
+        res.h=add(res.h,add(1ll*ss(n)*x%P,1ll*s(n)*y%P));
+        res.f=add(res.f,add(1ll*s(n)*x%P,1ll*(n+1)*y%P));
+        return;
+    }
+    int M=(1ll*a*n+b)/c;
+    get(c,c-b-1,a,M-1);
+    int h=res.h,g=res.g,f=res.f;
+    res.f=dec(1ll*n*M%P,res.f);
+    res.g=dec(dec(dec(1ll*n*M%P*(M+1)%P,res.f),mul(h,2)),mul(f,2));
+    res.h=1ll*inv2*dec(dec(1ll*M*n%P*(n+1)%P,g),f)%P;
+    return;
+}
